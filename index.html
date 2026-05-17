@@ -1,0 +1,2092 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Litografía Multigraf | Imprenta en Mendoza — Impresión Offset y Digital</title>
+  <meta name="description" content="Imprenta en Maipú, Mendoza desde 1997. Impresión offset, digital, folletería, tarjetas, banners y más. Atención a empresas. Pedí tu presupuesto por WhatsApp.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.multigraff.com/propuesta-moderna/">
+  <meta property="og:title" content="Litografía Multigraf | Imprenta en Mendoza">
+  <meta property="og:description" content="Imprenta en Maipú, Mendoza desde 1997. Impresión offset, digital, folletería, tarjetas, banners y más.">
+  <meta property="og:type" content="website">
+  <!-- IMAGEN REQUERIDA: Foto destacada para compartir en redes sociales -->
+  <!-- Ruta: /assets/images/og-multigraff.jpg | Tamaño recomendado: 1200x630px -->
+  <meta property="og:image" content="/assets/images/og-multigraff.jpg">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       DESIGN SYSTEM — PREMIUM INDUSTRIAL PRINT
+    ═══════════════════════════════════════════ */
+    :root {
+      --bg:        #07070d;
+      --surface:   #0f0f1a;
+      --surface2:  #161624;
+      --border:    rgba(255,255,255,0.07);
+      --text:      #FFFFFF;
+      --muted:     rgba(255,255,255,0.55);
+      --subtle:    rgba(255,255,255,0.25);
+      --red:       #2563EB;
+      --red-soft:  rgba(37,99,235,0.12);
+      --magenta:   #EC008C;
+      --green:     #25D366;
+      --font:      'Inter', -apple-system, sans-serif;
+      --ease:      cubic-bezier(0.16,1,0.3,1);
+      --radius:    16px;
+      --container: 1200px;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; font-size:16px; background:var(--bg); }
+    body {
+      font-family: var(--font);
+      background: transparent;
+      position: relative; z-index: 1;
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      animation: pageFade .45s var(--ease) both;
+    }
+    @keyframes pageFade { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:none} }
+    a { color:inherit; text-decoration:none; }
+    img { max-width:100%; display:block; }
+    .container { max-width:var(--container); margin:0 auto; padding:0 2rem; }
+
+    /* ── SCROLL REVEAL ── */
+    .sr { opacity:0; transform:translateY(40px); }
+    .sr.sr-left  { transform:translateX(-50px); }
+    .sr.sr-right { transform:translateX(50px); }
+    .sr.sr-scale { transform:scale(.92); }
+    .sr.in { opacity:1; transform:none; }
+
+    /* ══════════════════════════════
+       NAV
+    ══════════════════════════════ */
+    .nav {
+      position: sticky; top:0; z-index:1000;
+      background: rgba(7,7,13,0.75);
+      backdrop-filter: blur(20px) saturate(1.8);
+      -webkit-backdrop-filter: blur(20px) saturate(1.8);
+      border-bottom: 1px solid var(--border);
+      transition: border-color .3s ease, box-shadow .3s ease;
+    }
+    .nav.scrolled {
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: 0 8px 40px rgba(0,0,0,.5);
+    }
+    .nav__inner {
+      max-width: var(--container); margin:0 auto;
+      padding: .9rem 2rem;
+      display:flex; align-items:center; justify-content:space-between; gap:2rem;
+    }
+    .nav__logo {
+      font-size:1.25rem; font-weight:800; letter-spacing:-.03em;
+      white-space:nowrap; flex-shrink:0;
+    }
+    .nav__logo em { font-style:normal; color:var(--red); }
+    .nav__links {
+      display:flex; align-items:center; gap:2rem; list-style:none;
+    }
+    .nav__links a {
+      font-size:.88rem; font-weight:500; color:var(--muted);
+      transition:color .25s ease; position:relative; padding:.2rem 0;
+    }
+    .nav__links a:hover { color:var(--text); }
+    .nav__links a::after {
+      content:''; position:absolute; bottom:-2px; left:0;
+      width:0; height:1.5px; background:var(--red);
+      transition:width .3s var(--ease);
+    }
+    .nav__links a:hover::after { width:100%; }
+
+    /* Dropdown */
+    .nav__dropdown { position:relative; }
+    .nav__dropdown-toggle { cursor:pointer; display:flex; align-items:center; gap:.35rem; }
+    .nav__dropdown-toggle svg { width:12px; transition:transform .25s ease; }
+    .nav__dropdown:hover .nav__dropdown-toggle svg { transform:rotate(180deg); }
+    .nav__dropdown-menu {
+      position:absolute; top:calc(100% + 12px); left:50%;
+      transform:translateX(-50%) translateY(8px);
+      background:var(--surface2); border:1px solid var(--border);
+      border-radius:12px; list-style:none; min-width:240px;
+      padding:.5rem; opacity:0; visibility:hidden;
+      transition:opacity .25s ease, transform .25s var(--ease), visibility .25s;
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+    }
+    .nav__dropdown:hover .nav__dropdown-menu {
+      opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
+    }
+    .nav__dropdown-menu a {
+      display:flex; align-items:center; gap:.7rem;
+      padding:.65rem 1rem; border-radius:8px; font-size:.88rem;
+      color:var(--muted); transition:all .2s ease;
+    }
+    .nav__dropdown-menu a:hover { background:var(--red-soft); color:var(--text); }
+    .nav__dropdown-menu a::after { display:none; }
+    .nav__dropdown-menu .dm-icon { font-size:1rem; }
+
+    .nav__wa {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:var(--green); color:#fff;
+      padding:.55rem 1.2rem; border-radius:50px;
+      font-size:.85rem; font-weight:700;
+      transition:all .25s ease; flex-shrink:0;
+    }
+    .nav__wa:hover { background:#1fba5a; transform:translateY(-1px); box-shadow:0 8px 24px rgba(37,211,102,.35); }
+    .nav__wa svg { width:18px; fill:currentColor; }
+
+    /* Hamburger */
+    .nav__hamburger {
+      display:none; flex-direction:column; gap:5px;
+      background:none; border:none; cursor:pointer; padding:.3rem; z-index:1200;
+    }
+    .nav__hamburger span {
+      display:block; width:24px; height:2px; background:var(--text);
+      border-radius:2px; transition:transform .3s ease, opacity .3s ease;
+    }
+    .nav__hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .nav__hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .nav__hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+    /* Mobile Menu */
+    .nav__mobile {
+      display:none; position:fixed; inset:0; z-index:1100;
+      background:rgba(7,7,13,.98); backdrop-filter:blur(20px);
+      overflow-y:auto; opacity:0; pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .nav__mobile.open { opacity:1; pointer-events:all; }
+    .nav__mobile-inner { padding:5rem 2rem 3rem; }
+    .nav__mobile-close {
+      position:absolute; top:1.2rem; right:1.5rem;
+      background:none; border:none; color:var(--muted);
+      font-size:1.8rem; cursor:pointer; line-height:1;
+      transition:color .2s ease;
+    }
+    .nav__mobile-close:hover { color:var(--text); }
+    .nav__mobile-list { list-style:none; }
+    .nav__mobile-list li { border-bottom:1px solid var(--border); }
+    .nav__mobile-list li a {
+      display:block; padding:.9rem 0;
+      color:rgba(255,255,255,.85); font-size:1.05rem; font-weight:500;
+      transition:color .2s ease;
+    }
+    .nav__mobile-list li a:hover { color:var(--red); }
+    .nav__mobile-label {
+      display:block; color:var(--red);
+      font-size:.68rem; text-transform:uppercase; letter-spacing:3px;
+      font-weight:700; padding:.6rem 0 .2rem;
+    }
+    .nav__mobile-list .service-item a {
+      padding:.65rem .8rem; font-size:.95rem; color:var(--muted);
+    }
+    .nav__mobile-wa {
+      margin-top:2rem; display:flex; align-items:center;
+      justify-content:center; gap:.6rem;
+      background:var(--green); color:#fff;
+      padding:1rem 1.5rem; border-radius:50px;
+      font-size:1rem; font-weight:700;
+      transition:all .25s ease;
+    }
+    .nav__mobile-wa:hover { background:#1fba5a; }
+    .nav__mobile-wa svg { width:22px; fill:currentColor; }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    .hero {
+      min-height:100svh;
+      display:flex; align-items:center;
+      position:relative; overflow:hidden;
+      padding:7rem 2rem 6rem;
+    }
+    .hero__bg {
+      position:absolute; inset:0; pointer-events:none;
+    }
+    /* Subtle grid texture */
+    .hero__bg::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size:60px 60px;
+    }
+    /* Gradient glows */
+    .hero__glow-1 {
+      position:absolute; width:700px; height:700px; border-radius:50%;
+      background:radial-gradient(circle, rgba(37,99,235,.18) 0%, transparent 70%);
+      top:-200px; right:-150px;
+    }
+    .hero__glow-2 {
+      position:absolute; width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle, rgba(236,0,140,.12) 0%, transparent 70%);
+      bottom:-150px; left:-100px;
+    }
+    /* CMYK dots decoration */
+    .hero__dots {
+      position:absolute; right:8%; bottom:15%;
+      display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+      pointer-events:none; opacity:.3;
+    }
+    .hero__dot {
+      width:10px; height:10px; border-radius:50%;
+    }
+    .hero__dot:nth-child(4n+1) { background:#EC008C; }
+    .hero__dot:nth-child(4n+2) { background:#00B4D8; }
+    .hero__dot:nth-child(4n+3) { background:#FFD60A; }
+    .hero__dot:nth-child(4n+4) { background:rgba(255,255,255,.4); }
+
+    /* Geo lines */
+    .hero__lines {
+      position:absolute; left:0; top:50%; transform:translateY(-50%);
+      display:flex; flex-direction:column; gap:8px; pointer-events:none;
+    }
+    .hero__line { border-radius:0 4px 4px 0; }
+    .hero__line:nth-child(1) { width:110px; height:8px; background:rgba(37,99,235,.6); }
+    .hero__line:nth-child(2) { width:160px; height:5px; background:rgba(236,0,140,.42); }
+    .hero__line:nth-child(3) { width:80px;  height:3px; background:rgba(37,99,235,.18); }
+    .hero__line:nth-child(4) { width:130px; height:2px; background:rgba(255,255,255,.07); }
+
+    .hero__content {
+      position:relative; z-index:2;
+      max-width:840px; margin:0 auto;
+    }
+    .hero__eyebrow {
+      display:inline-flex; align-items:center; gap:.6rem;
+      color:var(--red); font-size:.78rem; font-weight:700;
+      text-transform:uppercase; letter-spacing:3px;
+      margin-bottom:1.5rem;
+      opacity:0;
+    }
+    .hero__eyebrow::before {
+      content:''; display:block;
+      width:30px; height:1.5px; background:var(--red);
+    }
+    .hero__h1 {
+      font-size:clamp(3rem,7vw,5.5rem);
+      font-weight:900; line-height:1.05;
+      letter-spacing:-.03em;
+      margin-bottom:1.5rem;
+      opacity:0;
+    }
+    .hero__h1 em { font-style:normal; color:#ffffff; }
+    .hero__sub {
+      font-size:clamp(1rem,2vw,1.2rem);
+      color:var(--muted); max-width:560px;
+      line-height:1.7; margin-bottom:2.5rem;
+      opacity:0;
+    }
+    .hero__ctas {
+      display:flex; flex-wrap:wrap; gap:1rem;
+      opacity:0;
+    }
+    @keyframes heroFade { from{opacity:0} to{opacity:1} }
+    @keyframes heroSlide {
+      from{opacity:0;transform:translateY(30px)}
+      to{opacity:1;transform:none}
+    }
+
+    /* Buttons */
+    .btn {
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.85rem 2rem; border-radius:8px;
+      font-size:.95rem; font-weight:700;
+      transition:all .25s var(--ease);
+      position:relative; overflow:hidden;
+      cursor:pointer; border:none;
+    }
+    .btn::after {
+      content:''; position:absolute; inset:0;
+      background:rgba(255,255,255,.12);
+      transform:translateX(-110%);
+      transition:transform .4s ease;
+    }
+    .btn:hover::after { transform:translateX(0); }
+    .btn-red {
+      background:var(--red); color:#fff;
+      box-shadow:0 4px 24px rgba(37,99,235,.4);
+    }
+    .btn-red:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(37,99,235,.45), 0 0 55px rgba(236,0,140,.2); }
+    .btn-ghost {
+      background:transparent; color:var(--text);
+      border:1.5px solid rgba(255,255,255,.2);
+    }
+    .btn-ghost:hover { border-color:rgba(255,255,255,.5); transform:translateY(-2px); }
+    .btn-wa {
+      background:var(--green); color:#fff;
+      box-shadow:0 4px 24px rgba(37,211,102,.35);
+    }
+    .btn-wa:hover { background:#1fba5a; transform:translateY(-2px); box-shadow:0 12px 32px rgba(37,211,102,.5); }
+    .btn svg { width:20px; fill:currentColor; }
+
+    /* Scroll indicator */
+    .hero__scroll {
+      position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:.5rem;
+      color:var(--subtle); font-size:.7rem; letter-spacing:2px;
+      text-transform:uppercase;
+      opacity:0;
+    }
+    .hero__scroll::after {
+      content:''; display:block;
+      width:1px; height:44px;
+      background:linear-gradient(to bottom, rgba(255,255,255,.3), transparent);
+      animation:scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%,100%{height:44px;opacity:.5} 50%{height:60px;opacity:1}
+    }
+
+    /* ══════════════════════════════
+       STATS BAR
+    ══════════════════════════════ */
+    .stats {
+      background:var(--surface);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+      padding:2rem 2rem;
+      position:relative; overflow:hidden;
+    }
+    /* Franja CMYK arriba */
+    .stats::before {
+      content:'';
+      position:absolute; top:0; left:0; right:0; height:4px;
+      background:linear-gradient(90deg, #00AEEF 0%, #00AEEF 25%, #EC008C 25%, #EC008C 50%, #FFD700 50%, #FFD700 75%, #1a1a2e 75%, #1a1a2e 100%);
+    }
+    /* Shimmer sutil */
+    .stats::after {
+      content:'';
+      position:absolute; inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.03), transparent);
+      animation:shimmer 3s linear infinite;
+    }
+    @keyframes shimmer { from{transform:translateX(-100%)} to{transform:translateX(100%)} }
+    .stats__inner {
+      max-width:var(--container); margin:0 auto;
+      display:flex; justify-content:space-around; align-items:center;
+      flex-wrap:wrap; gap:1rem;
+    }
+    .stat {
+      text-align:center; padding:.75rem 1.5rem; color:#fff;
+      opacity:0; transform:translateY(20px);
+      transition:transform .25s ease;
+    }
+    .stat.in { opacity:1; transform:none; }
+    .stat:hover { transform:scale(1.06); }
+    .stat__num {
+      display:block; font-size:2.8rem; font-weight:900;
+      line-height:1; letter-spacing:-.03em;
+    }
+    /* Colores CMYK por stat */
+    .stat--c .stat__num { color:#00AEEF; }
+    .stat--m .stat__num { color:#EC008C; }
+    .stat--y .stat__num { color:#FFD700; }
+    .stat--k .stat__num { color:#ffffff; }
+    .stat__label {
+      display:block; font-size:.68rem;
+      text-transform:uppercase; letter-spacing:2px;
+      opacity:.85; margin-top:.3rem;
+    }
+
+    /* ══════════════════════════════
+       SECTION SHARED
+    ══════════════════════════════ */
+    .section { padding:clamp(5rem,10vw,9rem) 2rem; }
+    .section--alt { background:var(--surface); }
+    .section__tag {
+      display:inline-flex; align-items:center; gap:.5rem;
+      color:var(--red); font-size:.72rem; font-weight:700;
+      text-transform:uppercase; letter-spacing:3px;
+      margin-bottom:1rem;
+    }
+    .section__tag::before { content:''; display:block; width:20px; height:1.5px; background:var(--red); }
+    .section__title {
+      font-size:clamp(2rem,4.5vw,3.2rem);
+      font-weight:900; line-height:1.1; letter-spacing:-.03em;
+      margin-bottom:.8rem;
+    }
+    .section__sub {
+      font-size:1.05rem; color:var(--muted); max-width:560px; line-height:1.7;
+    }
+    .section__header { margin-bottom:3.5rem; }
+    .section__header--center { text-align:center; }
+    .section__header--center .section__sub { margin:0 auto; }
+    .section__header--center .section__tag { justify-content:center; }
+    .section__header--center .section__tag::before { display:none; }
+    .section__header--center .section__tag::after { content:''; display:block; width:20px; height:1.5px; background:var(--red); }
+
+    /* ══════════════════════════════
+       SERVICES
+    ══════════════════════════════ */
+    .services-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:1.5rem;
+    }
+    .service-card {
+      background:var(--surface2);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:2.5rem;
+      position:relative; overflow:hidden;
+      transition:transform .35s var(--ease), box-shadow .35s ease, border-color .3s ease;
+      text-decoration:none; color:var(--text);
+      display:flex; flex-direction:column; gap:.8rem;
+    }
+    .service-card::before {
+      content:''; position:absolute;
+      bottom:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg, var(--red), var(--magenta));
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .4s var(--ease);
+    }
+    .service-card:hover {
+      transform:translateY(-8px);
+      box-shadow:0 24px 60px rgba(0,0,0,.5);
+      border-color:rgba(236,0,140,.3);
+    }
+    .service-card:hover::before { transform:scaleX(1); }
+    .service-card__num {
+      font-size:.72rem; font-weight:700; color:var(--red);
+      letter-spacing:3px; text-transform:uppercase;
+    }
+    .service-card__icon {
+      font-size:2.2rem; line-height:1;
+      transition:transform .35s var(--ease);
+    }
+    .service-card:hover .service-card__icon { transform:scale(1.2) rotate(-8deg); }
+    .service-card__title {
+      font-size:1.25rem; font-weight:800;
+      letter-spacing:-.02em; line-height:1.2;
+    }
+    .service-card__desc {
+      font-size:.9rem; color:var(--muted); line-height:1.7;
+      flex:1;
+    }
+    .service-card__link {
+      display:inline-flex; align-items:center; gap:.5rem;
+      color:var(--red); font-size:.85rem; font-weight:700;
+      margin-top:auto;
+      transition:gap .3s ease;
+    }
+    .service-card:hover .service-card__link { gap:1rem; }
+
+    /* Gran formato: featured card */
+    .service-card--featured {
+      background:linear-gradient(135deg, #00060f 0%, #001028 40%, #001540 100%);
+      border-color:rgba(37,99,235,.25);
+      grid-column:span 1;
+    }
+    .service-card--featured .service-card__title {
+      font-size:1.6rem; text-transform:uppercase; letter-spacing:.05em;
+    }
+
+    /* ══════════════════════════════
+       FEATURES / POR QUÉ ELEGIRNOS
+    ══════════════════════════════ */
+    .features__inner {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:5rem; align-items:center;
+    }
+    .features__heading {
+      font-size:clamp(2.5rem,5vw,3.8rem);
+      font-weight:900; line-height:1.05;
+      letter-spacing:-.03em; margin-bottom:1rem;
+    }
+    .features__heading em { font-style:normal; color:var(--magenta); }
+    .features__lead { font-size:1.05rem; color:var(--muted); line-height:1.7; margin-bottom:2.5rem; }
+    .features__list { list-style:none; display:flex; flex-direction:column; gap:1.5rem; }
+    .feature-item {
+      display:flex; gap:1.2rem; align-items:flex-start;
+      padding:1.2rem; border-radius:12px;
+      border:1px solid var(--border);
+      background:var(--surface2);
+      transition:all .3s var(--ease);
+    }
+    .feature-item:hover {
+      border-color:rgba(37,99,235,.3);
+      transform:translateX(6px);
+      box-shadow:0 8px 30px rgba(0,0,0,.3);
+    }
+    .feature-item__icon {
+      width:42px; height:42px; border-radius:10px;
+      background:var(--red-soft); display:flex; align-items:center;
+      justify-content:center; font-size:1.2rem; flex-shrink:0;
+      border:1px solid rgba(37,99,235,.2);
+      transition:transform .3s var(--ease), background .3s ease;
+    }
+    .feature-item:hover .feature-item__icon {
+      background:rgba(37,99,235,.2); transform:scale(1.1);
+    }
+    .feature-item__title { font-size:1rem; font-weight:700; margin-bottom:.2rem; }
+    .feature-item__desc { font-size:.88rem; color:var(--muted); line-height:1.6; }
+
+    /* Visual decoration on the right */
+    .features__visual {
+      position:relative; display:flex; align-items:center; justify-content:center;
+    }
+    .features__badge-wrap {
+      display:grid; grid-template-columns:1fr 1fr; gap:1rem; width:100%;
+    }
+    .features__badge {
+      background:var(--surface2); border:1px solid var(--border);
+      border-radius:14px; padding:2rem 1.5rem;
+      text-align:center;
+      transition:all .3s var(--ease);
+    }
+    .features__badge:hover {
+      border-color:rgba(37,99,235,.35);
+      transform:translateY(-4px);
+      box-shadow:0 16px 40px rgba(0,0,0,.4);
+    }
+    .features__badge-num {
+      font-size:2.8rem; font-weight:900;
+      color:var(--red); letter-spacing:-.04em; line-height:1;
+    }
+    .features__badge-label {
+      font-size:.78rem; color:var(--muted);
+      text-transform:uppercase; letter-spacing:1.5px;
+      margin-top:.4rem; display:block;
+    }
+    .features__badge--span { grid-column:span 2; }
+
+    /* ══════════════════════════════
+       REVIEWS
+    ══════════════════════════════ */
+    .reviews-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem;
+    }
+    .review-card {
+      background:var(--surface2); border:1px solid var(--border);
+      border-radius:var(--radius); padding:2rem;
+      transition:all .3s ease;
+    }
+    .review-card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 20px 50px rgba(0,0,0,.4);
+      border-color:rgba(255,255,255,.15);
+    }
+    .review-card__head { display:flex; align-items:center; gap:1rem; margin-bottom:1.2rem; }
+    .review-card__avatar {
+      width:46px; height:46px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:1.1rem; color:#fff; flex-shrink:0;
+    }
+    .review-card__name { font-size:.95rem; font-weight:700; }
+    .review-card__stars { color:#F4A609; font-size:.9rem; letter-spacing:2px; margin-bottom:.8rem; }
+    .review-card__text {
+      font-size:.92rem; color:var(--muted); line-height:1.75;
+      font-style:italic;
+    }
+    .review-card__badge {
+      display:flex; align-items:center; gap:.5rem;
+      margin-top:1.2rem; padding-top:1rem;
+      border-top:1px solid var(--border);
+      font-size:.75rem; color:var(--subtle);
+    }
+    .review-card__g {
+      width:18px; height:18px; border-radius:50%;
+      background:#4285F4; display:flex; align-items:center;
+      justify-content:center; color:#fff; font-size:.7rem; font-weight:800;
+    }
+    .reviews-summary {
+      background:var(--surface2); border:1px solid rgba(236,0,140,.25);
+      border-radius:var(--radius); padding:2.5rem;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:.6rem;
+      text-align:center;
+    }
+    .reviews-summary__score { font-size:4rem; font-weight:900; color:var(--red); line-height:1; }
+    .reviews-summary__stars { color:#F4A609; font-size:1.4rem; letter-spacing:3px; }
+    .reviews-summary__sub { font-size:.82rem; color:var(--muted); }
+
+    /* ══════════════════════════════
+       CONTACT
+    ══════════════════════════════ */
+    .contact__inner {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:4rem; align-items:start;
+    }
+    .contact__title {
+      font-size:clamp(2rem,4vw,3rem);
+      font-weight:900; line-height:1.05; letter-spacing:-.03em;
+      margin-bottom:.8rem;
+    }
+    .contact__sub { font-size:1rem; color:var(--muted); margin-bottom:2.5rem; }
+    .contact__list { list-style:none; display:flex; flex-direction:column; gap:1.2rem; }
+    .contact__item {
+      display:flex; gap:1.2rem; align-items:center;
+      padding:1.2rem; border-radius:12px;
+      background:var(--surface2); border:1px solid var(--border);
+      transition:all .3s var(--ease);
+    }
+    .contact__item:hover { border-color:rgba(236,0,140,.3); transform:translateX(6px); }
+    .contact__icon {
+      width:48px; height:48px; border-radius:10px;
+      background:var(--red-soft); display:flex; align-items:center;
+      justify-content:center; font-size:1.4rem; flex-shrink:0;
+      border:1px solid rgba(37,99,235,.2);
+      transition:all .3s var(--ease);
+    }
+    .contact__item:hover .contact__icon { background:rgba(37,99,235,.2); transform:scale(1.08); }
+    .contact__item-label {
+      font-size:.65rem; text-transform:uppercase; letter-spacing:2px;
+      color:var(--red); font-weight:700; margin-bottom:.2rem;
+    }
+    .contact__item-val { font-size:.95rem; font-weight:500; line-height:1.5; }
+    .contact__item-val a { color:var(--text); transition:color .2s ease; }
+    .contact__item-val a:hover { color:var(--red); }
+
+    /* WA CTA block */
+    .contact__wa-block {
+      background:var(--surface2); border:1px solid rgba(37,211,102,.2);
+      border-radius:var(--radius); padding:2rem;
+      text-align:center; margin-top:1.5rem;
+    }
+    .contact__wa-block p { font-size:.9rem; color:var(--muted); margin-bottom:1.2rem; }
+    .contact__wa-block .btn-wa { width:100%; justify-content:center; }
+
+    /* ══ BOTONES CMYK — sección Hablemos ══ */
+    .cmyk-btns {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: .7rem; margin-top: 1.8rem;
+    }
+    .btn-cmyk {
+      display: flex; align-items: center; justify-content: center;
+      gap: .55rem; padding: .9rem 1rem;
+      border-radius: 10px; font-weight: 700; font-size: .88rem;
+      text-decoration: none; position: relative; overflow: hidden;
+      transition: transform .25s var(--ease), box-shadow .3s ease;
+      border: none; cursor: pointer;
+    }
+    .btn-cmyk::after {
+      content:''; position:absolute; inset:0;
+      background: rgba(255,255,255,.14);
+      transform: translateX(-110%);
+      transition: transform .4s ease;
+    }
+    .btn-cmyk:hover::after { transform: translateX(0); }
+    .btn-cmyk:hover { transform: translateY(-3px); }
+    .btn-cmyk svg { width:18px; fill:currentColor; flex-shrink:0; }
+
+    /* C — Cyan */
+    .btn-cmyk--c {
+      background: #00AEEF; color: #fff;
+      animation: glowC 2.8s ease-in-out infinite;
+    }
+    .btn-cmyk--c:hover {
+      box-shadow: 0 14px 40px rgba(0,174,239,.75), 0 0 70px rgba(0,174,239,.35) !important;
+    }
+    @keyframes glowC {
+      0%,100% { box-shadow: 0 4px 18px rgba(0,174,239,.32); }
+      50%      { box-shadow: 0 6px 30px rgba(0,174,239,.68), 0 0 50px rgba(0,174,239,.22); }
+    }
+
+    /* M — Magenta */
+    .btn-cmyk--m {
+      background: #EC008C; color: #fff;
+      animation: glowM 2.8s ease-in-out infinite .7s;
+    }
+    .btn-cmyk--m:hover {
+      box-shadow: 0 14px 40px rgba(236,0,140,.75), 0 0 70px rgba(236,0,140,.35) !important;
+    }
+    @keyframes glowM {
+      0%,100% { box-shadow: 0 4px 18px rgba(236,0,140,.32); }
+      50%      { box-shadow: 0 6px 30px rgba(236,0,140,.68), 0 0 50px rgba(236,0,140,.22); }
+    }
+
+    /* Y — Yellow */
+    .btn-cmyk--y {
+      background: #FFD700; color: #1a1000;
+      animation: glowY 2.8s ease-in-out infinite 1.4s;
+    }
+    .btn-cmyk--y:hover {
+      box-shadow: 0 14px 40px rgba(255,215,0,.7), 0 0 60px rgba(255,215,0,.28) !important;
+    }
+    @keyframes glowY {
+      0%,100% { box-shadow: 0 4px 18px rgba(255,215,0,.32); }
+      50%      { box-shadow: 0 6px 30px rgba(255,215,0,.65), 0 0 46px rgba(255,215,0,.2); }
+    }
+
+    /* K — Key/Black */
+    .btn-cmyk--k {
+      background: #111118; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.18);
+      animation: glowK 2.8s ease-in-out infinite 2.1s;
+    }
+    .btn-cmyk--k:hover {
+      border-color: rgba(255,255,255,.5);
+      box-shadow: 0 14px 40px rgba(0,0,0,.7), 0 0 50px rgba(255,255,255,.08) !important;
+    }
+    @keyframes glowK {
+      0%,100% { box-shadow: 0 4px 18px rgba(0,0,0,.45); }
+      50%      { box-shadow: 0 8px 32px rgba(0,0,0,.75), 0 0 35px rgba(255,255,255,.06); }
+    }
+
+    @media (max-width: 500px) {
+      .cmyk-btns { grid-template-columns: 1fr; }
+    }
+
+    /* Map */
+    .contact__map {
+      border-radius:var(--radius); overflow:hidden;
+      border:1px solid rgba(37,99,235,.2);
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+    }
+    .contact__map iframe { display:block; border:0; border-radius:var(--radius); }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    .footer {
+      background:#040408; padding:3rem 2rem 2rem;
+      border-top:1px solid var(--border);
+    }
+    .footer__inner {
+      max-width:var(--container); margin:0 auto;
+      text-align:center;
+    }
+    .footer__logo { font-size:1.3rem; font-weight:800; display:inline-block; margin-bottom:1.5rem; }
+    .footer__logo em { font-style:normal; color:var(--red); }
+    .footer__links {
+      display:flex; justify-content:center; flex-wrap:wrap;
+      gap:1.5rem; margin-bottom:2rem;
+    }
+    .footer__links a { font-size:.85rem; color:var(--subtle); transition:color .2s ease; }
+    .footer__links a:hover { color:var(--text); }
+    .footer__sep { border:none; border-top:1px solid var(--border); margin-bottom:1.5rem; }
+    .footer__copy { font-size:.8rem; color:var(--subtle); }
+
+    /* ══════════════════════════════
+       WA FLOATING BUTTON
+    ══════════════════════════════ */
+    .wa-fab {
+      position:fixed; bottom:28px; right:28px; z-index:900;
+      display:flex; align-items:center; gap:.7rem;
+      background:var(--green); color:#fff;
+      padding:.8rem 1.4rem .8rem 1.1rem;
+      border-radius:50px;
+      box-shadow:0 8px 32px rgba(37,211,102,.45);
+      font-size:.9rem; font-weight:700;
+      transition:all .3s var(--ease);
+      animation:fabPop .6s 1.5s var(--ease) both;
+    }
+    .wa-fab:hover {
+      background:#1fba5a;
+      transform:translateY(-3px) scale(1.04);
+      box-shadow:0 16px 40px rgba(37,211,102,.55);
+    }
+    .wa-fab svg { width:22px; fill:currentColor; flex-shrink:0; }
+    .wa-fab__label { white-space:nowrap; }
+    /* Pulse ring */
+    .wa-fab::before {
+      content:''; position:absolute; inset:-4px;
+      border-radius:50px; border:2px solid rgba(37,211,102,.5);
+      animation:fabRing 2.5s ease-out infinite 2s;
+    }
+    @keyframes fabRing {
+      0% { transform:scale(1); opacity:.8; }
+      100% { transform:scale(1.25); opacity:0; }
+    }
+    @keyframes fabPop {
+      from { opacity:0; transform:scale(.5) translateY(20px); }
+      to   { opacity:1; transform:none; }
+    }
+
+    /* Inline CTA banner */
+    .cta-banner {
+      background:linear-gradient(135deg, #00060f 0%, #001028 50%, var(--surface) 100%);
+      border:1px solid rgba(236,0,140,.22);
+      border-radius:var(--radius); padding:3.5rem 3rem;
+      text-align:center; position:relative; overflow:hidden;
+    }
+    .cta-banner::before {
+      content:''; position:absolute;
+      top:-100px; right:-100px; width:300px; height:300px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(236,0,140,.15) 0%, transparent 70%);
+    }
+    .cta-banner h2 {
+      font-size:clamp(1.8rem,4vw,2.8rem);
+      font-weight:900; letter-spacing:-.03em;
+      margin-bottom:.8rem; position:relative; z-index:1;
+    }
+    .cta-banner p {
+      font-size:1.05rem; color:var(--muted);
+      max-width:500px; margin:0 auto 2rem; position:relative; z-index:1;
+    }
+    .cta-banner .btn { position:relative; z-index:1; }
+
+    /* ══════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════ */
+    @media (max-width:900px) {
+      .features__inner { grid-template-columns:1fr; gap:3rem; }
+      .contact__inner  { grid-template-columns:1fr; }
+      .hero__dots { display:none; }
+    }
+    @media (max-width:768px) {
+      .nav__links, .nav__wa { display:none; }
+      .nav__hamburger { display:flex; }
+      .nav__mobile { display:block; }
+      .wa-fab__label { display:none; }
+      .wa-fab { padding:.85rem; border-radius:50%; }
+      .hero__content { text-align:center; }
+      .hero__ctas { justify-content:center; }
+      .hero__sub { margin:0 auto 2.5rem; }
+      .hero__lines { display:none; }
+      .services-grid { grid-template-columns:1fr; }
+      .reviews-grid { grid-template-columns:1fr; }
+      .features__badge-wrap { grid-template-columns:1fr 1fr; }
+      .features__badge--span { grid-column:span 2; }
+      .section { padding:4rem 1.5rem; }
+      .cta-banner { padding:2.5rem 1.5rem; }
+    }
+    @media (max-width:480px) {
+      .hero__h1 { font-size:2.4rem; }
+      .hero__ctas { flex-direction:column; }
+      .hero__ctas .btn { width:100%; justify-content:center; }
+      .features__badge-wrap { grid-template-columns:1fr; }
+      .features__badge--span { grid-column:span 1; }
+    }
+
+    /* ══════════════════════════════
+       HERO BACKGROUND IMAGE
+    ══════════════════════════════ */
+    .hero__img-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('assets/images/hero-maquinaria-offset.jpg');
+      background-size: cover; background-position: center;
+    }
+    .hero__img-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(7,7,13,0.88) 0%, rgba(7,7,13,0.65) 55%, rgba(7,7,13,0.80) 100%);
+    }
+
+    /* ══════════════════════════════
+       FEATURE ITEM IMAGE
+    ══════════════════════════════ */
+    .feature-item__icon {
+      background-size: cover; background-position: center;
+    }
+
+    /* ══════════════════════════════
+       REVIEW AVATAR IMAGE
+    ══════════════════════════════ */
+    .review-card__avatar { position: relative; }
+    .review-avatar-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; border-radius: 50%;
+    }
+
+    /* ══════════════════════════════
+       ANTES / DESPUÉS
+    ══════════════════════════════ */
+    .before-after {
+      padding: clamp(5rem,10vw,9rem) 2rem;
+      background: var(--surface);
+    }
+    .before-after__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .ba-card {
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      transition: all .35s var(--ease);
+    }
+    .ba-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.5);
+      border-color: rgba(37,99,235,.25);
+    }
+    .ba-card__cols { display: grid; grid-template-columns: 1fr 1px 1fr; }
+    .ba-divider { background: var(--border); }
+    .ba-col { position: relative; overflow: hidden; }
+    .ba-col__img-wrap {
+      aspect-ratio: 1;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: .5rem;
+      overflow: hidden;
+    }
+    .ba-col__img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform .5s var(--ease);
+    }
+    .ba-card:hover .ba-col__img-wrap img { transform: scale(1.06); }
+    .ba-col__placeholder-icon { font-size: 2rem; opacity: .25; }
+    .ba-col__placeholder-text {
+      font-size: .6rem; color: var(--subtle);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      text-align: center; padding: 0 .5rem;
+    }
+    .ba-col__label {
+      position: absolute; top: .5rem; left: .5rem; z-index: 1;
+      background: rgba(7,7,13,.88); color: var(--muted);
+      font-size: .6rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px;
+      padding: .2rem .6rem; border-radius: 50px;
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+    }
+    .ba-col__label--after {
+      background: var(--red); color: #fff; border-color: transparent;
+    }
+    .ba-card__info {
+      padding: 1rem 1.4rem;
+      font-size: .9rem; font-weight: 600;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .ba-card__info-icon { font-size: 1.1rem; }
+    @media (max-width: 900px) {
+      .before-after__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════
+       PARTÍCULAS DE TINTA (anime.js)
+    ══════════════════════════════ */
+    #caracteristicas { position:relative; overflow:hidden; }
+    .particle {
+      position:absolute; pointer-events:none; border-radius:50%;
+      background:var(--red); opacity:.15; z-index:0;
+      will-change:transform, opacity;
+    }
+
+    /* ══════════════════════════════
+       REDUCED MOTION FALLBACK
+    ══════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      .hero__eyebrow, .hero__h1, .hero__sub,
+      .hero__ctas, .hero__scroll { opacity:1 !important; }
+      .sr { opacity:1 !important; transform:none !important; }
+    }
+
+/* ══ KEN BURNS ══ */
+@keyframes kenBurns {
+  0%   { transform: scale(1)    translate(0,    0); }
+  33%  { transform: scale(1.06) translate(-1%,  0.5%); }
+  66%  { transform: scale(1.04) translate(0.8%, -0.3%); }
+  100% { transform: scale(1)    translate(0,    0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-service__img,
+  .hero-parallax-img,
+  .service-card__thumb { animation: none !important; }
+}
+
+/* ══ HERO PARALLAX ══ */
+.hero-parallax-wrap {
+  position: absolute; inset: 0; overflow: hidden; z-index: 0;
+}
+.hero-parallax-img {
+  width: 100%; height: 130%;
+  object-fit: cover; object-position: center;
+  margin-top: -10%;
+  will-change: transform;
+  animation: kenBurns 25s ease-in-out infinite;
+}
+.hero-parallax-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(135deg,
+    rgba(7,7,13,0.88) 0%,
+    rgba(7,7,13,0.6)  55%,
+    rgba(7,7,13,0.8)  100%);
+}
+
+/* ══ SERVICE CARD THUMBNAIL ══ */
+.service-card__thumb {
+  width: 100%; height: 160px;
+  object-fit: cover; border-radius: 8px;
+  display: block; margin-bottom: .5rem;
+  animation: kenBurns 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ══ WORKS GALLERY ══ */
+#galeria { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 230px;
+  gap: 10px;
+  grid-auto-flow: dense;
+}
+
+/* ─ item base: oculto hasta que el Observer lo active ─ */
+.works-item {
+  position: relative; overflow: hidden;
+  border-radius: 12px; background: var(--surface2);
+  display: block; color: inherit; text-decoration: none;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .65s ease, transform .65s cubic-bezier(.16,1,.3,1),
+              filter .3s ease;
+}
+.works-item--wide { grid-column: span 2; }
+.works-item--tall { grid-row: span 2; }
+.works-item--big  { grid-column: span 2; grid-row: span 2; }
+
+/* ─ visible (agregado por IntersectionObserver) ─ */
+.works-item.wg-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─ imagen dentro del item ─ */
+.works-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .55s cubic-bezier(.16,1,.3,1);
+}
+
+/* ─ caption siempre visible abajo ─ */
+.works-item__caption {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(7,7,13,.88) 0%, rgba(7,7,13,.18) 50%, transparent 100%);
+  display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: flex-end;
+  padding: 1.1rem;
+  transition: background .3s ease;
+}
+.works-item__cat {
+  font-size: .62rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 3px;
+  color: var(--red); margin-bottom: .2rem;
+}
+.works-item__name {
+  font-size: .9rem; font-weight: 700;
+  color: #fff; line-height: 1.2;
+}
+
+/* ─ GROUP HOVER: dimear los demás, resaltar el activo ─ */
+.works-grid:hover .works-item.wg-in {
+  opacity: .62;
+  filter: brightness(.72) saturate(.78);
+  transform: scale(.982);
+  transition: opacity .28s ease, filter .28s ease, transform .28s ease;
+}
+.works-grid:hover .works-item.wg-in:hover {
+  opacity: 1;
+  filter: brightness(1.08) saturate(1.12);
+  transform: scale(1.03);
+  z-index: 2;
+}
+.works-grid:hover .works-item.wg-in:hover img { transform: scale(1.06); }
+.works-grid:hover .works-item.wg-in:hover .works-item__caption {
+  background: linear-gradient(to top, rgba(7,7,13,.96) 0%, rgba(7,7,13,.35) 55%, transparent 100%);
+}
+
+@media (max-width: 900px) {
+  .works-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 195px; }
+}
+@media (max-width: 500px) {
+  .works-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+  .works-item--big  { grid-column: span 2; grid-row: span 1; }
+  .works-item--tall { grid-row: span 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .works-item { opacity: 1 !important; transform: none !important; transition: none; }
+}
+
+/* ══ VIDEO SECTION ══ */
+.video-section {
+  background: var(--surface);
+  padding: clamp(4rem,8vw,7rem) 2rem;
+  text-align: center;
+}
+.video-section__tag {
+  display: inline-block;
+  color: var(--red); font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+.video-section__title {
+  font-size: clamp(1.8rem,4vw,2.8rem);
+  font-weight: 900; letter-spacing: -.03em;
+  margin-bottom: 2.5rem;
+}
+.video-section__wrap {
+  max-width: 900px; margin: 0 auto;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 80px rgba(0,0,0,.6);
+}
+.video-section__wrap video {
+  width: 100%; display: block;
+}
+.video-section__cta { margin-top: 2rem; }
+/* ══ CMYK AMBIENT GRADIENT BACKGROUND ══ */
+.cmyk-bg {
+  position: fixed; inset: 0; z-index: 0;
+  overflow: hidden; pointer-events: none;
+}
+.cmyk-blob {
+  position: absolute; border-radius: 50%;
+  will-change: transform;
+  transition: transform .05s linear;
+}
+.cmyk-blob--c {
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(0,174,239,.60) 0%, transparent 65%);
+  top: -320px; right: -180px;
+}
+.cmyk-blob--m {
+  width: 750px; height: 750px;
+  background: radial-gradient(circle, rgba(236,0,140,.52) 0%, transparent 65%);
+  top: 45%; left: -220px;
+}
+.cmyk-blob--y {
+  width: 620px; height: 620px;
+  background: radial-gradient(circle, rgba(255,215,0,.45) 0%, transparent 65%);
+  bottom: 5%; right: 0%;
+}
+.cmyk-blob--c2 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(0,174,239,.40) 0%, transparent 65%);
+  bottom: 35%; left: 25%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cmyk-blob { will-change: auto; transition: none; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- CMYK ambient background -->
+  <div class="cmyk-bg" aria-hidden="true">
+    <div class="cmyk-blob cmyk-blob--c"></div>
+    <div class="cmyk-blob cmyk-blob--m"></div>
+    <div class="cmyk-blob cmyk-blob--y"></div>
+    <div class="cmyk-blob cmyk-blob--c2"></div>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="./" class="nav__logo">Multigraff<em> Litografía</em></a>
+      <ul class="nav__links">
+        <li class="nav__dropdown">
+          <span class="nav__dropdown-toggle">
+            Servicios
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+          <ul class="nav__dropdown-menu">
+            <li><a href="./etiquetas-autoadhesivas/"><span class="dm-icon">🏷️</span>Etiquetas Autoadhesivas</a></li>
+            <li><a href="./papeleria-comercial/"><span class="dm-icon">📋</span>Papelería Comercial</a></li>
+            <li><a href="./folletos-y-volantes/"><span class="dm-icon">📄</span>Folletos y Volantes</a></li>
+            <li><a href="./sellos-de-goma/"><span class="dm-icon">🔖</span>Sellos de Goma</a></li>
+            <li><a href="./impresion-gran-formato/"><span class="dm-icon">🖼️</span>Impresión Gran Formato</a></li>
+          </ul>
+        </li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#caracteristicas">Por qué elegirnos</a></li>
+        <li><a href="#resenas">Reseñas</a></li>
+        <li><a href="./contacto/">Contacto</a></li>
+      </ul>
+      <a class="nav__wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%20Litograf%C3%ADa%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <button class="nav__hamburger" id="menuToggle" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-modal="true">
+    <button class="nav__mobile-close" id="menuClose" aria-label="Cerrar menú">✕</button>
+    <div class="nav__mobile-inner">
+      <ul class="nav__mobile-list">
+        <li><span class="nav__mobile-label">Servicios</span></li>
+        <li class="service-item"><a href="./etiquetas-autoadhesivas/">🏷️ Etiquetas Autoadhesivas</a></li>
+        <li class="service-item"><a href="./papeleria-comercial/">📋 Papelería Comercial</a></li>
+        <li class="service-item"><a href="./folletos-y-volantes/">📄 Folletos y Volantes</a></li>
+        <li class="service-item"><a href="./sellos-de-goma/">🔖 Sellos de Goma</a></li>
+        <li class="service-item"><a href="./impresion-gran-formato/">🖼️ Gran Formato</a></li>
+        <li><a href="#caracteristicas">Por qué elegirnos</a></li>
+        <li><a href="#resenas">Reseñas</a></li>
+        <li><a href="./contacto/">Contacto</a></li>
+      </ul>
+      <a class="nav__mobile-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%20Litograf%C3%ADa%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="hero-parallax-wrap" aria-hidden="true">
+  <img src="assets/images/Paleta_Hero.jpg"
+       class="hero-parallax-img"
+       alt=""
+       loading="eager"
+       fetchpriority="high">
+  <div class="hero-parallax-overlay"></div>
+</div>
+      <div class="hero__glow-1"></div>
+      <div class="hero__glow-2"></div>
+    </div>
+    <div class="hero__lines">
+      <div class="hero__line"></div>
+      <div class="hero__line"></div>
+      <div class="hero__line"></div>
+      <div class="hero__line"></div>
+    </div>
+    <div class="hero__dots" aria-hidden="true">
+      <div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div>
+      <div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div>
+      <div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div><div class="hero__dot"></div>
+    </div>
+    <div class="hero__content container">
+      <div class="hero__eyebrow">Imprenta en Mendoza desde 1997</div>
+      <h1 class="hero__h1">Imprimí tu marca con la calidad que tu <em>empresa merece</em></h1>
+      <p class="hero__sub">Más de 28 años imprimiendo para empresas en Argentina. Etiquetas, papelería corporativa, folletos y gran formato, siempre en tiempo y forma.</p>
+      <div class="hero__ctas">
+        <a class="btn btn-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%20Litograf%C3%ADa%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultá por WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#servicios">Ver Servicios</a>
+      </div>
+    </div>
+    <div class="hero__scroll">Scroll</div>
+  </section>
+
+  <!-- ═══ STATS ═══ -->
+  <div class="stats">
+    <div class="stats__inner">
+      <div class="stat stat--c" data-target="28" data-prefix="+">
+        <span class="stat__num">+28</span>
+        <span class="stat__label">Años de experiencia</span>
+      </div>
+      <div class="stat stat--m" data-target="500" data-prefix="+">
+        <span class="stat__num">+500</span>
+        <span class="stat__label">Clientes satisfechos</span>
+      </div>
+      <div class="stat stat--y" data-target="4.1" data-decimals="1" data-suffix="★">
+        <span class="stat__num">4.1★</span>
+        <span class="stat__label">Puntuación Google</span>
+      </div>
+      <div class="stat stat--k" data-target="100" data-suffix="%">
+        <span class="stat__num">100%</span>
+        <span class="stat__label">Calidad garantizada</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SERVICIOS ═══ -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <header class="section__header section__header--center sr">
+        <div class="section__tag">Lo que hacemos</div>
+        <h2 class="section__title">Nuestros Servicios</h2>
+        <p class="section__sub">Soluciones gráficas personalizadas con tecnología de punta para que tu marca destaque</p>
+      </header>
+      <div class="services-grid">
+        <a href="./etiquetas-autoadhesivas/" class="service-card sr">
+          <img src="assets/images/etiqueta-auto.jpg" alt="Etiquetas autoadhesivas Multigraff" class="service-card__thumb" loading="eager">
+          <span class="service-card__num">01</span>
+          <span class="service-card__icon">🏷️</span>
+          <h3 class="service-card__title">Etiquetas Autoadhesivas</h3>
+          <p class="service-card__desc">Etiquetas autoadhesivas de alta calidad para productos, envases y packaging. Papel couché, vinilo, transparente y metalizado. Sin cantidad mínima.</p>
+          <span class="service-card__link">Ver más →</span>
+        </a>
+        <a href="./papeleria-comercial/" class="service-card sr">
+          <img src="assets/images/pap-comer_.jpg" alt="Papelería comercial Multigraff" class="service-card__thumb" loading="lazy">
+          <span class="service-card__num">02</span>
+          <span class="service-card__icon">📋</span>
+          <h3 class="service-card__title">Papelería Comercial</h3>
+          <p class="service-card__desc">Tarjetas, sobres, formularios, membretes y toda la papelería que tu empresa necesita para proyectar una imagen profesional impecable.</p>
+          <span class="service-card__link">Ver más →</span>
+        </a>
+        <a href="./folletos-y-volantes/" class="service-card sr">
+          <img src="assets/images/folleteria_.jpg" alt="Folletos y volantes Multigraff" class="service-card__thumb" loading="lazy">
+          <span class="service-card__num">03</span>
+          <span class="service-card__icon">📄</span>
+          <h3 class="service-card__title">Folletos y Volantes</h3>
+          <p class="service-card__desc">Folletos, volantes y brochures con diseño atractivo y colores precisos para promocionar tu negocio. Dípticos, trípticos y formatos a medida.</p>
+          <span class="service-card__link">Ver más →</span>
+        </a>
+        <a href="./sellos-de-goma/" class="service-card sr">
+          <img src="assets/images/Sello y almohadilla.jpg" alt="Sellos de goma Multigraff" class="service-card__thumb" loading="lazy">
+          <span class="service-card__num">04</span>
+          <span class="service-card__icon">🔖</span>
+          <h3 class="service-card__title">Sellos de Goma</h3>
+          <p class="service-card__desc">Sellos de goma personalizados para empresas, profesionales y uso personal. Entrega rápida, máxima precisión en cada detalle.</p>
+          <span class="service-card__link">Ver más →</span>
+        </a>
+        <a href="./impresion-gran-formato/" class="service-card service-card--featured sr">
+          <img src="assets/images/Cartel.jpg" alt="Impresión gran formato Multigraff" class="service-card__thumb" loading="lazy">
+          <span class="service-card__num">05</span>
+          <span class="service-card__icon">🖼️</span>
+          <h3 class="service-card__title">Gran Formato</h3>
+          <p class="service-card__desc">Banners, lonas, gigantografías y señalética de gran impacto. Impresión de alta resolución para exteriores e interiores.</p>
+          <span class="service-card__link" style="color:#ff8a8a">Ver más →</span>
+        </a>
+      </div>
+
+      <!-- Inline CTA -->
+      <div class="cta-banner sr" style="margin-top:3rem;">
+        <h2>¿No encontrás lo que buscás?</h2>
+        <p>Consultanos directamente — tenemos soluciones para cada necesidad de impresión.</p>
+        <a class="btn btn-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20necesito%20asesoramiento%20sobre%20un%20trabajo%20de%20impresi%C3%B3n.%20Quisiera%20consultar%20opciones%20y%20precios." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultá ahora gratis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GALERÍA DE TRABAJOS ═══ -->
+  <section class="section section--alt" id="galeria">
+    <div class="container">
+      <header class="section__header section__header--center sr">
+        <div class="section__tag">Nuestros trabajos</div>
+        <h2 class="section__title">Galería de Muestras</h2>
+        <p class="section__sub">Trabajos reales para clientes reales — tocá cualquier imagen para verla en detalle</p>
+      </header>
+
+      <div class="works-grid">
+
+        <!-- 1 BIG 2×2 -->
+        <a href="./papeleria-comercial/" class="works-item works-item--big">
+          <img src="assets/images/Carpeta_01.jpg" alt="Carpetas personalizadas" loading="lazy" decoding="async" width="600" height="460">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Carpetas</span>
+            <span class="works-item__name">Carpetas Personalizadas</span>
+          </div>
+        </a>
+
+        <!-- 2 1×1 -->
+        <a href="./folletos-y-volantes/" class="works-item">
+          <img src="assets/images/folleteria_.jpg" alt="Folletos y catálogos" loading="lazy" decoding="async" width="300" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Folletería</span>
+            <span class="works-item__name">Folletos y Catálogos</span>
+          </div>
+        </a>
+
+        <!-- 3 TALL 1×2 -->
+        <a href="./etiquetas-autoadhesivas/" class="works-item works-item--tall">
+          <img src="assets/images/etiqueta-auto.jpg" alt="Etiquetas autoadhesivas" loading="lazy" decoding="async" width="300" height="460">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Etiquetas</span>
+            <span class="works-item__name">Etiquetas Autoadhesivas</span>
+          </div>
+        </a>
+
+        <!-- 4 1×1 -->
+        <a href="./papeleria-comercial/" class="works-item">
+          <img src="assets/images/pap-comer_.jpg" alt="Papelería comercial" loading="lazy" decoding="async" width="300" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Papelería</span>
+            <span class="works-item__name">Papelería Comercial</span>
+          </div>
+        </a>
+
+        <!-- 5 WIDE 2×1 -->
+        <a href="./sellos-de-goma/" class="works-item works-item--wide">
+          <img src="assets/images/sello-auto-1.jpg" alt="Sellos de goma" loading="lazy" decoding="async" width="600" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Sellos</span>
+            <span class="works-item__name">Sellos Personalizados</span>
+          </div>
+        </a>
+
+        <!-- 6 1×1 -->
+        <a href="./papeleria-comercial/" class="works-item">
+          <img src="assets/images/sobres_01.jpg" alt="Sobres comerciales" loading="lazy" decoding="async" width="300" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Papelería</span>
+            <span class="works-item__name">Sobres Comerciales</span>
+          </div>
+        </a>
+
+        <!-- 7 1×1 -->
+        <a href="./papeleria-comercial/" class="works-item">
+          <img src="assets/images/Carpeta_02.jpg" alt="Carpetas con logo" loading="lazy" decoding="async" width="300" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Carpetas</span>
+            <span class="works-item__name">Carpetas con Logo</span>
+          </div>
+        </a>
+
+        <!-- 8 WIDE 2×1 -->
+        <a href="./folletos-y-volantes/" class="works-item works-item--wide">
+          <img src="assets/images/folleteria_1.jpg" alt="Volantes promocionales" loading="lazy" decoding="async" width="600" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Folletería</span>
+            <span class="works-item__name">Volantes Promocionales</span>
+          </div>
+        </a>
+
+        <!-- 9 1×1 -->
+        <a href="./impresion-gran-formato/" class="works-item">
+          <img src="assets/images/patente-impcolor.jpg" alt="Impresión gran formato" loading="lazy" decoding="async" width="300" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Gran Formato</span>
+            <span class="works-item__name">Impresión a Color</span>
+          </div>
+        </a>
+
+        <!-- 10 TALL 1×2 -->
+        <a href="./folletos-y-volantes/" class="works-item works-item--tall">
+          <img src="assets/images/libros-folleteria.jpg" alt="Libros y revistas" loading="lazy" decoding="async" width="300" height="460">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Libros</span>
+            <span class="works-item__name">Libros y Revistas</span>
+          </div>
+        </a>
+
+        <!-- 11 1×1 -->
+        <a href="./etiquetas-autoadhesivas/" class="works-item">
+          <img src="assets/images/etiqueta-auto2.jpg" alt="Etiquetas para envases" loading="lazy" decoding="async" width="300" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Etiquetas</span>
+            <span class="works-item__name">Etiquetas para Envases</span>
+          </div>
+        </a>
+
+        <!-- 12 1×1 -->
+        <a href="./papeleria-comercial/" class="works-item">
+          <img src="assets/images/pap-comer_2.jpg" alt="Tarjetas y membretes" loading="lazy" decoding="async" width="300" height="230">
+          <div class="works-item__caption">
+            <span class="works-item__cat">Papelería</span>
+            <span class="works-item__name">Tarjetas y Membretes</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CARACTERÍSTICAS ═══ -->
+  <section class="section section--alt" id="caracteristicas">
+    <div class="container">
+      <div class="features__inner">
+        <div>
+          <div class="section__tag sr">Por qué elegirnos</div>
+          <h2 class="features__heading sr">Más de 28 años de <em>excelencia gráfica</em></h2>
+          <p class="features__lead sr">Desde 1997 convirtiendo ideas en impresiones de excelencia en Mendoza.</p>
+          <ul class="features__list">
+            <li class="feature-item sr">
+              <!-- IMAGEN REQUERIDA: Maquinaria moderna de impresión (maquinaria offset/digital) -->
+              <!-- Ruta: assets/images/feature-experiencia.jpg | Tamaño: 200x200px -->
+              <div class="feature-item__icon"
+                   style="background-image:url('assets/images/feature-experiencia.jpg')"
+                   role="img" aria-label="Maquinaria moderna de impresión en Multigraff">✓</div>
+              <div>
+                <div class="feature-item__title">Experiencia Comprobada</div>
+                <p class="feature-item__desc">Desde 1997 sirviendo a empresas en Mendoza con soluciones gráficas de excelencia.</p>
+              </div>
+            </li>
+            <li class="feature-item sr">
+              <!-- IMAGEN REQUERIDA: Detalle de prensa o equipo de impresión -->
+              <!-- Ruta: assets/images/feature-equipamiento.jpg | Tamaño: 200x200px -->
+              <div class="feature-item__icon"
+                   style="background-image:url('assets/images/feature-equipamiento.jpg')"
+                   role="img" aria-label="Equipamiento moderno de Multigraff Litografía">⚙</div>
+              <div>
+                <div class="feature-item__title">Equipamiento Moderno</div>
+                <p class="feature-item__desc">Tecnología de punta para garantizar calidad superior en cada proyecto.</p>
+              </div>
+            </li>
+            <li class="feature-item sr">
+              <!-- IMAGEN REQUERIDA: Equipo de Multigraff atendiendo a un cliente -->
+              <!-- Ruta: assets/images/feature-atencion.jpg | Tamaño: 200x200px -->
+              <div class="feature-item__icon"
+                   style="background-image:url('assets/images/feature-atencion.jpg')"
+                   role="img" aria-label="Equipo de Multigraff atendiendo clientes">👤</div>
+              <div>
+                <div class="feature-item__title">Atención Personalizada</div>
+                <p class="feature-item__desc">Equipo dedicado a entender tus necesidades y ofrecer soluciones a tu medida.</p>
+              </div>
+            </li>
+            <li class="feature-item sr">
+              <!-- IMAGEN REQUERIDA: Entrega de productos impresos / proceso de despacho -->
+              <!-- Ruta: assets/images/feature-plazos.jpg | Tamaño: 200x200px -->
+              <div class="feature-item__icon"
+                   style="background-image:url('assets/images/feature-plazos.jpg')"
+                   role="img" aria-label="Entrega rápida de trabajos de impresión">⚡</div>
+              <div>
+                <div class="feature-item__title">Plazos Competitivos</div>
+                <p class="feature-item__desc">Entregas rápidas sin comprometer ni un detalle de la calidad.</p>
+              </div>
+            </li>
+            <li class="feature-item sr">
+              <!-- IMAGEN REQUERIDA: Cotización escrita o presupuesto impreso -->
+              <!-- Ruta: assets/images/feature-precios.jpg | Tamaño: 200x200px -->
+              <div class="feature-item__icon"
+                   style="background-image:url('assets/images/feature-precios.jpg')"
+                   role="img" aria-label="Presupuestos claros y precios competitivos">💲</div>
+              <div>
+                <div class="feature-item__title">Precios Competitivos</div>
+                <p class="feature-item__desc">Cotizaciones claras sin costos ocultos. Presupuestos adaptados a tu inversión.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="features__visual">
+          <div class="features__badge-wrap sr sr-right">
+            <div class="features__badge">
+              <div class="features__badge-num">+28</div>
+              <span class="features__badge-label">Años en el mercado</span>
+            </div>
+            <div class="features__badge">
+              <div class="features__badge-num">+500</div>
+              <span class="features__badge-label">Clientes activos</span>
+            </div>
+            <div class="features__badge">
+              <div class="features__badge-num">4.1★</div>
+              <span class="features__badge-label">Rating Google</span>
+            </div>
+            <div class="features__badge">
+              <div class="features__badge-num">100%</div>
+              <span class="features__badge-label">Satisfacción garantizada</span>
+            </div>
+            <div class="features__badge features__badge--span" style="background:var(--red-soft);border-color:rgba(37,99,235,.3);">
+              <div style="font-size:1rem;margin-bottom:.5rem;">📍 Maipú, Mendoza</div>
+              <p style="font-size:.85rem;color:var(--muted);">Circunvalación J. A. Maza 786 — Lun a Vie 9:00–17:30</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CÓMO TRABAJAMOS ═══ -->
+  <section class="video-section sr">
+    <div class="container">
+      <span class="video-section__tag">Nuestro proceso</span>
+      <h2 class="video-section__title">Así trabajamos en Multigraf</h2>
+      <div class="video-section__wrap">
+        <video autoplay muted loop playsinline
+               poster="assets/images/Maquina prin_1.jpg">
+          <source src="assets/videos/VID_20260508_174819.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-section__cta">
+        <a class="btn btn-wa"
+           href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20un%20presupuesto"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pedir presupuesto
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RESEÑAS ═══ -->
+  <section class="section" id="resenas">
+    <div class="container">
+      <header class="section__header section__header--center sr">
+        <div class="section__tag">Lo que dicen nuestros clientes</div>
+        <h2 class="section__title">Reseñas Google</h2>
+        <p class="section__sub">La opinión real de quienes confían en nosotros para sus proyectos</p>
+      </header>
+      <div class="reviews-grid">
+        <div class="review-card sr">
+          <div class="review-card__head">
+            <div class="review-card__avatar" style="background:linear-gradient(135deg,#2563EB,#cc0000)">
+              <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
+              <!-- Ruta: assets/images/avatar-oscar-castillo.jpg | Tamaño: 80x80px, circular -->
+              <img src="assets/images/avatar-oscar-castillo.jpg"
+                   alt="Oscar Castillo, cliente de Multigraff Litografía"
+                   class="review-avatar-img" loading="lazy"
+                   onerror="this.style.display='none'">O
+            </div>
+            <div class="review-card__name">Oscar Castillo</div>
+          </div>
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">"Trabajo de muy buena calidad"</p>
+          <div class="review-card__badge"><span class="review-card__g">G</span> Reseña de Google</div>
+        </div>
+        <div class="review-card sr">
+          <div class="review-card__head">
+            <div class="review-card__avatar" style="background:linear-gradient(135deg,#333,#111)">
+              <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
+              <!-- Ruta: assets/images/avatar-jorge-sanchez.jpg | Tamaño: 80x80px, circular -->
+              <img src="assets/images/avatar-jorge-sanchez.jpg"
+                   alt="Jorge Sanchez, cliente de Multigraff Litografía"
+                   class="review-avatar-img" loading="lazy"
+                   onerror="this.style.display='none'">J
+            </div>
+            <div class="review-card__name">Jorge Sanchez</div>
+          </div>
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">"Cumplidores. Buen trabajo calidad"</p>
+          <div class="review-card__badge"><span class="review-card__g">G</span> Reseña de Google</div>
+        </div>
+        <div class="review-card sr">
+          <div class="review-card__head">
+            <div class="review-card__avatar" style="background:linear-gradient(135deg,#cc0000,#880000)">
+              <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
+              <!-- Ruta: assets/images/avatar-juan-encina.jpg | Tamaño: 80x80px, circular -->
+              <img src="assets/images/avatar-juan-encina.jpg"
+                   alt="Juan Encina, cliente de Multigraff Litografía"
+                   class="review-avatar-img" loading="lazy"
+                   onerror="this.style.display='none'">J
+            </div>
+            <div class="review-card__name">Juan Encina</div>
+          </div>
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">"Buena atención, precios acordes... Buen trabajo en tiempo y forma"</p>
+          <div class="review-card__badge"><span class="review-card__g">G</span> Reseña de Google</div>
+        </div>
+        <div class="review-card sr">
+          <div class="review-card__head">
+            <div class="review-card__avatar" style="background:linear-gradient(135deg,#555,#2d2d2d)">
+              <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
+              <!-- Ruta: assets/images/avatar-javier-mandiola.jpg | Tamaño: 80x80px, circular -->
+              <img src="assets/images/avatar-javier-mandiola.jpg"
+                   alt="Javier Angel Mandiola, cliente de Multigraff Litografía"
+                   class="review-avatar-img" loading="lazy"
+                   onerror="this.style.display='none'">J
+            </div>
+            <div class="review-card__name">Javier Angel Mandiola</div>
+          </div>
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">"De primera"</p>
+          <div class="review-card__badge"><span class="review-card__g">G</span> Reseña de Google</div>
+        </div>
+        <div class="review-card sr">
+          <div class="review-card__head">
+            <div class="review-card__avatar" style="background:linear-gradient(135deg,#2563EB,#b00020)">
+              <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
+              <!-- Ruta: assets/images/avatar-nancy-avila.jpg | Tamaño: 80x80px, circular -->
+              <img src="assets/images/avatar-nancy-avila.jpg"
+                   alt="Nancy Avila, cliente de Multigraff Litografía"
+                   class="review-avatar-img" loading="lazy"
+                   onerror="this.style.display='none'">N
+            </div>
+            <div class="review-card__name">Nancy Avila</div>
+          </div>
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">"Esta imprenta es sumamente recomendable! Siempre llevo a cortar las resmas A4 para mis agendas"</p>
+          <div class="review-card__badge"><span class="review-card__g">G</span> Reseña de Google</div>
+        </div>
+        <div class="reviews-summary sr">
+          <div class="reviews-summary__score">4.1</div>
+          <div class="reviews-summary__stars">★★★★☆</div>
+          <p class="reviews-summary__sub">Basado en 17 opiniones en Google</p>
+          <a class="btn btn-ghost" style="margin-top:1rem;font-size:.82rem;padding:.6rem 1.4rem;" href="https://maps.app.goo.gl/NPc8noQnUtJNCfRN8" target="_blank" rel="noopener">Ver todas las reseñas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACTO ═══ -->
+  <section class="section section--alt" id="contacto">
+    <div class="container">
+      <div class="contact__inner">
+        <div class="sr sr-left">
+          <div class="section__tag">Hablemos</div>
+          <h2 class="contact__title">Contactá con nosotros</h2>
+          <p class="contact__sub">Estamos en Maipú, Mendoza. Escribinos o visitanos.</p>
+          <ul class="contact__list">
+            <li class="contact__item">
+              <div class="contact__icon">📍</div>
+              <div>
+                <div class="contact__item-label">Ubicación</div>
+                <div class="contact__item-val">Circunvalación Juan Agustín Maza 786<br>M5515 Maipú, Mendoza</div>
+              </div>
+            </li>
+            <li class="contact__item">
+              <div class="contact__icon">📱</div>
+              <div>
+                <div class="contact__item-label">Teléfono / WhatsApp</div>
+                <div class="contact__item-val">
+                  <a href="https://wa.me/542612013773" target="_blank">0261 201-3773</a><br>
+                  <a href="https://wa.me/5492613827434" target="_blank" style="font-size:.9em;opacity:.75;">+54 9 2613 82-7434</a>
+                </div>
+              </div>
+            </li>
+            <li class="contact__item">
+              <div class="contact__icon">📧</div>
+              <div>
+                <div class="contact__item-label">Email</div>
+                <div class="contact__item-val"><a href="mailto:litografiamultigraf@gmail.com">litografiamultigraf@gmail.com</a></div>
+              </div>
+            </li>
+            <li class="contact__item">
+              <div class="contact__icon">🕐</div>
+              <div>
+                <div class="contact__item-label">Horario</div>
+                <div class="contact__item-val">Lunes a Viernes: 9:00 — 17:30</div>
+              </div>
+            </li>
+          </ul>
+          <div class="cmyk-btns">
+            <!-- C — Cyan: WhatsApp -->
+            <a class="btn-cmyk btn-cmyk--c"
+               href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20sobre%20un%20trabajo%20de%20impresi%C3%B3n"
+               target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <!-- M — Magenta: Llamar -->
+            <a class="btn-cmyk btn-cmyk--m" href="tel:+5402612013773">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+              Llamar
+            </a>
+            <!-- Y — Yellow: Email -->
+            <a class="btn-cmyk btn-cmyk--y" href="mailto:litografiamultigraf@gmail.com">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Enviar Email
+            </a>
+            <!-- K — Black: Ver galería -->
+            <a class="btn-cmyk btn-cmyk--k" href="#galeria">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 2l3 3 3-3h-6z"/></svg>
+              Ver Trabajos
+            </a>
+          </div>
+        </div>
+        <div class="contact__map sr sr-right">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53572.23943416168!2d-68.86048359894808!3d-32.94401321160741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0c916d4b6b79%3A0xfc118dad7a0ab9a3!2sMultigraff%20Litografia%20Imprenta!5e0!3m2!1ses-419!2sar!4v1774924791286!5m2!1ses-419!2sar" width="100%" height="520" style="border:0;border-radius:16px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Multigraff Litografía"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <a href="./" class="footer__logo">Multigraff<em> Litografía</em></a>
+      <nav class="footer__links" aria-label="Links del footer">
+        <a href="./etiquetas-autoadhesivas/">Etiquetas</a>
+        <a href="./papeleria-comercial/">Papelería</a>
+        <a href="./folletos-y-volantes/">Folletos</a>
+        <a href="./sellos-de-goma/">Sellos</a>
+        <a href="./impresion-gran-formato/">Gran Formato</a>
+        <a href="./contacto/">Contacto</a>
+      </nav>
+      <hr class="footer__sep">
+      <p class="footer__copy">&copy; 2025 Multigraff Litografía — Maipú, Mendoza. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ═══ WA FAB ═══ -->
+  <a class="wa-fab" id="waFab" href="https://wa.me/542612013773?text=Hola%20Multigraff%20Litograf%C3%ADa%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-fab__label">Presupuesto gratis</span>
+  </a>
+
+  <!-- Anime.js v3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <script>
+    // ── NAV SCROLL EFFECT ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive:true });
+
+    // ── MOBILE MENU ──
+    const toggle = document.getElementById('menuToggle');
+    const mobile = document.getElementById('mobileMenu');
+    const mclose = document.getElementById('menuClose');
+    function openMenu() { toggle.classList.add('open'); mobile.classList.add('open'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function closeMenu() { toggle.classList.remove('open'); mobile.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    toggle.addEventListener('click', () => mobile.classList.contains('open') ? closeMenu() : openMenu());
+    mclose.addEventListener('click', closeMenu);
+    document.querySelectorAll('#mobileMenu a').forEach(l => l.addEventListener('click', closeMenu));
+
+    // ── SCROLL REVEAL → manejado por anime.js (ver script de abajo) ──
+
+    // ── STATS COUNTER ──
+    const stats = document.querySelectorAll('.stat[data-target]');
+    const statsObs = new IntersectionObserver((entries) => {
+      entries.forEach((e, idx) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const numEl = el.querySelector('.stat__num');
+        const target = parseFloat(el.dataset.target);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const decimals = parseInt(el.dataset.decimals || '0');
+        const delay = idx * 150;
+        setTimeout(() => { el.classList.add('in'); }, delay);
+        setTimeout(() => {
+          const start = performance.now();
+          const dur = 1400;
+          (function tick(now) {
+            const p = Math.min((now - start) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            numEl.textContent = prefix + (target * ease).toFixed(decimals) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          })(performance.now());
+        }, delay);
+        statsObs.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    stats.forEach(s => statsObs.observe(s));
+
+    // ── PAGE TRANSITIONS (service cards) ──
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a') === card) return;
+        e.preventDefault();
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity .3s ease';
+        setTimeout(() => { window.location.href = card.href; }, 300);
+      });
+    });
+  </script>
+  <!-- ═══ ANIME.JS ANIMATIONS ═══ -->
+  <script>
+  (function () {
+    if (typeof anime === 'undefined') return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    /* ── 1. HERO ENTRANCE ── */
+    anime.timeline({ easing: 'easeOutExpo' })
+      .add({
+        targets: '.hero__eyebrow',
+        opacity: [0, 1], translateY: [16, 0],
+        duration: 700, delay: 120
+      })
+      .add({
+        targets: '.hero__h1',
+        opacity: [0, 1], translateY: [28, 0],
+        letterSpacing: ['-0.08em', '-0.03em'],
+        duration: 900
+      }, '-=500')
+      .add({
+        targets: '.hero__sub',
+        opacity: [0, 1], translateY: [20, 0],
+        duration: 750
+      }, '-=550')
+      .add({
+        targets: '.hero__ctas',
+        opacity: [0, 1], translateY: [16, 0],
+        duration: 650
+      }, '-=500')
+      .add({
+        targets: '.hero__scroll',
+        opacity: [0, 1],
+        duration: 500
+      }, '-=200');
+
+    /* ── 2. GLOW LOOP SUAVE ── */
+    anime({
+      targets: '.hero__glow-1',
+      translateX: [0, 35], translateY: [0, -25], scale: [1, 1.14],
+      duration: 8000, loop: true, direction: 'alternate',
+      easing: 'easeInOutSine'
+    });
+    anime({
+      targets: '.hero__glow-2',
+      translateX: [0, -28], translateY: [0, 18], scale: [1, 1.11],
+      duration: 10000, loop: true, direction: 'alternate',
+      easing: 'easeInOutSine'
+    });
+
+    /* ── 3. SCROLL REVEAL GENERAL (IntersectionObserver + anime.js) ── */
+    const srEls = document.querySelectorAll('.sr:not(.service-card)');
+    const srObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var tx = 0, ty = 40, sc = 1;
+        if (el.classList.contains('sr-left'))  { tx = -50; ty = 0; }
+        if (el.classList.contains('sr-right')) { tx =  50; ty = 0; }
+        if (el.classList.contains('sr-scale')) { sc = 0.92; ty = 0; }
+        anime({
+          targets: el,
+          opacity: [0, 1],
+          translateX: [tx, 0],
+          translateY: [ty, 0],
+          scale: [sc, 1],
+          duration: 750,
+          easing: 'easeOutExpo'
+        });
+        srObserver.unobserve(el);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    srEls.forEach(function (el) { srObserver.observe(el); });
+
+    /* ── 3b. SERVICES GRID STAGGER ── */
+    var grid = document.querySelector('.services-grid');
+    if (grid) {
+      var gridObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          anime({
+            targets: '.services-grid .service-card',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            duration: 700,
+            delay: anime.stagger(100),
+            easing: 'easeOutExpo'
+          });
+          gridObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+      gridObserver.observe(grid);
+    }
+
+    /* ── 4. PARTÍCULAS DE TINTA ── */
+    var featSection = document.getElementById('caracteristicas');
+    if (featSection) {
+      var sizes = [3, 4, 5, 6, 3, 4];
+      for (var i = 0; i < 18; i++) {
+        var p = document.createElement('div');
+        p.className = 'particle';
+        var sz = sizes[i % sizes.length];
+        p.style.cssText =
+          'width:' + sz + 'px;height:' + sz + 'px;' +
+          'left:' + (Math.random() * 96 + 2) + '%;' +
+          'top:'  + (Math.random() * 96 + 2) + '%;';
+        featSection.appendChild(p);
+        anime({
+          targets: p,
+          translateX: function () { return anime.random(-45, 45); },
+          translateY: function () { return anime.random(-45, 45); },
+          opacity:    [
+            function () { return anime.random(5, 15) / 100; },
+            function () { return anime.random(20, 45) / 100; }
+          ],
+          duration:   function () { return anime.random(3500, 8000); },
+          loop: true, direction: 'alternate',
+          easing: 'easeInOutSine',
+          delay: function () { return anime.random(0, 2500); }
+        });
+      }
+    }
+
+    /* ── 5. MICRO-INTERACCIONES DE BOTONES ── */
+    document.querySelectorAll('.btn').forEach(function (btn) {
+      btn.addEventListener('mouseenter', function () {
+        anime({ targets: btn, scale: 1.05, duration: 400, easing: 'easeOutElastic(1, .8)' });
+      });
+      btn.addEventListener('mouseleave', function () {
+        anime({ targets: btn, scale: 1,    duration: 400, easing: 'easeOutElastic(1, .8)' });
+      });
+    });
+
+  })();
+  </script>
+
+  <script>
+  (function () {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── PARALLAX HERO ── */
+    var pImg = document.querySelector('.hero-parallax-img');
+    if (pImg && !reduced) {
+      window.addEventListener('scroll', function () {
+        if (window.innerWidth < 768) return;
+        pImg.style.transform = 'translateY(' + (window.scrollY * 0.28) + 'px)';
+      }, { passive: true });
+    }
+
+    /* ── GALLERY SCROLL REVEAL ── */
+    var galleryItems = document.querySelectorAll('.gallery-item, .gallery-service__item');
+    if (galleryItems.length && typeof anime !== 'undefined') {
+      var gObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          gObs.unobserve(entry.target);
+          if (reduced) { entry.target.style.opacity = 1; return; }
+          anime({ targets: entry.target, opacity: [0, 1], translateY: [30, 0], duration: 700, easing: 'easeOutExpo' });
+        });
+      }, { threshold: 0.08 });
+      galleryItems.forEach(function (el) {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(30px)';
+        gObs.observe(el);
+      });
+    }
+  })();
+
+  /* ── CMYK SCROLL PARALLAX + COLOR SHIFT ── */
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var b = [
+      document.querySelector('.cmyk-blob--c'),
+      document.querySelector('.cmyk-blob--m'),
+      document.querySelector('.cmyk-blob--y'),
+      document.querySelector('.cmyk-blob--c2')
+    ];
+    if (!b[0]) return;
+    var sp = [.18, -.12, -.09, .14], xs = [.06, -.05, .04, -.03];
+    /* Stages: [r,g,a,a] per blob — Cyan → Magenta → Yellow → mix */
+    var stages = [
+      [[0,174,239,.60],[236,0,140,.28],[255,215,0,.20],[0,174,239,.40]],
+      [[236,0,140,.38],[236,0,140,.62],[255,215,0,.25],[236,0,140,.38]],
+      [[0,174,239,.22],[236,0,140,.28],[255,215,0,.64],[255,215,0,.42]],
+      [[0,174,239,.55],[236,0,140,.45],[255,215,0,.22],[0,174,239,.48]]
+    ];
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function getCol(idx, prog) {
+      var n = stages.length - 1, pos = prog * n;
+      var si = Math.min(Math.floor(pos), n - 1), t = pos - si;
+      var c1 = stages[si][idx], c2 = stages[si+1][idx];
+      return 'rgba(' + Math.round(lerp(c1[0],c2[0],t)) + ',' + Math.round(lerp(c1[1],c2[1],t)) + ',' + Math.round(lerp(c1[2],c2[2],t)) + ',' + lerp(c1[3],c2[3],t).toFixed(2) + ')';
+    }
+    var rf = false, sy = 0;
+    window.addEventListener('scroll', function() {
+      sy = window.scrollY;
+      if (!rf) {
+        rf = true;
+        requestAnimationFrame(function() {
+          var h = document.documentElement.scrollHeight - window.innerHeight;
+          var prog = h > 0 ? Math.min(sy / h, 1) : 0;
+          b.forEach(function(el, i) {
+            el.style.transform = 'translate(' + (sy*xs[i]).toFixed(1) + 'px,' + (sy*sp[i]).toFixed(1) + 'px)';
+            el.style.background = 'radial-gradient(circle,' + getCol(i, prog) + ' 0%,transparent 65%)';
+          });
+          rf = false;
+        });
+      }
+    }, { passive: true });
+  })();
+
+  /* ── GALERÍA: scroll appear / disappear ── */
+  (function() {
+    var items = document.querySelectorAll('.works-item');
+    if (!items.length || !('IntersectionObserver' in window)) {
+      items.forEach(function(el) { el.classList.add('wg-in'); });
+      return;
+    }
+
+    /* stagger por columna (0-3) dentro de cada fila */
+    items.forEach(function(el, i) {
+      el.style.transitionDelay = (i % 4 * 0.07) + 's';
+    });
+
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('wg-in');
+        } else {
+          /* desaparece suavemente al salir del viewport */
+          entry.target.classList.remove('wg-in');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    items.forEach(function(el) { io.observe(el); });
+  })();
+  </script>
+
+</body>
+</html>
