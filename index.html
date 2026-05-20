@@ -2,6 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZV3ZM6LT6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FZV3ZM6LT6');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Litografía Multigraf | Imprenta en Mendoza — Impresión Offset y Digital</title>
   <meta name="description" content="Imprenta en Maipú, Mendoza desde 1997. Impresión offset, digital, folletería, tarjetas, banners y más. Atención a empresas. Pedí tu presupuesto por WhatsApp.">
@@ -862,7 +870,7 @@
     ══════════════════════════════ */
     .hero__img-bg {
       position: absolute; inset: 0; z-index: 0;
-      background-image: url('assets/images/hero-maquinaria-offset.jpg');
+      background-image: url('assets/images/webp/hero-maquinaria-offset.webp');
       background-size: cover; background-position: center;
     }
     .hero__img-bg::after {
@@ -1034,7 +1042,7 @@
   opacity: 0;
   transform: translateY(32px);
   transition: opacity .65s ease, transform .65s cubic-bezier(.16,1,.3,1),
-              filter .3s ease;
+              box-shadow .35s ease;
 }
 .works-item--wide { grid-column: span 2; }
 .works-item--tall { grid-row: span 2; }
@@ -1072,22 +1080,12 @@
   color: #fff; line-height: 1.2;
 }
 
-/* ─ GROUP HOVER: dimear los demás, resaltar el activo ─ */
-.works-grid:hover .works-item.wg-in {
-  opacity: .62;
-  filter: brightness(.72) saturate(.78);
-  transform: scale(.982);
-  transition: opacity .28s ease, filter .28s ease, transform .28s ease;
-}
-.works-grid:hover .works-item.wg-in:hover {
-  opacity: 1;
-  filter: brightness(1.08) saturate(1.12);
-  transform: scale(1.03);
+/* ─ HOVER: lift sutil + sombra premium ─ */
+.works-item.wg-in:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 20px 48px rgba(0,0,0,.52), 0 6px 16px rgba(0,0,0,.22);
   z-index: 2;
-}
-.works-grid:hover .works-item.wg-in:hover img { transform: scale(1.06); }
-.works-grid:hover .works-item.wg-in:hover .works-item__caption {
-  background: linear-gradient(to top, rgba(7,7,13,.96) 0%, rgba(7,7,13,.35) 55%, transparent 100%);
+  transition: transform .32s cubic-bezier(.16,1,.3,1), box-shadow .32s ease;
 }
 
 @media (max-width: 900px) {
@@ -1233,7 +1231,7 @@
   <section class="hero">
     <div class="hero__bg">
       <div class="hero-parallax-wrap" aria-hidden="true">
-  <img src="assets/images/Paleta_Hero.jpg"
+  <img src="assets/images/webp/Paleta_Hero.webp"
        class="hero-parallax-img"
        alt=""
        loading="eager"
@@ -1301,7 +1299,7 @@
       </header>
       <div class="services-grid">
         <a href="./etiquetas-autoadhesivas/" class="service-card sr">
-          <img src="assets/images/etiqueta-auto.jpg" alt="Etiquetas autoadhesivas Multigraff" class="service-card__thumb" loading="eager">
+          <img src="assets/images/webp/etiqueta-auto.webp" alt="Etiquetas autoadhesivas Multigraff" class="service-card__thumb" loading="eager">
           <span class="service-card__num">01</span>
           <span class="service-card__icon">🏷️</span>
           <h3 class="service-card__title">Etiquetas Autoadhesivas</h3>
@@ -1309,7 +1307,7 @@
           <span class="service-card__link">Ver más →</span>
         </a>
         <a href="./papeleria-comercial/" class="service-card sr">
-          <img src="assets/images/pap-comer_.jpg" alt="Papelería comercial Multigraff" class="service-card__thumb" loading="lazy">
+          <img src="assets/images/webp/pap-comer_.webp" alt="Papelería comercial Multigraff" class="service-card__thumb" loading="lazy">
           <span class="service-card__num">02</span>
           <span class="service-card__icon">📋</span>
           <h3 class="service-card__title">Papelería Comercial</h3>
@@ -1317,7 +1315,7 @@
           <span class="service-card__link">Ver más →</span>
         </a>
         <a href="./folletos-y-volantes/" class="service-card sr">
-          <img src="assets/images/folleteria_.jpg" alt="Folletos y volantes Multigraff" class="service-card__thumb" loading="lazy">
+          <img src="assets/images/webp/folleteria_.webp" alt="Folletos y volantes Multigraff" class="service-card__thumb" loading="lazy">
           <span class="service-card__num">03</span>
           <span class="service-card__icon">📄</span>
           <h3 class="service-card__title">Folletos y Volantes</h3>
@@ -1325,7 +1323,7 @@
           <span class="service-card__link">Ver más →</span>
         </a>
         <a href="./sellos-de-goma/" class="service-card sr">
-          <img src="assets/images/Sello y almohadilla.jpg" alt="Sellos de goma Multigraff" class="service-card__thumb" loading="lazy">
+          <img src="assets/images/webp/Sello y almohadilla.webp" alt="Sellos de goma Multigraff" class="service-card__thumb" loading="lazy">
           <span class="service-card__num">04</span>
           <span class="service-card__icon">🔖</span>
           <h3 class="service-card__title">Sellos de Goma</h3>
@@ -1333,7 +1331,7 @@
           <span class="service-card__link">Ver más →</span>
         </a>
         <a href="./impresion-gran-formato/" class="service-card service-card--featured sr">
-          <img src="assets/images/Cartel.jpg" alt="Impresión gran formato Multigraff" class="service-card__thumb" loading="lazy">
+          <img src="assets/images/webp/Cartel.webp" alt="Impresión gran formato Multigraff" class="service-card__thumb" loading="lazy">
           <span class="service-card__num">05</span>
           <span class="service-card__icon">🖼️</span>
           <h3 class="service-card__title">Gran Formato</h3>
@@ -1367,7 +1365,7 @@
 
         <!-- 1 BIG 2×2 -->
         <a href="./papeleria-comercial/" class="works-item works-item--big">
-          <img src="assets/images/Carpeta_01.jpg" alt="Carpetas personalizadas" loading="lazy" decoding="async" width="600" height="460">
+          <img src="assets/images/webp/Carpeta_01.webp" alt="Carpetas personalizadas" loading="lazy" decoding="async" width="600" height="460">
           <div class="works-item__caption">
             <span class="works-item__cat">Carpetas</span>
             <span class="works-item__name">Carpetas Personalizadas</span>
@@ -1376,7 +1374,7 @@
 
         <!-- 2 1×1 -->
         <a href="./folletos-y-volantes/" class="works-item">
-          <img src="assets/images/folleteria_.jpg" alt="Folletos y catálogos" loading="lazy" decoding="async" width="300" height="230">
+          <img src="assets/images/webp/folleteria_.webp" alt="Folletos y catálogos" loading="lazy" decoding="async" width="300" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Folletería</span>
             <span class="works-item__name">Folletos y Catálogos</span>
@@ -1385,7 +1383,7 @@
 
         <!-- 3 TALL 1×2 -->
         <a href="./etiquetas-autoadhesivas/" class="works-item works-item--tall">
-          <img src="assets/images/etiqueta-auto.jpg" alt="Etiquetas autoadhesivas" loading="lazy" decoding="async" width="300" height="460">
+          <img src="assets/images/webp/etiqueta-auto.webp" alt="Etiquetas autoadhesivas" loading="lazy" decoding="async" width="300" height="460">
           <div class="works-item__caption">
             <span class="works-item__cat">Etiquetas</span>
             <span class="works-item__name">Etiquetas Autoadhesivas</span>
@@ -1394,7 +1392,7 @@
 
         <!-- 4 1×1 -->
         <a href="./papeleria-comercial/" class="works-item">
-          <img src="assets/images/pap-comer_.jpg" alt="Papelería comercial" loading="lazy" decoding="async" width="300" height="230">
+          <img src="assets/images/webp/pap-comer_.webp" alt="Papelería comercial" loading="lazy" decoding="async" width="300" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Papelería</span>
             <span class="works-item__name">Papelería Comercial</span>
@@ -1403,7 +1401,7 @@
 
         <!-- 5 WIDE 2×1 -->
         <a href="./sellos-de-goma/" class="works-item works-item--wide">
-          <img src="assets/images/sello-auto-1.jpg" alt="Sellos de goma" loading="lazy" decoding="async" width="600" height="230">
+          <img src="assets/images/webp/sello-auto-1.webp" alt="Sellos de goma" loading="lazy" decoding="async" width="600" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Sellos</span>
             <span class="works-item__name">Sellos Personalizados</span>
@@ -1412,7 +1410,7 @@
 
         <!-- 6 1×1 -->
         <a href="./papeleria-comercial/" class="works-item">
-          <img src="assets/images/sobres_01.jpg" alt="Sobres comerciales" loading="lazy" decoding="async" width="300" height="230">
+          <img src="assets/images/webp/sobres_01.webp" alt="Sobres comerciales" loading="lazy" decoding="async" width="300" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Papelería</span>
             <span class="works-item__name">Sobres Comerciales</span>
@@ -1421,7 +1419,7 @@
 
         <!-- 7 1×1 -->
         <a href="./papeleria-comercial/" class="works-item">
-          <img src="assets/images/Carpeta_02.jpg" alt="Carpetas con logo" loading="lazy" decoding="async" width="300" height="230">
+          <img src="assets/images/webp/Carpeta_02.webp" alt="Carpetas con logo" loading="lazy" decoding="async" width="300" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Carpetas</span>
             <span class="works-item__name">Carpetas con Logo</span>
@@ -1430,7 +1428,7 @@
 
         <!-- 8 WIDE 2×1 -->
         <a href="./folletos-y-volantes/" class="works-item works-item--wide">
-          <img src="assets/images/folleteria_1.jpg" alt="Volantes promocionales" loading="lazy" decoding="async" width="600" height="230">
+          <img src="assets/images/webp/folleteria_1.webp" alt="Volantes promocionales" loading="lazy" decoding="async" width="600" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Folletería</span>
             <span class="works-item__name">Volantes Promocionales</span>
@@ -1439,7 +1437,7 @@
 
         <!-- 9 1×1 -->
         <a href="./impresion-gran-formato/" class="works-item">
-          <img src="assets/images/patente-impcolor.jpg" alt="Impresión gran formato" loading="lazy" decoding="async" width="300" height="230">
+          <img src="assets/images/webp/patente-impcolor.webp" alt="Impresión gran formato" loading="lazy" decoding="async" width="300" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Gran Formato</span>
             <span class="works-item__name">Impresión a Color</span>
@@ -1448,7 +1446,7 @@
 
         <!-- 10 TALL 1×2 -->
         <a href="./folletos-y-volantes/" class="works-item works-item--tall">
-          <img src="assets/images/libros-folleteria.jpg" alt="Libros y revistas" loading="lazy" decoding="async" width="300" height="460">
+          <img src="assets/images/webp/libros-folleteria.webp" alt="Libros y revistas" loading="lazy" decoding="async" width="300" height="460">
           <div class="works-item__caption">
             <span class="works-item__cat">Libros</span>
             <span class="works-item__name">Libros y Revistas</span>
@@ -1457,7 +1455,7 @@
 
         <!-- 11 1×1 -->
         <a href="./etiquetas-autoadhesivas/" class="works-item">
-          <img src="assets/images/etiqueta-auto2.jpg" alt="Etiquetas para envases" loading="lazy" decoding="async" width="300" height="230">
+          <img src="assets/images/webp/etiqueta-auto2.webp" alt="Etiquetas para envases" loading="lazy" decoding="async" width="300" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Etiquetas</span>
             <span class="works-item__name">Etiquetas para Envases</span>
@@ -1466,7 +1464,7 @@
 
         <!-- 12 1×1 -->
         <a href="./papeleria-comercial/" class="works-item">
-          <img src="assets/images/pap-comer_2.jpg" alt="Tarjetas y membretes" loading="lazy" decoding="async" width="300" height="230">
+          <img src="assets/images/webp/pap-comer_2.webp" alt="Tarjetas y membretes" loading="lazy" decoding="async" width="300" height="230">
           <div class="works-item__caption">
             <span class="works-item__cat">Papelería</span>
             <span class="works-item__name">Tarjetas y Membretes</span>
@@ -1490,7 +1488,7 @@
               <!-- IMAGEN REQUERIDA: Maquinaria moderna de impresión (maquinaria offset/digital) -->
               <!-- Ruta: assets/images/feature-experiencia.jpg | Tamaño: 200x200px -->
               <div class="feature-item__icon"
-                   style="background-image:url('assets/images/feature-experiencia.jpg')"
+                   style="background-image:url('assets/images/webp/feature-experiencia.webp')"
                    role="img" aria-label="Maquinaria moderna de impresión en Multigraff">✓</div>
               <div>
                 <div class="feature-item__title">Experiencia Comprobada</div>
@@ -1501,7 +1499,7 @@
               <!-- IMAGEN REQUERIDA: Detalle de prensa o equipo de impresión -->
               <!-- Ruta: assets/images/feature-equipamiento.jpg | Tamaño: 200x200px -->
               <div class="feature-item__icon"
-                   style="background-image:url('assets/images/feature-equipamiento.jpg')"
+                   style="background-image:url('assets/images/webp/feature-equipamiento.webp')"
                    role="img" aria-label="Equipamiento moderno de Multigraff Litografía">⚙</div>
               <div>
                 <div class="feature-item__title">Equipamiento Moderno</div>
@@ -1512,7 +1510,7 @@
               <!-- IMAGEN REQUERIDA: Equipo de Multigraff atendiendo a un cliente -->
               <!-- Ruta: assets/images/feature-atencion.jpg | Tamaño: 200x200px -->
               <div class="feature-item__icon"
-                   style="background-image:url('assets/images/feature-atencion.jpg')"
+                   style="background-image:url('assets/images/webp/feature-atencion.webp')"
                    role="img" aria-label="Equipo de Multigraff atendiendo clientes">👤</div>
               <div>
                 <div class="feature-item__title">Atención Personalizada</div>
@@ -1523,7 +1521,7 @@
               <!-- IMAGEN REQUERIDA: Entrega de productos impresos / proceso de despacho -->
               <!-- Ruta: assets/images/feature-plazos.jpg | Tamaño: 200x200px -->
               <div class="feature-item__icon"
-                   style="background-image:url('assets/images/feature-plazos.jpg')"
+                   style="background-image:url('assets/images/webp/feature-plazos.webp')"
                    role="img" aria-label="Entrega rápida de trabajos de impresión">⚡</div>
               <div>
                 <div class="feature-item__title">Plazos Competitivos</div>
@@ -1534,7 +1532,7 @@
               <!-- IMAGEN REQUERIDA: Cotización escrita o presupuesto impreso -->
               <!-- Ruta: assets/images/feature-precios.jpg | Tamaño: 200x200px -->
               <div class="feature-item__icon"
-                   style="background-image:url('assets/images/feature-precios.jpg')"
+                   style="background-image:url('assets/images/webp/feature-precios.webp')"
                    role="img" aria-label="Presupuestos claros y precios competitivos">💲</div>
               <div>
                 <div class="feature-item__title">Precios Competitivos</div>
@@ -1578,7 +1576,7 @@
       <h2 class="video-section__title">Así trabajamos en Multigraf</h2>
       <div class="video-section__wrap">
         <video autoplay muted loop playsinline
-               poster="assets/images/Maquina prin_1.jpg">
+               poster="assets/images/webp/Maquina prin_1.webp">
           <source src="assets/videos/VID_20260508_174819.mp4" type="video/mp4">
         </video>
       </div>
@@ -1607,7 +1605,7 @@
             <div class="review-card__avatar" style="background:linear-gradient(135deg,#2563EB,#cc0000)">
               <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
               <!-- Ruta: assets/images/avatar-oscar-castillo.jpg | Tamaño: 80x80px, circular -->
-              <img src="assets/images/avatar-oscar-castillo.jpg"
+              <img src="assets/images/webp/avatar-oscar-castillo.webp"
                    alt="Oscar Castillo, cliente de Multigraff Litografía"
                    class="review-avatar-img" loading="lazy"
                    onerror="this.style.display='none'">O
@@ -1623,7 +1621,7 @@
             <div class="review-card__avatar" style="background:linear-gradient(135deg,#333,#111)">
               <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
               <!-- Ruta: assets/images/avatar-jorge-sanchez.jpg | Tamaño: 80x80px, circular -->
-              <img src="assets/images/avatar-jorge-sanchez.jpg"
+              <img src="assets/images/webp/avatar-jorge-sanchez.webp"
                    alt="Jorge Sanchez, cliente de Multigraff Litografía"
                    class="review-avatar-img" loading="lazy"
                    onerror="this.style.display='none'">J
@@ -1639,7 +1637,7 @@
             <div class="review-card__avatar" style="background:linear-gradient(135deg,#cc0000,#880000)">
               <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
               <!-- Ruta: assets/images/avatar-juan-encina.jpg | Tamaño: 80x80px, circular -->
-              <img src="assets/images/avatar-juan-encina.jpg"
+              <img src="assets/images/webp/avatar-juan-encina.webp"
                    alt="Juan Encina, cliente de Multigraff Litografía"
                    class="review-avatar-img" loading="lazy"
                    onerror="this.style.display='none'">J
@@ -1655,7 +1653,7 @@
             <div class="review-card__avatar" style="background:linear-gradient(135deg,#555,#2d2d2d)">
               <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
               <!-- Ruta: assets/images/avatar-javier-mandiola.jpg | Tamaño: 80x80px, circular -->
-              <img src="assets/images/avatar-javier-mandiola.jpg"
+              <img src="assets/images/webp/avatar-javier-mandiola.webp"
                    alt="Javier Angel Mandiola, cliente de Multigraff Litografía"
                    class="review-avatar-img" loading="lazy"
                    onerror="this.style.display='none'">J
@@ -1671,7 +1669,7 @@
             <div class="review-card__avatar" style="background:linear-gradient(135deg,#2563EB,#b00020)">
               <!-- IMAGEN REQUERIDA: Avatar/foto de cliente real o placeholder profesional -->
               <!-- Ruta: assets/images/avatar-nancy-avila.jpg | Tamaño: 80x80px, circular -->
-              <img src="assets/images/avatar-nancy-avila.jpg"
+              <img src="assets/images/webp/avatar-nancy-avila.webp"
                    alt="Nancy Avila, cliente de Multigraff Litografía"
                    class="review-avatar-img" loading="lazy"
                    onerror="this.style.display='none'">N

@@ -1,6 +1,9 @@
 # Claude Code
 .claude/
 
+# Dependencies
+node_modules/
+
 # macOS
 .DS_Store
 .DS_Store?
