@@ -15,13 +15,19 @@
   <title>Litografía Multigraf | Imprenta en Mendoza — Impresión Offset y Digital</title>
   <meta name="description" content="Imprenta en Maipú, Mendoza desde 1997. Impresión offset, digital, folletería, tarjetas, banners y más. Atención a empresas. Pedí tu presupuesto por WhatsApp.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.multigraff.com/propuesta-moderna/">
+  <link rel="canonical" href="https://multigraff.com/">
   <meta property="og:title" content="Litografía Multigraf | Imprenta en Mendoza">
   <meta property="og:description" content="Imprenta en Maipú, Mendoza desde 1997. Impresión offset, digital, folletería, tarjetas, banners y más.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://multigraff.com/">
+  <meta property="og:site_name" content="Multigraff Litografía">
   <!-- IMAGEN REQUERIDA: Foto destacada para compartir en redes sociales -->
   <!-- Ruta: /assets/images/og-multigraff.jpg | Tamaño recomendado: 1200x630px -->
-  <meta property="og:image" content="/assets/images/og-multigraff.jpg">
+  <meta property="og:image" content="https://multigraff.com/assets/images/og-multigraff.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Litografía Multigraf | Imprenta en Mendoza">
+  <meta name="twitter:description" content="Imprenta en Maipú, Mendoza desde 1997. Impresión offset, digital, folletería, tarjetas, banners y más.">
+  <meta name="twitter:image" content="https://multigraff.com/assets/images/og-multigraff.jpg">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon_32x32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="favicon_192x192.png" type="image/png" sizes="192x192">
@@ -620,6 +626,32 @@
     .reviews-summary__sub { font-size:.82rem; color:var(--muted); }
 
     /* ══════════════════════════════
+       FAQ
+    ══════════════════════════════ */
+    .faq-list {
+      max-width:820px; margin:0 auto;
+      display:flex; flex-direction:column; gap:1rem;
+    }
+    .faq-item {
+      background:var(--surface2); border:1px solid var(--border);
+      border-radius:var(--radius); padding:1.4rem 1.6rem;
+    }
+    .faq-item summary {
+      cursor:pointer; list-style:none;
+      font-size:1.05rem; font-weight:700;
+      display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-item summary::after {
+      content:'+'; flex-shrink:0; color:var(--red);
+      font-size:1.4rem; font-weight:400; transition:transform .25s ease;
+    }
+    .faq-item[open] summary::after { transform:rotate(45deg); }
+    .faq-item p {
+      margin-top:1rem; color:var(--muted); font-size:.92rem; line-height:1.7;
+    }
+
+    /* ══════════════════════════════
        CONTACT
     ══════════════════════════════ */
     .contact__inner {
@@ -1165,6 +1197,148 @@
   .cmyk-blob { will-change: auto; transition: none; }
 }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://multigraff.com/#localbusiness",
+    "name": "Multigraff Litografía",
+    "alternateName": "Litografía Multigraf",
+    "description": "Imprenta en Maipú, Mendoza desde 1997. Impresión offset y digital, etiquetas autoadhesivas, papelería comercial, folletos y volantes, sellos de goma e impresión de gran formato.",
+    "url": "https://multigraff.com/",
+    "image": "https://multigraff.com/assets/images/og-multigraff.jpg",
+    "telephone": "+542612013773",
+    "email": "litografiamultigraf@gmail.com",
+    "foundingDate": "1997",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Circunvalación Juan Agustín Maza 786",
+      "addressLocality": "Maipú",
+      "addressRegion": "Mendoza",
+      "postalCode": "M5515",
+      "addressCountry": "AR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -32.9440,
+      "longitude": -68.8605
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:30"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.1",
+      "reviewCount": "17"
+    },
+    "sameAs": [
+      "https://maps.app.goo.gl/NPc8noQnUtJNCfRN8"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Imprenta Multigraff",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Etiquetas Autoadhesivas",
+            "url": "https://multigraff.com/etiquetas-autoadhesivas/",
+            "description": "Etiquetas autoadhesivas de alta calidad para productos, envases y packaging. Papel couché, vinilo, transparente y metalizado. Sin cantidad mínima."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Papelería Comercial",
+            "url": "https://multigraff.com/papeleria-comercial/",
+            "description": "Tarjetas, sobres, formularios, membretes y toda la papelería que tu empresa necesita para proyectar una imagen profesional."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Folletos y Volantes",
+            "url": "https://multigraff.com/folletos-y-volantes/",
+            "description": "Folletos, volantes y brochures con diseño atractivo y colores precisos. Dípticos, trípticos y formatos a medida."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Sellos de Goma",
+            "url": "https://multigraff.com/sellos-de-goma/",
+            "description": "Sellos de goma personalizados para empresas, profesionales y uso personal. Entrega rápida y máxima precisión."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Impresión de Gran Formato",
+            "url": "https://multigraff.com/impresion-gran-formato/",
+            "description": "Banners, lonas, gigantografías y señalética de gran impacto para exteriores e interiores."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Trabajan con empresas de todo Mendoza?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Aunque estamos ubicados en Maipú, trabajamos con empresas de todo Mendoza y también recibimos pedidos de otras provincias, coordinando todo por WhatsApp o email."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tienen cantidad mínima para etiquetas autoadhesivas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, no pedimos cantidad mínima para etiquetas autoadhesivas. Podés encargar desde tiradas chicas hasta grandes volúmenes según lo que necesite tu producto."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto demora un trabajo de impresión?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los tiempos varían según el tipo de trabajo y la cantidad, pero la mayoría de los pedidos se entregan en pocos días hábiles. Te confirmamos el plazo exacto al pedir tu presupuesto."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hacen envíos o hay que retirar en Maipú?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Podés retirar tu pedido en nuestro local de Maipú o coordinar el envío a domicilio dentro de Mendoza y otras provincias, según el volumen del trabajo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo pido un presupuesto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Podés pedirlo directamente por WhatsApp, por email a litografiamultigraf@gmail.com o llamando a nuestro local. Contanos qué necesitás y te respondemos con precio y tiempo de entrega."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1260,7 +1434,7 @@
     </div>
     <div class="hero__content container">
       <div class="hero__eyebrow">Imprenta en Mendoza desde 1997</div>
-      <h1 class="hero__h1">Imprimí tu marca con la calidad que tu <em>empresa merece</em></h1>
+      <h1 class="hero__h1">Imprimí tu marca en Maipú, Mendoza con la calidad que tu <em>empresa merece</em></h1>
       <p class="hero__sub">Más de 28 años imprimiendo para empresas en Argentina. Etiquetas, papelería corporativa, folletos y gran formato, siempre en tiempo y forma.</p>
       <div class="hero__ctas">
         <a class="btn btn-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%20Litograf%C3%ADa%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios" target="_blank" rel="noopener">
@@ -1692,6 +1866,39 @@
           <p class="reviews-summary__sub">Basado en 17 opiniones en Google</p>
           <a class="btn btn-ghost" style="margin-top:1rem;font-size:.82rem;padding:.6rem 1.4rem;" href="https://maps.app.goo.gl/NPc8noQnUtJNCfRN8" target="_blank" rel="noopener">Ver todas las reseñas</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <header class="section__header section__header--center sr">
+        <div class="section__tag">Preguntas frecuentes</div>
+        <h2 class="section__title">Resolvé tus dudas</h2>
+        <p class="section__sub">Todo lo que necesitás saber antes de encargar tu trabajo de impresión</p>
+      </header>
+      <div class="faq-list">
+        <details class="faq-item sr">
+          <summary>¿Trabajan con empresas de todo Mendoza?</summary>
+          <p>Sí. Aunque estamos ubicados en Maipú, trabajamos con empresas de todo Mendoza y también recibimos pedidos de otras provincias, coordinando todo por WhatsApp o email.</p>
+        </details>
+        <details class="faq-item sr">
+          <summary>¿Tienen cantidad mínima para etiquetas autoadhesivas?</summary>
+          <p>No, no pedimos cantidad mínima para etiquetas autoadhesivas. Podés encargar desde tiradas chicas hasta grandes volúmenes según lo que necesite tu producto.</p>
+        </details>
+        <details class="faq-item sr">
+          <summary>¿Cuánto demora un trabajo de impresión?</summary>
+          <p>Los tiempos varían según el tipo de trabajo y la cantidad, pero la mayoría de los pedidos se entregan en pocos días hábiles. Te confirmamos el plazo exacto al pedir tu presupuesto.</p>
+        </details>
+        <details class="faq-item sr">
+          <summary>¿Hacen envíos o hay que retirar en Maipú?</summary>
+          <p>Podés retirar tu pedido en nuestro local de Maipú o coordinar el envío a domicilio dentro de Mendoza y otras provincias, según el volumen del trabajo.</p>
+        </details>
+        <details class="faq-item sr">
+          <summary>¿Cómo pido un presupuesto?</summary>
+          <p>Podés pedirlo directamente por WhatsApp, por email a litografiamultigraf@gmail.com o llamando a nuestro local. Contanos qué necesitás y te respondemos con precio y tiempo de entrega.</p>
+        </details>
       </div>
     </div>
   </section>
