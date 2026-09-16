@@ -12,11 +12,11 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impresión Gran Formato en Mendoza | Multigraff Litografía</title>
-  <meta name="description" content="Banners, lonas, gigantografías, vinilos y carteles de gran formato en Mendoza. Alta resolución, colores vibrantes y entrega rápida para tu empresa o evento.">
+  <meta name="description" content="Impresión gran formato en Mendoza: papel obra y papel fotográfico, y cartelería, vinilos y PVC de alto impacto. Dos líneas de atención directa por WhatsApp.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.multigraff.com/propuesta-moderna/impresion-gran-formato/">
   <meta property="og:title" content="Impresión Gran Formato en Mendoza | Multigraff Litografía">
-  <meta property="og:description" content="Banners, lonas, gigantografías y vinilos de gran formato en Mendoza. Alta resolución y colores vibrantes.">
+  <meta property="og:description" content="Papel obra y fotográfico + cartelería, vinilos y PVC en Mendoza. Elegí tu línea y consultá directo.">
   <meta property="og:type" content="website">
   <!-- IMAGEN REQUERIDA: Foto de banner o lona de gran formato para redes sociales -->
   <!-- Ruta: /assets/images/og-gran-formato.jpg | Tamaño: 1200x630px -->
@@ -198,6 +198,25 @@
 .cmyk-blob--y{width:620px;height:620px;background:radial-gradient(circle,rgba(255,215,0,.45) 0%,transparent 65%);bottom:5%;right:0%;}
 .cmyk-blob--c2{width:480px;height:480px;background:radial-gradient(circle,rgba(0,174,239,.40) 0%,transparent 65%);bottom:35%;left:25%;}
 @media(prefers-reduced-motion:reduce){.cmyk-blob{will-change:auto;transition:none;}}
+    .lineas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem;}
+    .linea-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden;transition:all .35s var(--ease);}
+    .linea-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--green);}
+    .linea-card--b::before{background:var(--red);}
+    .linea-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
+    .linea-card__tag{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--green);}
+    .linea-card--b .linea-card__tag{color:var(--red);}
+    .linea-card__title{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;line-height:1.2;}
+    .linea-card__desc{font-size:.92rem;color:var(--muted);line-height:1.75;}
+    .linea-card__list{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+    .linea-card__list li{font-size:.88rem;color:var(--muted);display:flex;gap:.6rem;align-items:flex-start;}
+    .linea-card__list li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;}
+    .linea-card--b .linea-card__list li::before{content:'✓';color:var(--red);}
+    .linea-card__cta{margin-top:auto;padding-top:.5rem;}
+    .linea-card__note{font-size:.76rem;color:var(--subtle);margin-top:.6rem;}
+    .btn-grupo{background:var(--red);color:#fff;box-shadow:0 4px 24px rgba(37,99,235,.35);}
+    .btn-grupo:hover{background:#1d4ed8;transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,.5);}
+    .btn-grupo svg{stroke:currentColor;fill:none;}
+    @media(max-width:860px){.lineas-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -214,13 +233,14 @@
             <li><a href="../folletos-y-volantes/"><span class="dm-icon">📄</span>Folletos y Volantes</a></li>
             <li><a href="../sellos-de-goma/"><span class="dm-icon">🔖</span>Sellos de Goma</a></li>
             <li><a href="../impresion-gran-formato/"><span class="dm-icon">🖼️</span>Impresión Gran Formato</a></li>
+            <li><a href="../resmas-papel/"><span class="dm-icon">📦</span>Resmas de Papel A4</a></li>
           </ul>
         </li>
         <li><a href="../#caracteristicas">Por qué elegirnos</a></li>
         <li><a href="../#resenas">Reseñas</a></li>
         <li><a href="../contacto/">Contacto</a></li>
       </ul>
-      <a class="nav__wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20consultar%20por%20impresi%C3%B3n%20en%20gran%20formato.%20Quisiera%20un%20presupuesto." target="_blank" rel="noopener">
+      <a class="nav__wa" href="#lineas">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
@@ -237,10 +257,11 @@
         <li class="service-item"><a href="../folletos-y-volantes/">📄 Folletos y Volantes</a></li>
         <li class="service-item"><a href="../sellos-de-goma/">🔖 Sellos de Goma</a></li>
         <li class="service-item"><a href="../impresion-gran-formato/">🖼️ Gran Formato</a></li>
+        <li class="service-item"><a href="../resmas-papel/">📦 Resmas de Papel A4</a></li>
         <li><a href="../#caracteristicas">Por qué elegirnos</a></li>
         <li><a href="../contacto/">Contacto</a></li>
       </ul>
-      <a class="nav__mobile-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20gran%20formato." target="_blank" rel="noopener">
+      <a class="nav__mobile-wa" href="#lineas">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
@@ -261,11 +282,60 @@
       <h1 class="hero-inner__h1">Impresión Gran Formato en <em>Mendoza</em></h1>
       <p class="hero-inner__sub">Banners, lonas, gigantografías, vinilos y carteles de alto impacto visual para tu negocio, evento o campaña publicitaria.</p>
       <div class="hero-inner__ctas">
-        <a class="btn btn-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20consultar%20por%20impresi%C3%B3n%20en%20gran%20formato.%20Quisiera%20un%20presupuesto." target="_blank" rel="noopener">
+        <a class="btn btn-wa" href="#lineas">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Pedir presupuesto
+          Elegí tu línea
         </a>
         <a class="btn btn-ghost" href="../contacto/">Ver más servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="content" id="lineas">
+    <div class="content__inner">
+      <h2 class="content__h2 sr">Elegí tu línea de gran formato</h2>
+      <p class="content__p sr">Trabajamos el gran formato en dos líneas independientes, cada una con su propio canal de atención. Elegí la que corresponde a tu proyecto y escribinos directo: te respondemos con medidas, materiales y presupuesto.</p>
+      <div class="lineas-grid">
+
+        <div class="linea-card sr">
+          <div class="linea-card__tag">Línea 1</div>
+          <h3 class="linea-card__title">Impresión en papel obra y papel fotográfico</h3>
+          <p class="linea-card__desc">Impresión de gran formato sobre papel, con definición profesional y colores fieles. Ideal para documentación técnica, láminas y piezas de alta calidad fotográfica.</p>
+          <ul class="linea-card__list">
+            <li>Planos y documentación técnica en papel obra</li>
+            <li>Gigantografías y láminas en papel fotográfico</li>
+            <li>Ampliaciones y reproducciones de alta resolución</li>
+            <li>Impresión por rollo y corte a medida</li>
+          </ul>
+          <div class="linea-card__cta">
+            <a class="btn btn-wa" href="https://wa.me/5492612122706?text=Hola%2C%20quiero%20consultar%20sobre%20impresi%C3%B3n%20en%20papel%20obra%2Ffotogr%C3%A1fico." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Consultar por WhatsApp
+            </a>
+            <p class="linea-card__note">Chat directo con el área de papel obra y fotográfico.</p>
+          </div>
+        </div>
+
+        <div class="linea-card linea-card--b sr">
+          <div class="linea-card__tag">Línea 2</div>
+          <h3 class="linea-card__title">Cartelería, vinilos, carteles de alto impacto y PVC</h3>
+          <p class="linea-card__desc">Todo lo que necesita visibilidad en la calle, en la vidriera o sobre el vehículo: cartelería, vinilos adhesivos y estructuras en PVC con terminaciones profesionales.</p>
+          <ul class="linea-card__list">
+            <li>Cartelería comercial y señalética</li>
+            <li>Vinilos adhesivos, vehiculares y para vidrieras</li>
+            <li>Carteles de alto impacto visual</li>
+            <li>Carteles y placas en PVC</li>
+          </ul>
+          <div class="linea-card__cta">
+            <!-- TODO: reemplazar con link de invitación al grupo de WhatsApp una vez creado (formato https://chat.whatsapp.com/...) -->
+            <a class="btn btn-grupo" href="[PENDIENTE: LINK_GRUPO_WHATSAPP]" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Sumate a nuestro grupo de WhatsApp
+            </a>
+            <p class="linea-card__note">Grupo de WhatsApp de cartelería y vinilos: novedades, medidas y presupuestos.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -376,18 +446,6 @@
     </div>
   </section>
 
-  <section class="cta-section">
-    <div class="cta-section__inner sr">
-      <div class="cta-section__tag">Solicitá tu presupuesto</div>
-      <h2 class="cta-section__h2">Consultá medidas y precios de gran formato</h2>
-      <p class="cta-section__p">Escribinos por WhatsApp con los detalles de tu proyecto y te enviamos un presupuesto sin compromiso. Atendemos pedidos para toda la provincia de Mendoza.</p>
-      <a class="btn btn-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20consultar%20por%20impresi%C3%B3n%20en%20gran%20formato.%20Quisiera%20un%20presupuesto." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Pedir presupuesto por WhatsApp
-      </a>
-    </div>
-  </section>
-
   <section class="related">
     <div class="related__inner">
       <div class="related__tag sr">Seguí explorando</div>
@@ -418,13 +476,14 @@
         <a href="../folletos-y-volantes/">Folletos</a>
         <a href="../sellos-de-goma/">Sellos</a>
         <a href="../impresion-gran-formato/">Gran Formato</a>
+        <a href="../resmas-papel/">Resmas A4</a>
         <a href="../contacto/">Contacto</a>
       </nav>
       <hr class="footer__sep">
       <p class="footer__copy">&copy; 2025 Multigraff Litografía — Maipú, Mendoza. Todos los derechos reservados.</p>
     </div>
   </footer>
-  <a class="wa-fab" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20gran%20formato." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a class="wa-fab" href="#lineas" aria-label="Elegí tu línea de gran formato">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span class="wa-fab__label">Presupuesto gratis</span>
   </a>
