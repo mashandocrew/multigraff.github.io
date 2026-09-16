@@ -216,6 +216,9 @@
     .btn-grupo{background:var(--red);color:#fff;box-shadow:0 4px 24px rgba(37,99,235,.35);}
     .btn-grupo:hover{background:#1d4ed8;transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,99,235,.5);}
     .btn-grupo svg{stroke:currentColor;fill:none;}
+    .btn-disabled{background:var(--surface);color:var(--muted);border:1.5px dashed rgba(255,255,255,.25);box-shadow:none;cursor:default;pointer-events:none;}
+    .btn-disabled:hover{background:var(--surface);transform:none;box-shadow:none;}
+    .btn-disabled::after{display:none;}
     .nav__wa--choice{background:var(--red);}
     .nav__wa--choice:hover{background:#1d4ed8;box-shadow:0 8px 24px rgba(37,99,235,.35);}
     .nav__wa--choice svg{fill:none;stroke:currentColor;}
@@ -334,13 +337,14 @@
             <li>Carteles y placas en PVC</li>
           </ul>
           <div class="linea-card__cta">
-            <!-- TODO: reemplazar con link de invitación al grupo de WhatsApp una vez creado (formato https://chat.whatsapp.com/...).
-                 ATENCIÓN: mientras el href siga siendo el placeholder, este botón lleva a un 404. No publicar sin reemplazarlo. -->
-            <a class="btn btn-grupo" href="[PENDIENTE: LINK_GRUPO_WHATSAPP]" target="_blank" rel="noopener">
+            <!-- TODO (pendiente): cuando exista el grupo, reemplazar este bloque por el botón activo:
+                 <a class="btn btn-grupo" href="https://chat.whatsapp.com/XXXXXXXX" target="_blank" rel="noopener"> ... </a>
+                 Mientras tanto queda deshabilitado a propósito, para no llevar a un enlace roto. -->
+            <span class="btn btn-grupo btn-disabled" role="link" aria-disabled="true" tabindex="-1">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              Sumate a nuestro grupo de WhatsApp
-            </a>
-            <p class="linea-card__note">Grupo de WhatsApp de cartelería y vinilos: novedades, medidas y presupuestos.</p>
+              Grupo de WhatsApp — próximamente
+            </span>
+            <p class="linea-card__note">Estamos armando el grupo de cartelería y vinilos. Mientras tanto, escribinos por los canales de la página de <a href="../contacto/" style="color:var(--red);text-decoration:underline;">contacto</a>.</p>
           </div>
         </div>
 
