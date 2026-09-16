@@ -1,0 +1,4 @@
+# Redirigir www -> no-www (versión oficial: https://multigraff.com/)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.multigraff\.com [NC]
+RewriteRule ^(.*)$ https://multigraff.com/$1 [L,R=301]
