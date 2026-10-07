@@ -88,11 +88,12 @@
 }
 
 /* ── Base ── */
+[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html {
   font-size: 16px; background: var(--bg);
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nav-h) + 12px);
+
   -webkit-text-size-adjust: 100%;
 }
 body {
@@ -205,7 +206,7 @@ main, .footer { position: relative; z-index: 1; }
 /* ═════════════════ NAV ═════════════════ */
 .nav {
   position: sticky; top: 0; z-index: 1000;
-  background: rgba(7,7,13,.82);
+  background: rgba(7,7,13,.94);
   -webkit-backdrop-filter: blur(16px) saturate(1.5);
   backdrop-filter: blur(16px) saturate(1.5);
   border-bottom: 1px solid var(--border-1);
@@ -354,7 +355,7 @@ main, .footer { position: relative; z-index: 1; }
 .footer__list { list-style: none; display: flex; flex-direction: column; }
 .footer__list a, .footer__list span {
   display: inline-flex; align-items: center; gap: .55rem;
-  min-height: 40px; font-size: var(--fs-sm); color: var(--text-2);
+  min-height: 44px; font-size: var(--fs-sm); color: var(--text-2);
   overflow-wrap: anywhere;
 }
 .footer__list a:hover { color: var(--text-1); }

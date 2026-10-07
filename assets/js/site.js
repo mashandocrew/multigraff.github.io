@@ -42,7 +42,7 @@
       if ('inert' in menu) menu.inert = false;
       toggle.setAttribute('aria-expanded', 'true');
       root.classList.add('menu-open');
-      (closeBtn || focusables()[0]).focus();
+      (closeBtn || focusables()[0]).focus({ preventScroll: true });
     };
     var closeMenu = function (restoreFocus) {
       if (!menu.classList.contains('open')) return;
@@ -50,7 +50,7 @@
       setClosedState();
       toggle.setAttribute('aria-expanded', 'false');
       root.classList.remove('menu-open');
-      if (restoreFocus !== false) (lastFocus && lastFocus.focus ? lastFocus : toggle).focus();
+      if (restoreFocus !== false) (lastFocus && lastFocus.focus ? lastFocus : toggle).focus({ preventScroll: true });
     };
     setClosedState();
     toggle.addEventListener('click', function () {
@@ -67,6 +67,7 @@
       var f = focusables();
       if (!f.length) return;
       var first = f[0], last = f[f.length - 1];
+      if (!menu.contains(document.activeElement)) { e.preventDefault(); first.focus({ preventScroll: true }); return; }
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
