@@ -28,184 +28,51 @@
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__siteReady)document.documentElement.classList.remove('js')},3000);</script>
   <style>
-    :root{--bg:#07070d;--surface:#0f0f1a;--surface2:#161624;--border:rgba(255,255,255,0.07);--text:#FFFFFF;--muted:rgba(255,255,255,0.55);--subtle:rgba(255,255,255,0.25);--red:#2563EB;--red-soft:rgba(37,99,235,0.12);--green:#25D366;--font:'Inter',-apple-system,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);--radius:16px;--container:1200px;}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;background:var(--bg);}body{font-family:var(--font);background:transparent;position:relative;z-index:1;color:var(--text);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;animation:pageFade .45s var(--ease) both;}
-    @keyframes pageFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-    a{color:inherit;text-decoration:none;}img{max-width:100%;display:block;}
-    .container{max-width:var(--container);margin:0 auto;padding:0 2rem;}
-    .sr{opacity:0;transform:translateY(40px);transition:opacity .75s var(--ease),transform .75s var(--ease);}.sr.in{opacity:1;transform:none;}
-    .nav{position:sticky;top:0;z-index:1000;background:rgba(7,7,13,0.75);backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);border-bottom:1px solid var(--border);transition:border-color .3s ease,box-shadow .3s ease;}
-    .nav.scrolled{border-color:rgba(255,255,255,0.12);box-shadow:0 8px 40px rgba(0,0,0,.5);}
-    .nav__inner{max-width:var(--container);margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
-    .nav__logo{font-size:1.25rem;font-weight:800;letter-spacing:-.03em;white-space:nowrap;}.nav__logo em{font-style:normal;color:var(--red);}
-    .nav__links{display:flex;align-items:center;gap:2rem;list-style:none;}
-    .nav__links a{font-size:.88rem;font-weight:500;color:var(--muted);transition:color .25s ease;position:relative;padding:.2rem 0;}
-    .nav__links a:hover{color:var(--text);}
-    .nav__links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--red);transition:width .3s var(--ease);}
-    .nav__links a:hover::after{width:100%;}
-    .nav__dropdown{position:relative;}
-    .nav__dropdown-toggle{cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.88rem;font-weight:500;color:var(--muted);transition:color .25s ease;}
-    .nav__dropdown-toggle:hover{color:var(--text);}.nav__dropdown-toggle svg{width:12px;transition:transform .25s ease;}
-    .nav__dropdown:hover .nav__dropdown-toggle svg{transform:rotate(180deg);}
-    .nav__dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(8px);background:var(--surface2);border:1px solid var(--border);border-radius:12px;list-style:none;min-width:240px;padding:.5rem;opacity:0;visibility:hidden;transition:opacity .25s ease,transform .25s var(--ease),visibility .25s;box-shadow:0 20px 60px rgba(0,0,0,.5);}
-    .nav__dropdown:hover .nav__dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
-    .nav__dropdown-menu a{display:flex;align-items:center;gap:.7rem;padding:.65rem 1rem;border-radius:8px;font-size:.88rem;color:var(--muted);transition:all .2s ease;}
-    .nav__dropdown-menu a:hover{background:var(--red-soft);color:var(--text);}
-    .nav__dropdown-menu a::after{display:none;}.nav__dropdown-menu .dm-icon{font-size:1rem;}
-    .nav__wa{display:inline-flex;align-items:center;gap:.5rem;background:var(--green);color:#fff;padding:.55rem 1.2rem;border-radius:50px;font-size:.85rem;font-weight:700;transition:all .25s ease;flex-shrink:0;}
-    .nav__wa:hover{background:#1fba5a;transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,211,102,.35);}.nav__wa svg{width:18px;fill:currentColor;}
-    .nav__hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.3rem;z-index:1200;}
-    .nav__hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s ease,opacity .3s ease;}
-    .nav__hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    .nav__hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-    .nav__hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .nav__mobile{display:none;position:fixed;inset:0;z-index:1100;background:rgba(7,7,13,.98);backdrop-filter:blur(20px);overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s ease;}
-    .nav__mobile.open{opacity:1;pointer-events:all;}.nav__mobile-inner{padding:5rem 2rem 3rem;}
-    .nav__mobile-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--muted);font-size:1.8rem;cursor:pointer;line-height:1;}
-    .nav__mobile-list{list-style:none;}.nav__mobile-list li{border-bottom:1px solid var(--border);}
-    .nav__mobile-list li a{display:block;padding:.9rem 0;color:rgba(255,255,255,.85);font-size:1.05rem;font-weight:500;transition:color .2s ease;}
-    .nav__mobile-list li a:hover{color:var(--red);}
-    .nav__mobile-label{display:block;color:var(--red);font-size:.68rem;text-transform:uppercase;letter-spacing:3px;font-weight:700;padding:.6rem 0 .2rem;}
-    .nav__mobile-list .service-item a{padding:.65rem .8rem;font-size:.95rem;color:var(--muted);}
-    .nav__mobile-wa{margin-top:2rem;display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--green);color:#fff;padding:1rem 1.5rem;border-radius:50px;font-size:1rem;font-weight:700;}
-    .nav__mobile-wa svg{width:22px;fill:currentColor;}
-    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border-radius:8px;font-size:.95rem;font-weight:700;transition:all .25s var(--ease);position:relative;overflow:hidden;cursor:pointer;border:none;}
-    .btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%);transition:transform .4s ease;}
-    .btn:hover::after{transform:translateX(0);}
-    .btn-ghost{background:transparent;color:var(--text);border:1.5px solid rgba(255,255,255,.2);}
-    .btn-ghost:hover{border-color:rgba(255,255,255,.5);transform:translateY(-2px);}
-    .btn-wa{background:var(--green);color:#fff;box-shadow:0 4px 24px rgba(37,211,102,.35);}
-    .btn-wa:hover{background:#1fba5a;transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.5);}
-    .btn svg{width:20px;fill:currentColor;}
-    .hero-inner{min-height:55vh;display:flex;align-items:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden;}
-    .hero-inner__bg{position:absolute;inset:0;pointer-events:none;}
-    .hero-inner__bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;}
-    .hero-inner__glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.18) 0%,transparent 70%);top:-180px;right:-120px;animation:glowPulse 8s ease-in-out infinite;}
-    .hero-inner__glow-2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 70%);bottom:-80px;left:-60px;animation:glowPulse 11s ease-in-out infinite reverse;}
-    @keyframes glowPulse{0%,100%{transform:scale(1);opacity:.8;}50%{transform:scale(1.15);opacity:1;}}
-    .hero-inner__lines{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;}
-    .hero-inner__line{border-radius:0 4px 4px 0;}
-    .hero-inner__line:nth-child(1){width:110px;height:8px;background:rgba(37,99,235,.6);}
-    .hero-inner__line:nth-child(2){width:160px;height:5px;background:rgba(37,99,235,.35);}
-    .hero-inner__line:nth-child(3){width:80px;height:3px;background:rgba(37,99,235,.18);}
-    .hero-inner__line:nth-child(4){width:130px;height:2px;background:rgba(255,255,255,.07);}
-    .hero-inner__content{position:relative;z-index:2;max-width:800px;margin:0 auto;}
-    .hero-inner__eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:var(--red);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:1.5rem;animation:heroFade .8s .1s var(--ease) both;}
-    .hero-inner__eyebrow::before{content:'';display:block;width:30px;height:1.5px;background:var(--red);}
-    .hero-inner__h1{font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.4rem;animation:heroSlide .9s .2s var(--ease) both;}
-    .hero-inner__h1 em{font-style:normal;color:var(--red);}
-    .hero-inner__sub{font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--muted);max-width:580px;line-height:1.75;margin-bottom:2.5rem;animation:heroSlide .9s .35s var(--ease) both;}
-    .hero-inner__ctas{display:flex;flex-wrap:wrap;gap:1rem;animation:heroSlide .9s .5s var(--ease) both;}
-    @keyframes heroFade{from{opacity:0}to{opacity:1}}
-    @keyframes heroSlide{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
-    .content{padding:clamp(4rem,8vw,7rem) 2rem;}
-    .content--alt{background:var(--surface);}
-    .content__inner{max-width:var(--container);margin:0 auto;}
-    .content__h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.5rem;position:relative;padding-bottom:1rem;}
-    .content__h2::after{content:'';position:absolute;bottom:0;left:0;width:52px;height:3px;background:linear-gradient(90deg,var(--red),transparent);border-radius:2px;}
-    .content__h3{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;margin:2.5rem 0 1rem;display:flex;align-items:center;gap:.6rem;}
-    .content__h3::before{content:'';display:inline-block;width:4px;height:1.3em;background:var(--red);border-radius:2px;flex-shrink:0;}
-    .content__p{font-size:1rem;color:var(--muted);line-height:1.85;margin-bottom:1.2rem;max-width:820px;}
-    .types-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem;}
-    .type-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem 1.5rem;transition:all .35s var(--ease);position:relative;overflow:hidden;}
-    .type-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),#ff6b6b);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);}
-    .type-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);border-color:rgba(37,99,235,.3);}
-    .type-card:hover::before{transform:scaleX(1);}
-    .type-card__icon{font-size:2rem;margin-bottom:1rem;display:block;}
-    .type-card__title{font-size:1rem;font-weight:800;margin-bottom:.6rem;}
-    .type-card__desc{font-size:.88rem;color:var(--muted);line-height:1.7;}
-    .uses-list{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-top:1rem;}
-    .uses-list li{display:flex;gap:1rem;align-items:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem;transition:all .3s var(--ease);}
-    .uses-list li:hover{border-color:rgba(37,99,235,.25);transform:translateX(5px);}
-    .uses-list__icon{width:36px;height:36px;border-radius:8px;background:var(--red-soft);border:1px solid rgba(37,99,235,.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
-    .uses-list__title{font-size:.95rem;font-weight:700;margin-bottom:.2rem;}
-    .uses-list__desc{font-size:.88rem;color:var(--muted);line-height:1.6;}
-    .gallery-service{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;}
-    .gallery-service__item{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--surface2);transition:all .35s var(--ease);}
-    .gallery-service__item:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);border-color:rgba(37,99,235,.3);}
-    .gallery-service__img{aspect-ratio:4/3;width:100%;object-fit:cover;display:block;transition:transform .5s var(--ease);}
-    .gallery-service__item:hover .gallery-service__img{transform:scale(1.06);}
-    .gallery-service__placeholder{aspect-ratio:4/3;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;}
-    .gallery-service__placeholder-icon{font-size:2.5rem;opacity:.25;}
-    .gallery-service__placeholder-text{font-size:.7rem;color:var(--subtle);text-transform:uppercase;letter-spacing:2px;text-align:center;}
-    .gallery-service__caption{padding:.9rem 1.2rem;font-size:.88rem;color:var(--muted);font-weight:500;border-top:1px solid var(--border);}
-    .cta-section{padding:clamp(4rem,8vw,7rem) 2rem;background:linear-gradient(135deg,#0a0010 0%,#150005 50%,var(--surface) 100%);position:relative;overflow:hidden;}
-    .cta-section::before{content:'';position:absolute;top:-150px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.14) 0%,transparent 70%);}
-    .cta-section__inner{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1;}
-    .cta-section__tag{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;color:var(--red);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:1rem;}
-    .cta-section__h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem;}
-    .cta-section__p{font-size:1rem;color:var(--muted);line-height:1.7;margin-bottom:2rem;}
-    .related{padding:clamp(4rem,7vw,6rem) 2rem;}
-    .related__inner{max-width:var(--container);margin:0 auto;}
-    .related__tag{display:inline-flex;align-items:center;gap:.5rem;color:var(--red);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:.8rem;}
-    .related__tag::before{content:'';display:block;width:20px;height:1.5px;background:var(--red);}
-    .related__h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;letter-spacing:-.03em;margin-bottom:2.5rem;}
-    .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
-    .related-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;transition:all .35s var(--ease);display:flex;flex-direction:column;gap:.6rem;}
-    .related-card:hover{border-color:rgba(37,99,235,.3);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.4);}
-    .related-card__icon{font-size:1.8rem;}.related-card__title{font-size:1.05rem;font-weight:800;}
-    .related-card__desc{font-size:.88rem;color:var(--muted);line-height:1.65;flex:1;}
-    .related-card__link{display:inline-flex;align-items:center;gap:.5rem;color:var(--red);font-size:.85rem;font-weight:700;margin-top:.5rem;transition:gap .3s ease;}
-    .related-card:hover .related-card__link{gap:1rem;}
-    .footer{background:#040408;padding:3rem 2rem 2rem;border-top:1px solid var(--border);}
-    .footer__inner{max-width:var(--container);margin:0 auto;text-align:center;}
-    .footer__logo{font-size:1.3rem;font-weight:800;display:inline-block;margin-bottom:1.5rem;}.footer__logo em{font-style:normal;color:var(--red);}
-    .footer__links{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;}
-    .footer__links a{font-size:.85rem;color:var(--subtle);transition:color .2s ease;}.footer__links a:hover{color:var(--text);}
-    .footer__sep{border:none;border-top:1px solid var(--border);margin-bottom:1.5rem;}.footer__copy{font-size:.8rem;color:var(--subtle);}
-    .wa-fab{position:fixed;bottom:28px;right:28px;z-index:900;display:flex;align-items:center;gap:.7rem;background:var(--green);color:#fff;padding:.8rem 1.4rem .8rem 1.1rem;border-radius:50px;box-shadow:0 8px 32px rgba(37,211,102,.45);font-size:.9rem;font-weight:700;transition:all .3s var(--ease);animation:fabPop .6s 1.5s var(--ease) both;}
-    .wa-fab:hover{background:#1fba5a;transform:translateY(-3px) scale(1.04);box-shadow:0 16px 40px rgba(37,211,102,.55);}
-    .wa-fab svg{width:22px;fill:currentColor;flex-shrink:0;}.wa-fab__label{white-space:nowrap;}
-    .wa-fab::before{content:'';position:absolute;inset:-4px;border-radius:50px;border:2px solid rgba(37,211,102,.5);animation:fabRing 2.5s ease-out infinite 2s;}
-    @keyframes fabRing{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.25);opacity:0}}
-    @keyframes fabPop{from{opacity:0;transform:scale(.5) translateY(20px)}to{opacity:1;transform:none}}
-    @media(max-width:900px){.types-grid{grid-template-columns:1fr 1fr;}}
-    @media(max-width:768px){
-      .nav__links,.nav__wa{display:none;}.nav__hamburger{display:flex;}.nav__mobile{display:block;}
-      .wa-fab__label{display:none;}.wa-fab{padding:.85rem;border-radius:50%;}
-      .hero-inner__lines{display:none;}.types-grid{grid-template-columns:1fr;}
-      .related-grid{grid-template-columns:1fr;}.gallery-service{grid-template-columns:1fr;}
+    /* ═══ RESMAS — estilos específicos ═══ */
+    .hero-parallax-img { object-position: center 40%; }
+    @media (min-width: 1024px) { .types-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+    .type-card__gsm {
+      display: flex; align-items: baseline; gap: .35rem; margin-bottom: var(--space-3);
+      font-size: 2.5rem; font-weight: 800; letter-spacing: -.03em; line-height: 1;
+      font-variant-numeric: tabular-nums; color: var(--text-1);
     }
-    @media(max-width:480px){.hero-inner__h1{font-size:2.1rem;}.hero-inner__ctas{flex-direction:column;}.hero-inner__ctas .btn{width:100%;justify-content:center;}}
-    @keyframes kenBurns {
-  0%   { transform: scale(1)    translate(0,    0); }
-  33%  { transform: scale(1.06) translate(-1%,  0.5%); }
-  66%  { transform: scale(1.04) translate(0.8%, -0.3%); }
-  100% { transform: scale(1)    translate(0,    0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .gallery-service__img, .hero-parallax-img { animation: none !important; }
-}
-.hero-parallax-wrap { position:absolute; inset:0; overflow:hidden; z-index:0; }
-.hero-parallax-img {
-  width:100%; height:130%; object-fit:cover; object-position:center;
-  margin-top:-10%; will-change:transform; animation:kenBurns 25s ease-in-out infinite;
-}
-.hero-parallax-overlay {
-  position:absolute; inset:0; z-index:1;
-  background:linear-gradient(135deg,rgba(7,7,13,0.88) 0%,rgba(7,7,13,0.6) 55%,rgba(7,7,13,0.8) 100%);
-}
-.gallery-service__img { animation:kenBurns 20s ease-in-out infinite; will-change:transform; }
-@media (max-width:900px) { .gallery-service { grid-template-columns:repeat(2,1fr); } }
-@media (max-width:500px)  { .gallery-service { grid-template-columns:1fr; } }
-/* ══ CMYK BG ══ */
-.cmyk-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
-.cmyk-blob{position:absolute;border-radius:50%;will-change:transform;transition:transform .05s linear;}
-.cmyk-blob--c{width:900px;height:900px;background:radial-gradient(circle,rgba(0,174,239,.60) 0%,transparent 65%);top:-320px;right:-180px;}
-.cmyk-blob--m{width:750px;height:750px;background:radial-gradient(circle,rgba(236,0,140,.52) 0%,transparent 65%);top:45%;left:-220px;}
-.cmyk-blob--y{width:620px;height:620px;background:radial-gradient(circle,rgba(255,215,0,.45) 0%,transparent 65%);bottom:5%;right:0%;}
-.cmyk-blob--c2{width:480px;height:480px;background:radial-gradient(circle,rgba(0,174,239,.40) 0%,transparent 65%);bottom:35%;left:25%;}
-@media(prefers-reduced-motion:reduce){.cmyk-blob{will-change:auto;transition:none;}}
-    .resmas-table-wrap{overflow-x:auto;margin-top:1.5rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface2);}
-    .resmas-table{width:100%;border-collapse:collapse;min-width:520px;}
-    .resmas-table th,.resmas-table td{padding:.9rem 1.2rem;text-align:left;font-size:.9rem;border-bottom:1px solid var(--border);}
-    .resmas-table th{font-weight:800;color:var(--text);font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;background:rgba(255,255,255,.03);}
-    .resmas-table td{color:var(--muted);}
-    .resmas-table tr:last-child td{border-bottom:none;}
-    .resmas-table td strong{color:var(--text);font-weight:700;}
+    .type-card__gsm small { font-size: var(--fs-sm); font-weight: 600; letter-spacing: 0; color: var(--text-3); }
+
+    .brands-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-3); margin: var(--space-5) 0 var(--space-10); }
+    .brand-card { margin: 0; display: flex; flex-direction: column; border-radius: var(--r-lg); overflow: hidden; background: var(--surface-2); border: 1px solid var(--border-1); box-shadow: var(--shadow-1); }
+    .brand-card__media { background: #fff; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; }
+    .brand-card__media img { width: 100%; height: 100%; object-fit: contain; padding: 6%; }
+    .brand-card figcaption { display: flex; flex-direction: column; gap: .15rem; padding: var(--space-4); }
+    .brand-card__label { font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--accent-300); }
+    .brand-card__name { font-size: var(--fs-lg); font-weight: 800; letter-spacing: -.01em; }
+    .brand-card__meta { font-size: var(--fs-sm); color: var(--text-2); }
+    @media (min-width: 768px) {
+      .brands-grid { gap: var(--space-5); max-width: 760px; }
+      .brand-card figcaption { padding: var(--space-5) var(--space-6); }
+    }
+
+    .resmas-table-wrap { overflow-x: auto; margin-top: var(--space-5); border: 1px solid var(--border-2); border-radius: var(--r-lg); background: var(--surface-2); }
+    .resmas-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    .resmas-table th, .resmas-table td { padding: .85rem 1.1rem; text-align: left; font-size: var(--fs-sm); border-bottom: 1px solid var(--border-1); vertical-align: middle; }
+    .resmas-table th { font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--text-3); background: rgba(255,255,255,.03); }
+    .resmas-table td { color: var(--text-2); }
+    .resmas-table tr:last-child td { border-bottom: 0; }
+    .resmas-table td strong { color: var(--text-1); font-weight: 700; font-variant-numeric: tabular-nums; }
+    .price-cta {
+      display: inline-flex; align-items: center; gap: .45rem; white-space: nowrap;
+      min-height: 40px; padding: .35rem .85rem; border-radius: var(--r-pill);
+      background: rgba(37,211,102,.10); border: 1px solid rgba(37,211,102,.45);
+      color: #7BE8A6; font-size: var(--fs-sm); font-weight: 700;
+      transition: background-color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+    }
+    .price-cta:hover { background: rgba(37,211,102,.18); border-color: var(--wa); }
+    .price-cta svg { width: 16px; height: 16px; fill: currentColor; }
+    .table-hint { display: block; margin-top: var(--space-2); font-size: var(--fs-xs); color: var(--text-3); }
+    @media (min-width: 640px) { .table-hint { display: none; } }
   </style>
   <script type="application/ld+json">
   {
@@ -232,63 +99,85 @@
   </script>
 </head>
 <body>
-  <div class="cmyk-bg" aria-hidden="true"><div class="cmyk-blob cmyk-blob--c"></div><div class="cmyk-blob cmyk-blob--m"></div><div class="cmyk-blob cmyk-blob--y"></div><div class="cmyk-blob cmyk-blob--c2"></div></div>
-  <nav class="nav" id="nav">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Fondo ambiental (estático) -->
+  <div class="cmyk-bg" aria-hidden="true">
+    <div class="cmyk-blob cmyk-blob--c"></div>
+    <div class="cmyk-blob cmyk-blob--m"></div>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav" id="nav" aria-label="Principal">
     <div class="nav__inner">
-      <a href="../" class="nav__logo">Multigraff<em> Litografía</em></a>
+      <a href="../" class="nav__logo">Multigraff<em>&nbsp;Litografía</em></a>
       <ul class="nav__links">
         <li class="nav__dropdown">
-          <span class="nav__dropdown-toggle">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-          <ul class="nav__dropdown-menu">
-            <li><a href="../etiquetas-autoadhesivas/"><span class="dm-icon">🏷️</span>Etiquetas Autoadhesivas</a></li>
-            <li><a href="../papeleria-comercial/"><span class="dm-icon">📋</span>Papelería Comercial</a></li>
-            <li><a href="../folletos-y-volantes/"><span class="dm-icon">📄</span>Folletos y Volantes</a></li>
-            <li><a href="../sellos-de-goma/"><span class="dm-icon">🔖</span>Sellos de Goma</a></li>
-            <li><a href="../impresion-gran-formato/"><span class="dm-icon">🖼️</span>Impresión Gran Formato</a></li>
-            <li><a href="../resmas-papel/"><span class="dm-icon">📦</span>Resmas de Papel A4</a></li>
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="navServicios">
+            Servicios <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="nav__dropdown-menu" id="navServicios">
+            <li><a href="../etiquetas-autoadhesivas/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1"/></svg>Etiquetas Autoadhesivas</a></li>
+            <li><a href="../papeleria-comercial/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>Papelería Comercial</a></li>
+            <li><a href="../folletos-y-volantes/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>Folletos y Volantes</a></li>
+            <li><a href="../sellos-de-goma/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13"/></svg>Sellos de Goma</a></li>
+            <li><a href="../impresion-gran-formato/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>Impresión Gran Formato</a></li>
+            <li><a href="../resmas-papel/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>Resmas de Papel A4</a></li>
           </ul>
         </li>
+        <li><a href="../#galeria">Galería</a></li>
         <li><a href="../#caracteristicas">Por qué elegirnos</a></li>
         <li><a href="../#resenas">Reseñas</a></li>
         <li><a href="../contacto/">Contacto</a></li>
       </ul>
       <a class="nav__wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20precio%20y%20disponibilidad%20de%20resmas%20de%20papel%20A4." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
-      <button class="nav__hamburger" id="menuToggle" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button class="nav__hamburger" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
-  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-modal="true">
-    <button class="nav__mobile-close" id="menuClose" aria-label="Cerrar">✕</button>
+
+  <!-- Menú mobile -->
+  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="nav__mobile-head">
+      <a href="../" class="nav__logo">Multigraff<em>&nbsp;Litografía</em></a>
+      <button class="nav__mobile-close" id="menuClose" type="button" aria-label="Cerrar menú"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
     <div class="nav__mobile-inner">
+      <p class="nav__mobile-label">Servicios</p>
+      <ul class="nav__mobile-services">
+        <li class="service-item"><a href="../etiquetas-autoadhesivas/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1"/></svg>Etiquetas Autoadhesivas</a></li>
+        <li class="service-item"><a href="../papeleria-comercial/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>Papelería Comercial</a></li>
+        <li class="service-item"><a href="../folletos-y-volantes/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>Folletos y Volantes</a></li>
+        <li class="service-item"><a href="../sellos-de-goma/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13"/></svg>Sellos de Goma</a></li>
+        <li class="service-item"><a href="../impresion-gran-formato/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>Impresión Gran Formato</a></li>
+        <li class="service-item"><a href="../resmas-papel/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>Resmas de Papel A4</a></li>
+      </ul>
       <ul class="nav__mobile-list">
-        <li><span class="nav__mobile-label">Servicios</span></li>
-        <li class="service-item"><a href="../etiquetas-autoadhesivas/">🏷️ Etiquetas Autoadhesivas</a></li>
-        <li class="service-item"><a href="../papeleria-comercial/">📋 Papelería Comercial</a></li>
-        <li class="service-item"><a href="../folletos-y-volantes/">📄 Folletos y Volantes</a></li>
-        <li class="service-item"><a href="../sellos-de-goma/">🔖 Sellos de Goma</a></li>
-        <li class="service-item"><a href="../impresion-gran-formato/">🖼️ Gran Formato</a></li>
-        <li class="service-item"><a href="../resmas-papel/">📦 Resmas de Papel A4</a></li>
+        <li><a href="../#galeria">Galería</a></li>
         <li><a href="../#caracteristicas">Por qué elegirnos</a></li>
+        <li><a href="../#resenas">Reseñas</a></li>
         <li><a href="../contacto/">Contacto</a></li>
       </ul>
-      <a class="nav__mobile-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20precio%20y%20disponibilidad%20de%20resmas%20de%20papel%20A4." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+    <a class="nav__mobile-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20precio%20y%20disponibilidad%20de%20resmas%20de%20papel%20A4." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
     </div>
   </div>
 
+  <main>
+  <div id="contenido" tabindex="-1"></div>
+
+
   <section class="hero-inner">
     <div class="hero-inner__bg"><div class="hero-parallax-wrap" aria-hidden="true">
-  <img src="../assets/images/Escritorio-ver.jpg" class="hero-parallax-img" alt="" loading="eager" fetchpriority="high">
+  <img src="../assets/images/webp/resma-hero.webp" class="hero-parallax-img" alt="" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
   <div class="hero-parallax-overlay"></div>
-</div><div class="hero-inner__glow"></div><div class="hero-inner__glow-2"></div></div>
-    <div class="hero-inner__lines" aria-hidden="true">
-      <div class="hero-inner__line"></div><div class="hero-inner__line"></div>
-      <div class="hero-inner__line"></div><div class="hero-inner__line"></div>
-    </div>
+</div></div>
     <div class="hero-inner__content container">
       <div class="hero-inner__eyebrow">Imprenta en Mendoza — Otros productos</div>
       <h1 class="hero-inner__h1">Resmas de Papel A4 en <em>Mendoza</em></h1>
@@ -309,22 +198,22 @@
       <p class="content__p sr">El gramaje define el cuerpo, la opacidad y la sensación al tacto de la hoja. Estos son los cuatro que trabajamos de forma permanente, pensados para cubrir desde el uso diario de oficina hasta la impresión de piezas con mejor terminación.</p>
       <div class="types-grid">
         <div class="type-card sr">
-          <span class="type-card__icon">📄</span>
+          <span class="type-card__gsm" aria-hidden="true">70<small>g/m²</small></span>
           <div class="type-card__title">70 g/m² — Uso masivo y económico</div>
           <p class="type-card__desc">Impresiones internas, borradores y alto volumen de fotocopias.</p>
         </div>
         <div class="type-card sr">
-          <span class="type-card__icon">📄</span>
+          <span class="type-card__gsm" aria-hidden="true">75<small>g/m²</small></span>
           <div class="type-card__title">75 g/m² — El estándar de oficina</div>
           <p class="type-card__desc">Documentación diaria, facturación e impresión láser o inkjet.</p>
         </div>
         <div class="type-card sr">
-          <span class="type-card__icon">📄</span>
+          <span class="type-card__gsm" aria-hidden="true">80<small>g/m²</small></span>
           <div class="type-card__title">80 g/m² — Mayor cuerpo y opacidad</div>
           <p class="type-card__desc">Informes, presentaciones y documentos impresos a doble faz.</p>
         </div>
         <div class="type-card sr">
-          <span class="type-card__icon">📄</span>
+          <span class="type-card__gsm" aria-hidden="true">90<small>g/m²</small></span>
           <div class="type-card__title">90 g/m² — Terminación premium</div>
           <p class="type-card__desc">Propuestas, certificados y piezas que necesitan mejor presencia.</p>
         </div>
@@ -336,9 +225,21 @@
     <div class="content__inner">
       <h2 class="content__h2 sr">Marcas: Eclipse y Boreal</h2>
       <p class="content__p sr">Dos marcas de plaza con buen desempeño en impresoras láser, inkjet y fotocopiadoras. Consultanos por disponibilidad de cada gramaje y marca al momento de tu pedido: el stock se renueva de forma permanente.</p>
-      <div class="resmas-table-wrap sr">
+      <h3 class="content__h3 sr">Marcas disponibles</h3>
+      <div class="brands-grid">
+        <figure class="brand-card sr">
+          <div class="brand-card__media"><img src="../assets/images/webp/resma-eclipse.webp" alt="Resma de papel A4 marca Eclipse" width="800" height="800" loading="lazy" decoding="async"></div>
+          <figcaption><span class="brand-card__label">Marca</span><span class="brand-card__name">Eclipse</span><span class="brand-card__meta">A4 · 70, 75, 80 y 90 g/m²</span></figcaption>
+        </figure>
+        <figure class="brand-card sr">
+          <div class="brand-card__media"><img src="../assets/images/webp/resma-boreal.webp" alt="Resma de papel A4 marca Boreal" width="800" height="800" loading="lazy" decoding="async"></div>
+          <figcaption><span class="brand-card__label">Marca</span><span class="brand-card__name">Boreal</span><span class="brand-card__meta">A4 · 70, 75, 80 y 90 g/m²</span></figcaption>
+        </figure>
+      </div>
+      <h3 class="content__h3 sr">Precio y disponibilidad por gramaje</h3>
+      <div class="resmas-table-wrap sr" tabindex="0" role="region" aria-label="Tabla de resmas A4 por gramaje y marca">
         <table class="resmas-table">
-          <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Resmas de papel A4 disponibles por gramaje y marca</caption>
+          <caption class="sr-only">Resmas de papel A4 disponibles por gramaje y marca</caption>
           <thead>
             <tr>
               <th scope="col">Gramaje</th>
@@ -352,29 +253,30 @@
             <td><strong>70 g/m²</strong></td>
             <td>Eclipse · Boreal</td>
             <td>A4 (210 × 297 mm)</td>
-            <td>[PENDIENTE: precio / consultar stock]</td>
+            <td><a class="price-cta" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20precio%20y%20stock%20de%20resmas%20A4%20de%2070%20g%2Fm%C2%B2." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar precio</a></td>
           </tr>
           <tr>
             <td><strong>75 g/m²</strong></td>
             <td>Eclipse · Boreal</td>
             <td>A4 (210 × 297 mm)</td>
-            <td>[PENDIENTE: precio / consultar stock]</td>
+            <td><a class="price-cta" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20precio%20y%20stock%20de%20resmas%20A4%20de%2075%20g%2Fm%C2%B2." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar precio</a></td>
           </tr>
           <tr>
             <td><strong>80 g/m²</strong></td>
             <td>Eclipse · Boreal</td>
             <td>A4 (210 × 297 mm)</td>
-            <td>[PENDIENTE: precio / consultar stock]</td>
+            <td><a class="price-cta" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20precio%20y%20stock%20de%20resmas%20A4%20de%2080%20g%2Fm%C2%B2." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar precio</a></td>
           </tr>
           <tr>
             <td><strong>90 g/m²</strong></td>
             <td>Eclipse · Boreal</td>
             <td>A4 (210 × 297 mm)</td>
-            <td>[PENDIENTE: precio / consultar stock]</td>
+            <td><a class="price-cta" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20precio%20y%20stock%20de%20resmas%20A4%20de%2090%20g%2Fm%C2%B2." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar precio</a></td>
           </tr>
           </tbody>
         </table>
       </div>
+      <span class="table-hint">Deslizá la tabla hacia los costados para ver todas las columnas.</span>
       <p class="content__p sr" style="margin-top:1.2rem;font-size:.88rem;">Los precios se informan al momento de la consulta porque varían según marca, gramaje y cantidad. Escribinos y te pasamos el valor vigente.</p>
     </div>
   </section>
@@ -384,21 +286,21 @@
       <h2 class="content__h2 sr">¿Para quién es?</h2>
       <ul class="uses-list">
         <li class="sr">
-          <div class="uses-list__icon">🏢</div>
+          <span class="uses-list__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span>
           <div>
             <div class="uses-list__title">Oficinas y estudios</div>
             <div class="uses-list__desc">Abastecimiento regular por caja para consumo continuo. Coordinamos pedidos recurrentes.</div>
           </div>
         </li>
         <li class="sr">
-          <div class="uses-list__icon">🏪</div>
+          <span class="uses-list__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2 2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"/></svg></span>
           <div>
             <div class="uses-list__title">Comercios y revendedores</div>
             <div class="uses-list__desc">Consultá por cantidades mayores: el precio por unidad mejora según el volumen.</div>
           </div>
         </li>
         <li class="sr">
-          <div class="uses-list__icon">🏠</div>
+          <span class="uses-list__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
           <div>
             <div class="uses-list__title">Particulares</div>
             <div class="uses-list__desc">Venta por resma suelta, con retiro en nuestro local de Maipú, Mendoza.</div>
@@ -426,72 +328,65 @@
       <h2 class="related__h2 sr">Servicios relacionados</h2>
       <div class="related-grid">
         <a href="../papeleria-comercial/" class="related-card sr">
-          <span class="related-card__icon">📋</span>
+          <span class="related-card__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span>
           <div class="related-card__title">Papelería Comercial</div>
           <p class="related-card__desc">Facturas, remitos, recetarios y talonarios impresos a medida para tu empresa o comercio.</p>
-          <span class="related-card__link">Ver servicio →</span>
+          <span class="related-card__link">Ver servicio <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </a>
         <a href="../impresion-gran-formato/" class="related-card sr">
-          <span class="related-card__icon">🖼️</span>
+          <span class="related-card__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span>
           <div class="related-card__title">Impresión Gran Formato</div>
           <p class="related-card__desc">Papel obra y fotográfico, cartelería, vinilos y PVC de alto impacto visual para tu negocio.</p>
-          <span class="related-card__link">Ver servicio →</span>
+          <span class="related-card__link">Ver servicio <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </a>
       </div>
     </div>
   </section>
 
+  </main>
+
   <footer class="footer">
-    <div class="footer__inner">
-      <a href="../" class="footer__logo">Multigraff<em> Litografía</em></a>
-      <nav class="footer__links">
-        <a href="../etiquetas-autoadhesivas/">Etiquetas</a>
-        <a href="../papeleria-comercial/">Papelería</a>
-        <a href="../folletos-y-volantes/">Folletos</a>
-        <a href="../sellos-de-goma/">Sellos</a>
-        <a href="../impresion-gran-formato/">Gran Formato</a>
-        <a href="../resmas-papel/">Resmas A4</a>
-        <a href="../contacto/">Contacto</a>
-      </nav>
-      <hr class="footer__sep">
-      <p class="footer__copy">&copy; 2025 Multigraff Litografía — Maipú, Mendoza. Todos los derechos reservados.</p>
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../" class="footer__logo">Multigraff<em>&nbsp;Litografía</em></a>
+          <p>Imprenta offset y digital en Maipú, Mendoza. Trabajos para empresas desde 1997.</p>
+        </div>
+        <nav aria-label="Servicios">
+          <p class="footer__h">Servicios</p>
+          <ul class="footer__list">
+            <li><a href="../etiquetas-autoadhesivas/">Etiquetas Autoadhesivas</a></li>
+            <li><a href="../papeleria-comercial/">Papelería Comercial</a></li>
+            <li><a href="../folletos-y-volantes/">Folletos y Volantes</a></li>
+            <li><a href="../sellos-de-goma/">Sellos de Goma</a></li>
+            <li><a href="../impresion-gran-formato/">Impresión Gran Formato</a></li>
+            <li><a href="../resmas-papel/">Resmas de Papel A4</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer__h">Contacto</p>
+          <ul class="footer__list">
+            <li><a href="https://maps.app.goo.gl/NPc8noQnUtJNCfRN8" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Circunvalación Juan Agustín Maza 786, Maipú, Mendoza</a></li>
+            <li><a href="tel:+542612013773"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0261 201-3773</a></li>
+            <li><a href="mailto:litografiamultigraf@gmail.com"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>litografiamultigraf@gmail.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__h">Horario</p>
+          <ul class="footer__list">
+            <li><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Lunes a Viernes: 9:00 — 17:30</span></li>
+            <li><a href="https://maps.app.goo.gl/NPc8noQnUtJNCfRN8" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>Cómo llegar</a></li>
+            <li><a href="../contacto/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>Página de contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__bottom">&copy; 2026 Multigraff Litografía — Maipú, Mendoza. Todos los derechos reservados.</p>
     </div>
   </footer>
   <a class="wa-fab" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20quiero%20consultar%20precio%20y%20disponibilidad%20de%20resmas%20de%20papel%20A4." target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span class="wa-fab__label">Presupuesto gratis</span>
   </a>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script>
-  (function(){
-    var r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var p=document.querySelector('.hero-parallax-img');
-    if(p&&!r) window.addEventListener('scroll',function(){if(window.innerWidth<768)return;p.style.transform='translateY('+(window.scrollY*0.28)+'px)';},{passive:true});
-    var items=document.querySelectorAll('.gallery-service__item');
-    if(items.length&&typeof anime!=='undefined'){
-      var o=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;o.unobserve(e.target);if(r){e.target.style.opacity=1;return;}anime({targets:e.target,opacity:[0,1],translateY:[30,0],duration:700,easing:'easeOutExpo'});});},{threshold:0.08});
-      items.forEach(function(el){el.style.opacity=0;el.style.transform='translateY(30px)';o.observe(el);});
-    }
-    items.forEach(function(el){
-      el.addEventListener('mouseenter',function(){if(!r&&typeof anime!=='undefined')anime({targets:el,scale:1.03,duration:350,easing:'easeOutExpo'});});
-      el.addEventListener('mouseleave',function(){if(!r&&typeof anime!=='undefined')anime({targets:el,scale:1,duration:350,easing:'easeOutExpo'});});
-      el.addEventListener('touchstart',function(){document.querySelectorAll('.gallery-service__item.tapped').forEach(function(t){if(t!==el)t.classList.remove('tapped');});el.classList.toggle('tapped');},{passive:true});
-    });
-  })();
-  </script>
-  <script>
-    const nav=document.getElementById('nav');
-    window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-    const toggle=document.getElementById('menuToggle'),mobile=document.getElementById('mobileMenu'),mclose=document.getElementById('menuClose');
-    function openMenu(){toggle.classList.add('open');mobile.classList.add('open');toggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
-    function closeMenu(){toggle.classList.remove('open');mobile.classList.remove('open');toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';}
-    toggle.addEventListener('click',()=>mobile.classList.contains('open')?closeMenu():openMenu());
-    mclose.addEventListener('click',closeMenu);
-    document.querySelectorAll('#mobileMenu a').forEach(l=>l.addEventListener('click',closeMenu));
-    const srEls=document.querySelectorAll('.sr');
-    const srObs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);srObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-    srEls.forEach(el=>srObs.observe(el));
-  (function(){if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;var b=[document.querySelector('.cmyk-blob--c'),document.querySelector('.cmyk-blob--m'),document.querySelector('.cmyk-blob--y'),document.querySelector('.cmyk-blob--c2')];if(!b[0])return;var sp=[.18,-.12,-.09,.14],xs=[.06,-.05,.04,-.03];var stages=[[[0,174,239,.60],[236,0,140,.28],[255,215,0,.20],[0,174,239,.40]],[[236,0,140,.38],[236,0,140,.62],[255,215,0,.25],[236,0,140,.38]],[[0,174,239,.22],[236,0,140,.28],[255,215,0,.64],[255,215,0,.42]],[[0,174,239,.55],[236,0,140,.45],[255,215,0,.22],[0,174,239,.48]]];function lerp(a,b,t){return a+(b-a)*t;}function getCol(idx,prog){var n=stages.length-1,pos=prog*n,si=Math.min(Math.floor(pos),n-1),t=pos-si,c1=stages[si][idx],c2=stages[si+1][idx];return'rgba('+Math.round(lerp(c1[0],c2[0],t))+','+Math.round(lerp(c1[1],c2[1],t))+','+Math.round(lerp(c1[2],c2[2],t))+','+lerp(c1[3],c2[3],t).toFixed(2)+')';}var rf=false,sy=0;window.addEventListener('scroll',function(){sy=window.scrollY;if(!rf){rf=true;requestAnimationFrame(function(){var h=document.documentElement.scrollHeight-window.innerHeight;var prog=h>0?Math.min(sy/h,1):0;b.forEach(function(el,i){el.style.transform='translate('+(sy*xs[i]).toFixed(1)+'px,'+(sy*sp[i]).toFixed(1)+'px)';el.style.background='radial-gradient(circle,'+getCol(i,prog)+' 0%,transparent 65%)';});rf=false;});}},{passive:true});})();
-  </script>
+  <script src="../assets/js/site.js" defer></script>
 </body>
 </html>

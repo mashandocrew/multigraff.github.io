@@ -28,255 +28,212 @@
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__siteReady)document.documentElement.classList.remove('js')},3000);</script>
   <style>
-    :root{--bg:#07070d;--surface:#0f0f1a;--surface2:#161624;--border:rgba(255,255,255,0.07);--text:#FFFFFF;--muted:rgba(255,255,255,0.55);--subtle:rgba(255,255,255,0.25);--red:#2563EB;--red-soft:rgba(37,99,235,0.12);--green:#25D366;--font:'Inter',-apple-system,sans-serif;--ease:cubic-bezier(0.16,1,0.3,1);--radius:16px;--container:1200px;}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;background:var(--bg);}body{font-family:var(--font);background:transparent;position:relative;z-index:1;color:var(--text);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;animation:pageFade .45s var(--ease) both;}
-    @keyframes pageFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-    a{color:inherit;text-decoration:none;}img{max-width:100%;display:block;}
-    .container{max-width:var(--container);margin:0 auto;padding:0 2rem;}
-    .sr{opacity:0;transform:translateY(40px);transition:opacity .75s var(--ease),transform .75s var(--ease);}.sr.in{opacity:1;transform:none;}
-    .nav{position:sticky;top:0;z-index:1000;background:rgba(7,7,13,0.75);backdrop-filter:blur(20px) saturate(1.8);-webkit-backdrop-filter:blur(20px) saturate(1.8);border-bottom:1px solid var(--border);transition:border-color .3s ease,box-shadow .3s ease;}
-    .nav.scrolled{border-color:rgba(255,255,255,0.12);box-shadow:0 8px 40px rgba(0,0,0,.5);}
-    .nav__inner{max-width:var(--container);margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
-    .nav__logo{font-size:1.25rem;font-weight:800;letter-spacing:-.03em;white-space:nowrap;}.nav__logo em{font-style:normal;color:var(--red);}
-    .nav__links{display:flex;align-items:center;gap:2rem;list-style:none;}
-    .nav__links a{font-size:.88rem;font-weight:500;color:var(--muted);transition:color .25s ease;position:relative;padding:.2rem 0;}
-    .nav__links a:hover{color:var(--text);}
-    .nav__links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--red);transition:width .3s var(--ease);}
-    .nav__links a:hover::after{width:100%;}
-    .nav__dropdown{position:relative;}
-    .nav__dropdown-toggle{cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.88rem;font-weight:500;color:var(--muted);transition:color .25s ease;}
-    .nav__dropdown-toggle:hover{color:var(--text);}.nav__dropdown-toggle svg{width:12px;transition:transform .25s ease;}
-    .nav__dropdown:hover .nav__dropdown-toggle svg{transform:rotate(180deg);}
-    .nav__dropdown-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(8px);background:var(--surface2);border:1px solid var(--border);border-radius:12px;list-style:none;min-width:240px;padding:.5rem;opacity:0;visibility:hidden;transition:opacity .25s ease,transform .25s var(--ease),visibility .25s;box-shadow:0 20px 60px rgba(0,0,0,.5);}
-    .nav__dropdown:hover .nav__dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
-    .nav__dropdown-menu a{display:flex;align-items:center;gap:.7rem;padding:.65rem 1rem;border-radius:8px;font-size:.88rem;color:var(--muted);transition:all .2s ease;}
-    .nav__dropdown-menu a:hover{background:var(--red-soft);color:var(--text);}
-    .nav__dropdown-menu a::after{display:none;}.nav__dropdown-menu .dm-icon{font-size:1rem;}
-    .nav__wa{display:inline-flex;align-items:center;gap:.5rem;background:var(--green);color:#fff;padding:.55rem 1.2rem;border-radius:50px;font-size:.85rem;font-weight:700;transition:all .25s ease;flex-shrink:0;}
-    .nav__wa:hover{background:#1fba5a;transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,211,102,.35);}.nav__wa svg{width:18px;fill:currentColor;}
-    .nav__hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.3rem;z-index:1200;}
-    .nav__hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s ease,opacity .3s ease;}
-    .nav__hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    .nav__hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-    .nav__hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .nav__mobile{display:none;position:fixed;inset:0;z-index:1100;background:rgba(7,7,13,.98);backdrop-filter:blur(20px);overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s ease;}
-    .nav__mobile.open{opacity:1;pointer-events:all;}
-    .nav__mobile-inner{padding:5rem 2rem 3rem;}
-    .nav__mobile-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--muted);font-size:1.8rem;cursor:pointer;line-height:1;}
-    .nav__mobile-list{list-style:none;}.nav__mobile-list li{border-bottom:1px solid var(--border);}
-    .nav__mobile-list li a{display:block;padding:.9rem 0;color:rgba(255,255,255,.85);font-size:1.05rem;font-weight:500;transition:color .2s ease;}
-    .nav__mobile-list li a:hover{color:var(--red);}
-    .nav__mobile-label{display:block;color:var(--red);font-size:.68rem;text-transform:uppercase;letter-spacing:3px;font-weight:700;padding:.6rem 0 .2rem;}
-    .nav__mobile-list .service-item a{padding:.65rem .8rem;font-size:.95rem;color:var(--muted);}
-    .nav__mobile-wa{margin-top:2rem;display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--green);color:#fff;padding:1rem 1.5rem;border-radius:50px;font-size:1rem;font-weight:700;}
-    .nav__mobile-wa svg{width:22px;fill:currentColor;}
-    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border-radius:8px;font-size:.95rem;font-weight:700;transition:all .25s var(--ease);position:relative;overflow:hidden;cursor:pointer;border:none;}
-    .btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%);transition:transform .4s ease;}
-    .btn:hover::after{transform:translateX(0);}
-    .btn-ghost{background:transparent;color:var(--text);border:1.5px solid rgba(255,255,255,.2);}
-    .btn-ghost:hover{border-color:rgba(255,255,255,.5);transform:translateY(-2px);}
-    .btn-wa{background:var(--green);color:#fff;box-shadow:0 4px 24px rgba(37,211,102,.35);}
-    .btn-wa:hover{background:#1fba5a;transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.5);}
-    .btn svg{width:20px;fill:currentColor;}
+    /* ═══ CONTACTO — estilos específicos (base en assets/css/site.css) ═══ */
+    .hero-contact {
+      position: relative; isolation: isolate; overflow: hidden;
+      display: flex; align-items: flex-end;
+      min-height: clamp(300px, 44svh, 440px);
+      padding: var(--space-16) 0 var(--space-10);
+    }
+    .hero-contact__bg { position: absolute; inset: 0; z-index: -1; background: var(--surface-1); }
+    .hero-contact__photo {
+      position: absolute; inset: 0;
+      background: url('../assets/images/webp/hero-contacto.webp') center 40% / cover no-repeat;
+    }
+    .hero-contact__overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7,7,13,.55) 0%, rgba(7,7,13,.78) 55%, rgba(7,7,13,.97) 100%),
+        linear-gradient(90deg, rgba(7,7,13,.7) 0%, rgba(7,7,13,.2) 100%);
+    }
+    .hero-contact__content { width: 100%; max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
+    .hero-contact__eyebrow {
+      display: inline-flex; align-items: center; gap: .55rem; margin-bottom: var(--space-4);
+      color: var(--accent-300); font-size: var(--fs-xs); font-weight: 700;
+      text-transform: uppercase; letter-spacing: var(--tracking-eyebrow);
+    }
+    .hero-contact__h1 {
+      font-size: clamp(2rem, 1.3rem + 3.4vw, 3.5rem); font-weight: 800;
+      line-height: var(--lh-tight); letter-spacing: var(--tracking-display); margin-bottom: var(--space-3);
+    }
+    .hero-contact__h1 em { font-style: normal; color: var(--accent-300); }
+    .hero-contact__sub { font-size: clamp(1rem, .95rem + .3vw, 1.15rem); color: var(--text-2); max-width: 52ch; }
 
-    /* ── HERO BANNER CONTACTO ── */
-    .hero-contact{position:relative;overflow:hidden;min-height:380px;display:flex;align-items:flex-end;padding-bottom:4rem;}
-    .hero-contact__bg{position:absolute;inset:0;background:var(--surface);}
-    /* IMAGEN REQUERIDA: Fachada de Multigraff o interior del taller limpio y moderno */
-    /* Ruta: assets/images/hero-contacto.jpg | Tamaño: 1920x400px */
-    .hero-contact__photo{position:absolute;inset:0;background-image:url('../assets/images/hero-contacto.jpg');background-size:cover;background-position:center;transition:transform 8s ease;}
-    .hero-contact:hover .hero-contact__photo{transform:scale(1.03);}
-    .hero-contact__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,13,.45) 0%,rgba(7,7,13,.85) 100%);}
-    .hero-contact__glow{position:absolute;width:600px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.15) 0%,transparent 70%);top:-100px;right:-150px;animation:glowPulse 8s ease-in-out infinite;}
-    @keyframes glowPulse{0%,100%{transform:scale(1);opacity:.8;}50%{transform:scale(1.15);opacity:1;}}
-    .hero-contact__content{position:relative;z-index:2;max-width:var(--container);margin:0 auto;padding:7rem 2rem 0;width:100%;}
-    .hero-contact__eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:var(--red);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:1.2rem;animation:heroFade .8s .1s var(--ease) both;}
-    .hero-contact__eyebrow::before{content:'';display:block;width:30px;height:1.5px;background:var(--red);}
-    .hero-contact__h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:1rem;animation:heroSlide .9s .2s var(--ease) both;}
-    .hero-contact__h1 em{font-style:normal;color:var(--red);}
-    .hero-contact__sub{font-size:clamp(.9rem,1.6vw,1.1rem);color:rgba(255,255,255,.75);max-width:520px;line-height:1.7;animation:heroSlide .9s .35s var(--ease) both;}
-    @keyframes heroFade{from{opacity:0}to{opacity:1}}
-    @keyframes heroSlide{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+    .contact-main { padding: var(--section-y) 0; }
+    .contact-main__inner {
+      max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter);
+      display: grid; grid-template-columns: minmax(0,1fr); gap: var(--space-10);
+    }
+    .contact-main__inner > * { min-width: 0; }
+    .contact-info { display: flex; flex-direction: column; gap: var(--space-3); }
+    .contact-info__h2 { font-size: var(--fs-2xl); font-weight: 800; line-height: 1.12; letter-spacing: var(--tracking-display); margin-bottom: var(--space-3); }
+    .contact-info__p { font-size: var(--fs-md); color: var(--text-2); margin-bottom: var(--space-3); }
+    .info-card {
+      display: flex; gap: var(--space-4); align-items: flex-start;
+      padding: var(--space-4) var(--space-5); border-radius: var(--r-md);
+      background: var(--surface-2); border: 1px solid var(--border-1);
+    }
+    .info-card__body { flex: 1; min-width: 0; }
+    .info-card__label { font-size: var(--fs-xs); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); margin-bottom: .15rem; }
+    .info-card__value { font-size: var(--fs-base); font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+    .info-card__value a {
+      display: inline-flex; align-items: center; min-height: 44px; overflow-wrap: anywhere;
+      text-decoration: underline; text-decoration-color: var(--border-3); text-underline-offset: 3px;
+    }
+    .info-card__value a:hover { color: var(--accent-300); text-decoration-color: currentColor; }
+    .info-card__note { font-size: var(--fs-sm); color: var(--text-2); margin-top: .1rem; }
+    .wa-cta-card {
+      display: flex; align-items: center; gap: var(--space-4);
+      padding: var(--space-5); border-radius: var(--r-md); margin-top: var(--space-2);
+      background: rgba(37,211,102,.08); border: 1px solid rgba(37,211,102,.35);
+      transition: border-color var(--dur-fast) ease, background-color var(--dur-fast) ease;
+    }
+    .wa-cta-card:hover { border-color: rgba(37,211,102,.7); background: rgba(37,211,102,.12); }
+    .wa-cta-card__icon.icon-tile { background: var(--wa); color: var(--wa-ink); border-color: transparent; }
+    .wa-cta-card__body { flex: 1; min-width: 0; }
+    .wa-cta-card__title { font-size: var(--fs-base); font-weight: 700; }
+    .wa-cta-card__desc { font-size: var(--fs-sm); color: var(--text-2); }
+    .wa-cta-card__arrow { color: var(--wa); display: flex; }
+    .contact-photos { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-3); margin-top: var(--space-3); }
+    .contact-photo { border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--border-1); background: var(--surface-2); }
+    .contact-photo img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
 
-    /* ── MAIN LAYOUT ── */
-    .contact-main{padding:clamp(4rem,8vw,6rem) 2rem;}
-    .contact-main__inner{max-width:var(--container);margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:start;}
+    .contact-form-wrap {
+      background: var(--surface-2); border: 1px solid var(--border-2); border-radius: var(--r-xl);
+      padding: var(--space-6) var(--space-5); box-shadow: var(--shadow-2);
+    }
+    .contact-form-wrap__h2 { font-size: var(--fs-xl); font-weight: 800; letter-spacing: -.02em; margin-bottom: var(--space-2); }
+    .contact-form-wrap__p { font-size: var(--fs-sm); color: var(--text-2); margin-bottom: var(--space-6); }
+    .form-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: var(--space-4); }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; min-width: 0; }
+    .form-group--full { grid-column: 1 / -1; }
+    .form-label { font-size: var(--fs-sm); font-weight: 600; color: var(--text-1); }
+    .form-label span { color: var(--accent-300); }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; min-height: 48px; padding: .75rem .9rem;
+      background: var(--bg); color: var(--text-1);
+      border: 1px solid var(--border-3); border-radius: var(--r-sm);
+      font: inherit; font-size: 1rem; -webkit-appearance: none; appearance: none;
+      transition: border-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--accent-300); box-shadow: var(--ring); }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(245,246,250,.5); }
+    .form-select {
+      cursor: pointer; padding-right: 2.5rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='rgba(245,246,250,0.7)' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: calc(100% - 14px) center;
+    }
+    .form-select option { background: var(--surface-2); color: var(--text-1); }
+    .form-textarea { min-height: 128px; resize: vertical; line-height: 1.6; }
+    .form-submit {
+      width: 100%; min-height: 52px; margin-top: var(--space-5);
+      display: flex; align-items: center; justify-content: center; gap: .6rem;
+      background: var(--wa); color: var(--wa-ink); border: 0; border-radius: var(--r-md);
+      font: inherit; font-size: var(--fs-md); font-weight: 700; cursor: pointer;
+      transition: background-color var(--dur-fast) ease;
+    }
+    .form-submit:hover { background: var(--wa-hover); }
+    .form-submit svg { width: 22px; height: 22px; fill: currentColor; }
+    .form-note { font-size: var(--fs-xs); color: var(--text-3); text-align: center; margin-top: var(--space-3); line-height: 1.6; }
 
-    /* ── INFO CARDS ── */
-    .contact-info{display:flex;flex-direction:column;gap:1.5rem;}
-    .contact-info__tag{display:inline-flex;align-items:center;gap:.5rem;color:var(--red);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:.4rem;}
-    .contact-info__tag::before{content:'';display:block;width:20px;height:1.5px;background:var(--red);}
-    .contact-info__h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:.4rem;position:relative;padding-bottom:1rem;}
-    .contact-info__h2::after{content:'';position:absolute;bottom:0;left:0;width:52px;height:3px;background:linear-gradient(90deg,var(--red),transparent);border-radius:2px;}
-    .contact-info__p{font-size:.95rem;color:var(--muted);line-height:1.8;margin-top:1rem;}
-    .info-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.6rem;display:flex;align-items:flex-start;gap:1rem;transition:all .35s var(--ease);}
-    .info-card:hover{border-color:rgba(37,99,235,.3);transform:translateX(6px);}
-    .info-card__icon{width:44px;height:44px;border-radius:10px;background:var(--red-soft);border:1px solid rgba(37,99,235,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
-    .info-card__body{flex:1;}
-    .info-card__label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--subtle);margin-bottom:.3rem;}
-    .info-card__value{font-size:.98rem;font-weight:600;color:var(--text);line-height:1.5;}
-    .info-card__value a{color:var(--text);transition:color .2s ease;}.info-card__value a:hover{color:var(--red);}
-    .info-card__note{font-size:.82rem;color:var(--muted);margin-top:.2rem;}
-    .wa-cta-card{background:linear-gradient(135deg,rgba(37,211,102,.1) 0%,rgba(37,211,102,.05) 100%);border:1px solid rgba(37,211,102,.25);border-radius:var(--radius);padding:1.6rem;display:flex;align-items:center;gap:1rem;margin-top:.5rem;transition:all .35s var(--ease);}
-    .wa-cta-card:hover{border-color:rgba(37,211,102,.5);transform:translateY(-3px);box-shadow:0 12px 40px rgba(37,211,102,.15);}
-    .wa-cta-card__icon{width:48px;height:48px;border-radius:12px;background:rgba(37,211,102,.15);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
-    .wa-cta-card__body{flex:1;}
-    .wa-cta-card__title{font-size:1rem;font-weight:800;margin-bottom:.2rem;}
-    .wa-cta-card__desc{font-size:.85rem;color:var(--muted);}
-    .wa-cta-card__arrow{font-size:1.2rem;color:var(--green);flex-shrink:0;}
+    .map-section { padding: 0 0 var(--section-y); }
+    .map-section__h2 { font-size: var(--fs-xl); font-weight: 800; letter-spacing: -.02em; margin-bottom: var(--space-5); }
+    .map-wrap {
+      position: relative; width: 100%; aspect-ratio: 4 / 3;
+      border-radius: var(--r-lg); overflow: hidden;
+      background: var(--surface-2); border: 1px solid var(--border-2);
+    }
+    .map-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 
-    /* ── FORM ── */
-    .contact-form-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:24px;padding:2.5rem;position:sticky;top:100px;}
-    .contact-form-wrap__tag{display:inline-flex;align-items:center;gap:.5rem;color:var(--red);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:.6rem;}
-    .contact-form-wrap__tag::before{content:'';display:block;width:20px;height:1.5px;background:var(--red);}
-    .contact-form-wrap__h2{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.4rem;}
-    .contact-form-wrap__p{font-size:.88rem;color:var(--muted);margin-bottom:2rem;line-height:1.7;}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-    .form-group{display:flex;flex-direction:column;gap:.45rem;}
-    .form-group--full{grid-column:1 / -1;}
-    .form-label{font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;}
-    .form-label span{color:var(--red);}
-    .form-input,.form-select,.form-textarea{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.8rem 1rem;font-size:.95rem;color:var(--text);font-family:var(--font);width:100%;transition:border-color .25s ease,box-shadow .25s ease;outline:none;-webkit-appearance:none;}
-    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:rgba(37,99,235,.5);box-shadow:0 0 0 3px rgba(37,99,235,.1);}
-    .form-input::placeholder,.form-textarea::placeholder{color:var(--subtle);}
-    .form-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.35)' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:calc(100% - 14px) center;padding-right:2.5rem;}
-    .form-select option{background:var(--surface2);color:var(--text);}
-    .form-textarea{resize:vertical;min-height:120px;line-height:1.6;}
-    .form-submit{width:100%;display:flex;align-items:center;justify-content:center;gap:.7rem;background:var(--green);color:#fff;padding:1rem 2rem;border-radius:10px;font-size:1rem;font-weight:800;border:none;cursor:pointer;transition:all .3s var(--ease);margin-top:.5rem;position:relative;overflow:hidden;}
-    .form-submit::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.12);transform:translateX(-110%);transition:transform .4s ease;}
-    .form-submit:hover::after{transform:translateX(0);}
-    .form-submit:hover{background:#1fba5a;transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.5);}
-    .form-submit svg{width:22px;fill:currentColor;flex-shrink:0;}
-    .form-note{font-size:.78rem;color:var(--subtle);text-align:center;margin-top:.8rem;line-height:1.6;}
-
-    /* ── MAP ── */
-    .map-section{padding:0 2rem clamp(4rem,7vw,6rem);}
-    .map-section__inner{max-width:var(--container);margin:0 auto;}
-    .map-section__label{display:inline-flex;align-items:center;gap:.5rem;color:var(--red);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:.6rem;}
-    .map-section__label::before{content:'';display:block;width:20px;height:1.5px;background:var(--red);}
-    .map-section__h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;letter-spacing:-.03em;margin-bottom:1.5rem;}
-    .map-wrap{border-radius:20px;overflow:hidden;border:1px solid var(--border);height:380px;position:relative;background:var(--surface2);}
-    .map-wrap iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(30%) contrast(1.1);}
-
-    /* ── FOOTER ── */
-    .footer{background:#040408;padding:3rem 2rem 2rem;border-top:1px solid var(--border);}
-    .footer__inner{max-width:var(--container);margin:0 auto;text-align:center;}
-    .footer__logo{font-size:1.3rem;font-weight:800;display:inline-block;margin-bottom:1.5rem;}.footer__logo em{font-style:normal;color:var(--red);}
-    .footer__links{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;}
-    .footer__links a{font-size:.85rem;color:var(--subtle);transition:color .2s ease;}.footer__links a:hover{color:var(--text);}
-    .footer__sep{border:none;border-top:1px solid var(--border);margin-bottom:1.5rem;}.footer__copy{font-size:.8rem;color:var(--subtle);}
-
-    /* ── WA FAB ── */
-    .wa-fab{position:fixed;bottom:28px;right:28px;z-index:900;display:flex;align-items:center;gap:.7rem;background:var(--green);color:#fff;padding:.8rem 1.4rem .8rem 1.1rem;border-radius:50px;box-shadow:0 8px 32px rgba(37,211,102,.45);font-size:.9rem;font-weight:700;transition:all .3s var(--ease);animation:fabPop .6s 1.5s var(--ease) both;}
-    .wa-fab:hover{background:#1fba5a;transform:translateY(-3px) scale(1.04);box-shadow:0 16px 40px rgba(37,211,102,.55);}
-    .wa-fab svg{width:22px;fill:currentColor;flex-shrink:0;}.wa-fab__label{white-space:nowrap;}
-    .wa-fab::before{content:'';position:absolute;inset:-4px;border-radius:50px;border:2px solid rgba(37,211,102,.5);animation:fabRing 2.5s ease-out infinite 2s;}
-    @keyframes fabRing{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.25);opacity:0}}
-    @keyframes fabPop{from{opacity:0;transform:scale(.5) translateY(20px)}to{opacity:1;transform:none}}
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:900px){
-      .contact-main__inner{grid-template-columns:1fr;gap:3rem;}
-      .contact-form-wrap{position:static;}
+    @media (min-width: 640px) {
+      .form-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .contact-form-wrap { padding: var(--space-8); }
     }
-    @media(max-width:768px){
-      .nav__links,.nav__wa{display:none;}.nav__hamburger{display:flex;}.nav__mobile{display:block;}
-      .wa-fab__label{display:none;}.wa-fab{padding:.85rem;border-radius:50%;}
-      .form-grid{grid-template-columns:1fr;}
-      .form-group--full{grid-column:1;}
+    @media (min-width: 768px) { .map-wrap { aspect-ratio: 21 / 9; } }
+    @media (min-width: 1024px) {
+      .contact-main__inner { grid-template-columns: minmax(0,1fr) minmax(0,1.1fr); gap: var(--space-12); align-items: start; }
+      .contact-form-wrap { position: sticky; top: calc(var(--nav-h) + 24px); }
     }
-    @media(max-width:480px){
-      .hero-contact__h1{font-size:2rem;}
-      .contact-form-wrap{padding:1.8rem 1.4rem;}
-    }
-    @keyframes kenBurns {
-      0%   { transform: scale(1)    translate(0,    0); }
-      33%  { transform: scale(1.06) translate(-1%,  0.5%); }
-      66%  { transform: scale(1.04) translate(0.8%, -0.3%); }
-      100% { transform: scale(1)    translate(0,    0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .contact-photo img { animation: none !important; }
-    }
-    /* ══ CONTACT PHOTO CARDS ══ */
-    .contact-photos {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1rem; margin-top: 2rem;
-    }
-    .contact-photo {
-      border-radius: var(--radius); overflow: hidden;
-      border: 1px solid var(--border); position: relative;
-    }
-    .contact-photo img {
-      width: 100%; height: 220px;
-      object-fit: cover; display: block;
-      animation: kenBurns 22s ease-in-out infinite;
-      will-change: transform;
-    }
-    @media (max-width: 600px) {
-      .contact-photos { grid-template-columns: 1fr; }
-    }
-/* ══ CMYK BG ══ */
-.cmyk-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
-.cmyk-blob{position:absolute;border-radius:50%;will-change:transform;transition:transform .05s linear;}
-.cmyk-blob--c{width:900px;height:900px;background:radial-gradient(circle,rgba(0,174,239,.60) 0%,transparent 65%);top:-320px;right:-180px;}
-.cmyk-blob--m{width:750px;height:750px;background:radial-gradient(circle,rgba(236,0,140,.52) 0%,transparent 65%);top:45%;left:-220px;}
-.cmyk-blob--y{width:620px;height:620px;background:radial-gradient(circle,rgba(255,215,0,.45) 0%,transparent 65%);bottom:5%;right:0%;}
-.cmyk-blob--c2{width:480px;height:480px;background:radial-gradient(circle,rgba(0,174,239,.40) 0%,transparent 65%);bottom:35%;left:25%;}
-@media(prefers-reduced-motion:reduce){.cmyk-blob{will-change:auto;transition:none;}}
   </style>
 </head>
 <body>
-  <div class="cmyk-bg" aria-hidden="true"><div class="cmyk-blob cmyk-blob--c"></div><div class="cmyk-blob cmyk-blob--m"></div><div class="cmyk-blob cmyk-blob--y"></div><div class="cmyk-blob cmyk-blob--c2"></div></div>
-  <nav class="nav" id="nav">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Fondo ambiental (estático) -->
+  <div class="cmyk-bg" aria-hidden="true">
+    <div class="cmyk-blob cmyk-blob--c"></div>
+    <div class="cmyk-blob cmyk-blob--m"></div>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav" id="nav" aria-label="Principal">
     <div class="nav__inner">
-      <a href="../" class="nav__logo">Multigraff<em> Litografía</em></a>
+      <a href="../" class="nav__logo">Multigraff<em>&nbsp;Litografía</em></a>
       <ul class="nav__links">
         <li class="nav__dropdown">
-          <span class="nav__dropdown-toggle">Servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span>
-          <ul class="nav__dropdown-menu">
-            <li><a href="../etiquetas-autoadhesivas/"><span class="dm-icon">🏷️</span>Etiquetas Autoadhesivas</a></li>
-            <li><a href="../papeleria-comercial/"><span class="dm-icon">📋</span>Papelería Comercial</a></li>
-            <li><a href="../folletos-y-volantes/"><span class="dm-icon">📄</span>Folletos y Volantes</a></li>
-            <li><a href="../sellos-de-goma/"><span class="dm-icon">🔖</span>Sellos de Goma</a></li>
-            <li><a href="../impresion-gran-formato/"><span class="dm-icon">🖼️</span>Impresión Gran Formato</a></li>
-            <li><a href="../resmas-papel/"><span class="dm-icon">📦</span>Resmas de Papel A4</a></li>
+          <button class="nav__dropdown-toggle" type="button" aria-expanded="false" aria-controls="navServicios">
+            Servicios <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="nav__dropdown-menu" id="navServicios">
+            <li><a href="../etiquetas-autoadhesivas/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1"/></svg>Etiquetas Autoadhesivas</a></li>
+            <li><a href="../papeleria-comercial/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>Papelería Comercial</a></li>
+            <li><a href="../folletos-y-volantes/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>Folletos y Volantes</a></li>
+            <li><a href="../sellos-de-goma/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13"/></svg>Sellos de Goma</a></li>
+            <li><a href="../impresion-gran-formato/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>Impresión Gran Formato</a></li>
+            <li><a href="../resmas-papel/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>Resmas de Papel A4</a></li>
           </ul>
         </li>
+        <li><a href="../#galeria">Galería</a></li>
         <li><a href="../#caracteristicas">Por qué elegirnos</a></li>
         <li><a href="../#resenas">Reseñas</a></li>
-        <li><a href="../contacto/" style="color:var(--text);">Contacto</a></li>
-      </ul>
-      <a class="nav__wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20pedir%20un%20presupuesto." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
-      <button class="nav__hamburger" id="menuToggle" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
-  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-modal="true">
-    <button class="nav__mobile-close" id="menuClose" aria-label="Cerrar">✕</button>
-    <div class="nav__mobile-inner">
-      <ul class="nav__mobile-list">
-        <li><span class="nav__mobile-label">Servicios</span></li>
-        <li class="service-item"><a href="../etiquetas-autoadhesivas/">🏷️ Etiquetas Autoadhesivas</a></li>
-        <li class="service-item"><a href="../papeleria-comercial/">📋 Papelería Comercial</a></li>
-        <li class="service-item"><a href="../folletos-y-volantes/">📄 Folletos y Volantes</a></li>
-        <li class="service-item"><a href="../sellos-de-goma/">🔖 Sellos de Goma</a></li>
-        <li class="service-item"><a href="../impresion-gran-formato/">🖼️ Gran Formato</a></li>
-        <li class="service-item"><a href="../resmas-papel/">📦 Resmas de Papel A4</a></li>
-        <li><a href="../#caracteristicas">Por qué elegirnos</a></li>
         <li><a href="../contacto/">Contacto</a></li>
       </ul>
-      <a class="nav__mobile-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20pedir%20un%20presupuesto." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <a class="nav__wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20pedir%20un%20presupuesto." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
+      <button class="nav__hamburger" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menú mobile -->
+  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú">
+    <div class="nav__mobile-head">
+      <a href="../" class="nav__logo">Multigraff<em>&nbsp;Litografía</em></a>
+      <button class="nav__mobile-close" id="menuClose" type="button" aria-label="Cerrar menú"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="nav__mobile-inner">
+      <p class="nav__mobile-label">Servicios</p>
+      <ul class="nav__mobile-services">
+        <li class="service-item"><a href="../etiquetas-autoadhesivas/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1"/></svg>Etiquetas Autoadhesivas</a></li>
+        <li class="service-item"><a href="../papeleria-comercial/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>Papelería Comercial</a></li>
+        <li class="service-item"><a href="../folletos-y-volantes/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>Folletos y Volantes</a></li>
+        <li class="service-item"><a href="../sellos-de-goma/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13"/></svg>Sellos de Goma</a></li>
+        <li class="service-item"><a href="../impresion-gran-formato/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>Impresión Gran Formato</a></li>
+        <li class="service-item"><a href="../resmas-papel/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>Resmas de Papel A4</a></li>
+      </ul>
+      <ul class="nav__mobile-list">
+        <li><a href="../#galeria">Galería</a></li>
+        <li><a href="../#caracteristicas">Por qué elegirnos</a></li>
+        <li><a href="../#resenas">Reseñas</a></li>
+        <li><a href="../contacto/">Contacto</a></li>
+      </ul>
+    <a class="nav__mobile-wa" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20pedir%20un%20presupuesto." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
     </div>
   </div>
+
+  <main>
+  <div id="contenido" tabindex="-1"></div>
+
 
   <!-- ═══ HERO BANNER ═══ -->
   <section class="hero-contact">
@@ -285,7 +242,6 @@
       <!-- Ruta: assets/images/hero-contacto.jpg | Tamaño: 1920x400px -->
       <div class="hero-contact__photo" role="img" aria-label="Taller Multigraff Litografía en Maipú, Mendoza"></div>
       <div class="hero-contact__overlay"></div>
-      <div class="hero-contact__glow" aria-hidden="true"></div>
     </div>
     <div class="hero-contact__content">
       <div class="hero-contact__eyebrow">Imprenta en Maipú, Mendoza</div>
@@ -307,7 +263,7 @@
         </div>
 
         <div class="info-card sr">
-          <div class="info-card__icon">📍</div>
+          <span class="info-card__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
           <div class="info-card__body">
             <div class="info-card__label">Dirección</div>
             <div class="info-card__value">Circunvalación Juan Agustín Maza 786</div>
@@ -316,11 +272,11 @@
         </div>
 
         <div class="info-card sr">
-          <div class="info-card__icon">📞</div>
+          <span class="info-card__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
           <div class="info-card__body">
             <div class="info-card__label">Teléfonos</div>
             <div class="info-card__value">
-              <a href="tel:+5402612013773">0261 201-3773</a><br>
+              <a href="tel:+542612013773">0261 201-3773</a><br>
               <a href="tel:+5492613827434">+54 9 2613 82-7434</a>
             </div>
             <div class="info-card__note">Llamadas y WhatsApp</div>
@@ -328,7 +284,7 @@
         </div>
 
         <div class="info-card sr">
-          <div class="info-card__icon">✉️</div>
+          <span class="info-card__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
           <div class="info-card__body">
             <div class="info-card__label">Correo electrónico</div>
             <div class="info-card__value"><a href="mailto:litografiamultigraf@gmail.com">litografiamultigraf@gmail.com</a></div>
@@ -337,7 +293,7 @@
         </div>
 
         <div class="info-card sr">
-          <div class="info-card__icon">🕐</div>
+          <span class="info-card__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
           <div class="info-card__body">
             <div class="info-card__label">Horario de atención</div>
             <div class="info-card__value">Lunes a Viernes · 9:00 – 17:30</div>
@@ -346,24 +302,24 @@
         </div>
 
         <a class="wa-cta-card sr" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20pedir%20un%20presupuesto." target="_blank" rel="noopener">
-          <div class="wa-cta-card__icon">💬</div>
+          <span class="wa-cta-card__icon icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>
           <div class="wa-cta-card__body">
             <div class="wa-cta-card__title">Escribinos ahora por WhatsApp</div>
             <div class="wa-cta-card__desc">Respuesta rápida · Presupuesto sin cargo</div>
           </div>
-          <div class="wa-cta-card__arrow">→</div>
+          <div class="wa-cta-card__arrow"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
         </a>
 
           <div class="contact-photos sr">
             <div class="contact-photo">
-              <img src="../assets/images/entrada.jpg"
+              <img src="../assets/images/webp/entrada.webp"
                    alt="Local de Multigraff Litografía en Maipú, Mendoza"
-                   loading="lazy">
+                   loading="lazy" decoding="async">
             </div>
             <div class="contact-photo">
-              <img src="../assets/images/nosotros.jpg"
+              <img src="../assets/images/webp/nosotros.webp"
                    alt="Equipo de Multigraff Litografía"
-                   loading="lazy">
+                   loading="lazy" decoding="async">
             </div>
           </div>
       </div>
@@ -396,11 +352,11 @@
               <label class="form-label" for="servicio">Servicio de interés <span>*</span></label>
               <select class="form-select" id="servicio" name="servicio" required>
                 <option value="" disabled selected>Seleccioná un servicio…</option>
-                <option value="Etiquetas autoadhesivas">🏷️ Etiquetas Autoadhesivas</option>
-                <option value="Papelería comercial">📋 Papelería Comercial</option>
-                <option value="Folletos y volantes">📄 Folletos y Volantes</option>
-                <option value="Sellos de goma">🔖 Sellos de Goma</option>
-                <option value="Impresión gran formato">🖼️ Impresión Gran Formato</option>
+                <option value="Etiquetas autoadhesivas">Etiquetas Autoadhesivas</option>
+                <option value="Papelería comercial">Papelería Comercial</option>
+                <option value="Folletos y volantes">Folletos y Volantes</option>
+                <option value="Sellos de goma">Sellos de Goma</option>
+                <option value="Impresión gran formato">Impresión Gran Formato</option>
                 <option value="Otro">Otro / Consulta general</option>
               </select>
             </div>
@@ -427,7 +383,7 @@
       <h2 class="map-section__h2 sr">Encontranos en Maipú</h2>
       <div class="map-wrap sr">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.8!2d-68.7939!3d-32.9753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0921b0d9b9a7%3A0x1!2sCircunvalaci%C3%B3n%20Juan%20Agust%C3%ADn%20Maza%20786%2C%20Maip%C3%BA%2C%20Mendoza!5e0!3m2!1ses!2sar!4v1700000000000"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.8!2d-68.86048359894808!3d-32.94401321160741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0c916d4b6b79%3A0xfc118dad7a0ab9a3!2sMultigraff%20Litografia%20Imprenta!5e0!3m2!1ses-419!2sar!4v1774924791286!5m2!1ses-419!2sar"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
@@ -437,52 +393,53 @@
     </div>
   </section>
 
+  </main>
+
   <footer class="footer">
-    <div class="footer__inner">
-      <a href="../" class="footer__logo">Multigraff<em> Litografía</em></a>
-      <nav class="footer__links">
-        <a href="../etiquetas-autoadhesivas/">Etiquetas</a>
-        <a href="../papeleria-comercial/">Papelería</a>
-        <a href="../folletos-y-volantes/">Folletos</a>
-        <a href="../sellos-de-goma/">Sellos</a>
-        <a href="../impresion-gran-formato/">Gran Formato</a>
-        <a href="../resmas-papel/">Resmas A4</a>
-        <a href="../contacto/">Contacto</a>
-      </nav>
-      <hr class="footer__sep">
-      <p class="footer__copy">&copy; 2025 Multigraff Litografía — Maipú, Mendoza. Todos los derechos reservados.</p>
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="../" class="footer__logo">Multigraff<em>&nbsp;Litografía</em></a>
+          <p>Imprenta offset y digital en Maipú, Mendoza. Trabajos para empresas desde 1997.</p>
+        </div>
+        <nav aria-label="Servicios">
+          <p class="footer__h">Servicios</p>
+          <ul class="footer__list">
+            <li><a href="../etiquetas-autoadhesivas/">Etiquetas Autoadhesivas</a></li>
+            <li><a href="../papeleria-comercial/">Papelería Comercial</a></li>
+            <li><a href="../folletos-y-volantes/">Folletos y Volantes</a></li>
+            <li><a href="../sellos-de-goma/">Sellos de Goma</a></li>
+            <li><a href="../impresion-gran-formato/">Impresión Gran Formato</a></li>
+            <li><a href="../resmas-papel/">Resmas de Papel A4</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer__h">Contacto</p>
+          <ul class="footer__list">
+            <li><a href="https://maps.app.goo.gl/NPc8noQnUtJNCfRN8" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Circunvalación Juan Agustín Maza 786, Maipú, Mendoza</a></li>
+            <li><a href="tel:+542612013773"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0261 201-3773</a></li>
+            <li><a href="mailto:litografiamultigraf@gmail.com"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>litografiamultigraf@gmail.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__h">Horario</p>
+          <ul class="footer__list">
+            <li><span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Lunes a Viernes: 9:00 — 17:30</span></li>
+            <li><a href="https://maps.app.goo.gl/NPc8noQnUtJNCfRN8" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>Cómo llegar</a></li>
+            <li><a href="../contacto/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>Página de contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__bottom">&copy; 2026 Multigraff Litografía — Maipú, Mendoza. Todos los derechos reservados.</p>
     </div>
   </footer>
 
   <a class="wa-fab" href="https://wa.me/542612013773?text=Hola%20Multigraff%2C%20me%20interesa%20pedir%20un%20presupuesto." target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span class="wa-fab__label">Presupuesto gratis</span>
   </a>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="../assets/js/site.js" defer></script>
   <script>
-  (function(){
-    var r=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var photos=document.querySelectorAll('.contact-photo');
-    if(photos.length&&typeof anime!=='undefined'&&!r){
-      var o=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;o.unobserve(e.target);anime({targets:e.target,opacity:[0,1],translateY:[20,0],duration:600,easing:'easeOutExpo'});});},{threshold:0.1});
-      photos.forEach(function(el){el.style.opacity=0;o.observe(el);});
-    }
-  })();
-  </script>
-  <script>
-    const nav=document.getElementById('nav');
-    window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-    const toggle=document.getElementById('menuToggle'),mobile=document.getElementById('mobileMenu'),mclose=document.getElementById('menuClose');
-    function openMenu(){toggle.classList.add('open');mobile.classList.add('open');toggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
-    function closeMenu(){toggle.classList.remove('open');mobile.classList.remove('open');toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';}
-    toggle.addEventListener('click',()=>mobile.classList.contains('open')?closeMenu():openMenu());
-    mclose.addEventListener('click',closeMenu);
-    document.querySelectorAll('#mobileMenu a').forEach(l=>l.addEventListener('click',closeMenu));
-    const srEls=document.querySelectorAll('.sr');
-    const srObs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);srObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-    srEls.forEach(el=>srObs.observe(el));
-
     document.getElementById('contactForm').addEventListener('submit',function(e){
       e.preventDefault();
       const nombre=document.getElementById('nombre').value.trim();
@@ -504,7 +461,6 @@
       txt+='*Consulta:* '+encodeURIComponent(mensaje);
       window.open('https://wa.me/542612013773?text='+txt,'_blank','noopener');
     });
-    (function(){if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;var b=[document.querySelector('.cmyk-blob--c'),document.querySelector('.cmyk-blob--m'),document.querySelector('.cmyk-blob--y'),document.querySelector('.cmyk-blob--c2')];if(!b[0])return;var sp=[.18,-.12,-.09,.14],xs=[.06,-.05,.04,-.03];var stages=[[[0,174,239,.60],[236,0,140,.28],[255,215,0,.20],[0,174,239,.40]],[[236,0,140,.38],[236,0,140,.62],[255,215,0,.25],[236,0,140,.38]],[[0,174,239,.22],[236,0,140,.28],[255,215,0,.64],[255,215,0,.42]],[[0,174,239,.55],[236,0,140,.45],[255,215,0,.22],[0,174,239,.48]]];function lerp(a,b,t){return a+(b-a)*t;}function getCol(idx,prog){var n=stages.length-1,pos=prog*n,si=Math.min(Math.floor(pos),n-1),t=pos-si,c1=stages[si][idx],c2=stages[si+1][idx];return'rgba('+Math.round(lerp(c1[0],c2[0],t))+','+Math.round(lerp(c1[1],c2[1],t))+','+Math.round(lerp(c1[2],c2[2],t))+','+lerp(c1[3],c2[3],t).toFixed(2)+')';}var rf=false,sy=0;window.addEventListener('scroll',function(){sy=window.scrollY;if(!rf){rf=true;requestAnimationFrame(function(){var h=document.documentElement.scrollHeight-window.innerHeight;var prog=h>0?Math.min(sy/h,1):0;b.forEach(function(el,i){el.style.transform='translate('+(sy*xs[i]).toFixed(1)+'px,'+(sy*sp[i]).toFixed(1)+'px)';el.style.background='radial-gradient(circle,'+getCol(i,prog)+' 0%,transparent 65%)';});rf=false;});}},{passive:true});})();
   </script>
 </body>
 </html>
